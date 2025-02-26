@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="${root }css/boardWrite.css">
 </head>
 <body>
-
+ 
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
 
 	<div class="write-container">

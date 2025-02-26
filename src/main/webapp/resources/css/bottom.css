@@ -1,17 +1,28 @@
 @charset "UTF-8";
 
+
 .footer {
 	text-align: center;
-	padding: 20px;
-	border-top: solid 1px #ef7c09; 
-	background-color: white;
-	color: black;
+	padding: 30px 100px;
+	border-top: solid 2px black; 
+	background-color: black;
+	color: white;
 	bottom: 0;
 	width: 100%;
 	font-size: 14px;
 	margin-bottom: 0;
 	position: relative;
+	display: flex;
+	justify-content: flex-end; /* 오른쪽 정렬 */
 }
+.footer div{
+	margin-right: 70px;
+	
+}
+.footer-a{
+	margin-left: flex-end;
+}
+
 
 .footer p {
 	margin: 0;
