@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <!-- 상단 메뉴 -->
+    <!-- 상단 메뉴 은정 -->
     <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
     
     <div class="primary-container">
