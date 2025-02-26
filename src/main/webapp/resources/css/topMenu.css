@@ -1,5 +1,13 @@
 @charset "UTF-8";
 
+body{
+	margin:0;
+	position: relative; /* 부모 요소에 상대 위치 설정 */
+	min-height: 100vh; /* 페이지 높이를 100%로 설정 */
+	font-family: "NotoSansKR", "Sans-serif";
+	
+}
+
 header {
 	font-family: "NotoSansKR", "Sans-serif";
 	background-color: black;
