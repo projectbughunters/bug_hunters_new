@@ -22,11 +22,11 @@
 </head>
 
 <body>
-    <!-- 상단 메뉴 은정 -->
+    <!-- 상단 메뉴 -->
     <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
     
     <div class="primary-container">
-        <!-- 광고 영역 ddddddd-->
+        <!-- 광고 영역 -->
         <c:import url="/WEB-INF/views/mainInclude/advertisement.jsp" />
         
         <!-- 뉴스 및 유튜브 영역 -->
