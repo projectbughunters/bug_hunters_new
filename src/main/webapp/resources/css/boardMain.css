@@ -36,7 +36,7 @@ body {
 }
 
 .filter-section button {
-	background-color: #ef7c09;
+	background-color: #595959;
 	color: white;
 	border: none;
 	cursor: pointer;
@@ -44,7 +44,7 @@ body {
 }
 
 .filter-section button:hover {
-	background-color: #c86808;
+	background-color: #999;
 }
 
 .board-table {
@@ -79,21 +79,11 @@ body {
 	color: #ef7c09;
 }
 
-.footer {
-	text-align: center;
-	padding: 8px;
-	background-color: #ef7c09;
-	color: white;
-	width: 100%;
-	position: fixed;
-	bottom: 0;
-}
-
 .write-btn {
 	float: right;
 	margin-top: 20px;
 	padding: 10px 20px;
-	background-color: #ef7c09;
+	background-color: #595959;
 	color: white;
 	border: none;
 	border-radius: 5px;
@@ -103,14 +93,13 @@ body {
 }
 
 .write-btn:hover {
-	background-color: #c86808;
+	background-color: #999;
 }
 
 /* 페이징 컨테이너 스타일 */
 .pagination {
     margin-top: 20px;
     text-align: center;
-    font-family: 'Noto Serif KR', serif;
 }
 
 /* 페이징 링크 기본 스타일 */
