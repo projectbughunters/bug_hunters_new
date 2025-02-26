@@ -67,7 +67,7 @@
         <!-- 페이징 네비게이션 -->
         <div id="pagination" class="pagination"></div>
           
-        <button id="writeButton" onclick="location.href='${root}board/boardWrite'" class="write-btn">글쓰기</button>
+        <button id="writeButton" onclick="location.href='${root}board/boardWrite'" class="write-btn" style="background-color:#595959">글쓰기</button>
     </div>
  </div>
     <c:import url="/WEB-INF/views/include/bottom.jsp" />
