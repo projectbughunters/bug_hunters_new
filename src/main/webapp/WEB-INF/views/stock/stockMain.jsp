@@ -55,6 +55,9 @@
 				            </button>
 				        </td>
 					</c:if>
+					<c:if test="${loginUserBean.userLogin == false }">
+						<td></td>
+					</c:if>
 		            <td class="clickable" onclick="location.href='${root}stock/info/${stock.symbol }'">
 		                <img src="https://financialmodelingprep.com/image-stock/${stock.symbol}.png" style="width: 30px; height: 30px; margin-right: 10px;" /> ${stock.symbol}
 		            </td>
