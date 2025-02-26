@@ -14,7 +14,7 @@
 <body>
  
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
-
+	<div class="primary-container">
 	<div class="write-container">
     <div class="write-header">
         <h2>글쓰기</h2>
@@ -65,7 +65,7 @@
     </div>
 </div>
 
-
+</div>
 
 
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />

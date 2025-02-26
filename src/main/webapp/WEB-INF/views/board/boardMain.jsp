@@ -13,8 +13,9 @@
 <link rel="stylesheet" href="${root }css/boardMain.css">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-<c:import url="/WEB-INF/views/include/topMenu.jsp" />
 <body>
+<c:import url="/WEB-INF/views/include/topMenu.jsp" />
+<div class="primary-container">
     <div class="container">
         <div class="filter-section">
             <select id="boardType">
@@ -68,7 +69,7 @@
           
         <button id="writeButton" onclick="location.href='${root}board/boardWrite'" class="write-btn">글쓰기</button>
     </div>
- 
+ </div>
     <c:import url="/WEB-INF/views/include/bottom.jsp" />
 
     <!-- AJAX 및 페이징 처리 스크립트 -->

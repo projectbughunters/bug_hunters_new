@@ -68,4 +68,30 @@ public class NewsService {
         return stockInfoNews;
         
     }
+    
+public List<Map<String, Object>> coinInfoNews(String symbol) {
+    	
+    	List<Map<String, Object>> coinInfoNews = new ArrayList<Map<String,Object>>();
+        // RestTemplate 객체 생성
+        RestTemplate restTemplate = new RestTemplate();
+        String stockUrl = "http://localhost:3000/coininfonews";
+
+        Map<String, String> requestData = new HashMap<>();
+        requestData.put("symbol", symbol);
+
+        try {
+            // Node.js 서버에서 데이터 가져오기
+            Map<String, Object> coinResponse = restTemplate.postForObject(stockUrl, requestData, Map.class);
+            
+
+            // 데이터 가공
+            coinInfoNews = (List<Map<String, Object>>) coinResponse.get("items");
+            
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return coinInfoNews;
+        
+    }
 }

@@ -14,6 +14,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
+<div class="primary-container">
 <h1>AI Recommendations</h1>
 
 <!-- 각 테마별 버튼 -->
@@ -29,7 +30,8 @@
   <h3>챗봇 응답:</h3>
   <p id="responseContent">여기에 챗봇의 응답이 표시됩니다.</p>
 </div>
-
+</div>
+<c:import url="/WEB-INF/views/include/bottom.jsp" />
 <!-- JavaScript: Node.js로 데이터 전송 -->
 <script>
   // 각 테마별 데이터를 JSP에서 가져옴
