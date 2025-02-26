@@ -33,6 +33,8 @@ body {
 <body>
 
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
+	
+	<div class="primary-container">
 
 	<div class="portfolio-container" id="portfolio-container">
 
@@ -97,6 +99,7 @@ body {
 		    </table>
 		</div>
 
+	</div>
 	</div>
 
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />

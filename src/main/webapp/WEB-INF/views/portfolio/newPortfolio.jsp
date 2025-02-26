@@ -33,6 +33,7 @@ body {
 <body>
 
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
+	<div class="primary-container">
 	
 	<form:form action="${root }portfolio/newPortfolio_pro" method="post" modelAttribute="newPortfolioBean">
 						<div class="input-group">
@@ -53,6 +54,7 @@ body {
 						</div>
 						<form:button type="submit" class="register-btn">포트폴리오 생성</form:button>
 					</form:form>
+					</div>
 
 </body>
 </html>

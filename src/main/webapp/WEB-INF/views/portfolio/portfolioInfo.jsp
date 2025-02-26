@@ -36,7 +36,7 @@ body {
 
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
 	<c:import url="/WEB-INF/views/stock/exchange.jsp"/>
-	
+	<div class="primary-container">
 	<div class="portfolio-container" id="portfolio-container">
 	
 	<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
@@ -135,6 +135,7 @@ body {
 				</tbody>
 			</table>
 		</div>
+	</div>
 	</div>
 
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />

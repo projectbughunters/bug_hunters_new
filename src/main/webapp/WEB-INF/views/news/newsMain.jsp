@@ -9,10 +9,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${root}css/news.css">
     
-    <title>Take Money Information | TMI</title>
+    <title>News | TMI</title>
 </head>
 <body>
   <c:import url="/WEB-INF/views/include/topMenu.jsp" />
+  <div class="primary-container">
+  
     <div class="container">
     	<div class="row">
 	        <!-- 경제 뉴스 섹션 -->
@@ -103,6 +105,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <c:import url="/WEB-INF/views/include/bottom.jsp" />
 
