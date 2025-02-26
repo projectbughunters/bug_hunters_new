@@ -21,11 +21,6 @@ body {
   		margin-right: 10px;
   		margin-top: 40px;
 	}
-
-.primary-container {
-	height: 100%;
-}
-
 	
 #newPortfolio:hover{
 	background-color: #999;

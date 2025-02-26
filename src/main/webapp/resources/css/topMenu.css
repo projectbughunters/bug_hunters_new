@@ -8,6 +8,11 @@ body{
 	
 }
 
+/* 컨테이너 여백 */
+.primary-container {
+   padding: 10px 10%;
+}
+
 header {
 	font-family: "NotoSansKR", "Sans-serif";
 	background-color: black;
