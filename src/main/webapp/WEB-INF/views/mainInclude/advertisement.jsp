@@ -27,8 +27,7 @@
       <!-- 슬라이드 3 -->
       <div class="advertisement-slide">
           <div class="advertisement">
-            <h2>광고 3</h2>
-            <p>광고 내용 3</p>
+
           </div>
       </div>
     </div>
