@@ -1,0 +1,158 @@
+@charset "UTF-8";
+
+header {
+	background-color: #ffffff;
+	color: #ef7c09;
+	padding: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: sticky;
+	top: 0;
+	z-index: 1000;
+	border-bottom: solid 1px #ef7c09;
+}
+
+h1 {
+	margin: 0;
+	margin-right: 70px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+h1 a {
+	text-decoration: none;
+	display: block;
+}
+
+header h1:hover {
+	transform: rotate(-5deg);
+}
+
+header h1 a:hover {
+	transform: rotate(-5deg);
+}
+
+nav {
+	display: flex;
+	align-items: center;
+}
+
+nav a {
+	color: #ef7c09;
+	text-decoration: none;
+	margin: 0 15px;
+	position: relative;
+	transition: all 0.3s ease;
+}
+
+nav a:hover {
+	color: rgb(75, 73, 73);
+	border-bottom: 2px solid rgb(75, 73, 73);
+	transform: scale(1.1); /* 살짝 커지는 효과 */
+}
+
+.login {
+	margin-left: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+header .login::before {
+	content: '';
+	width: 10px;
+	height: 10px;
+	background-color: #ef7c09;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+header .login {
+	padding-right: 20px;
+	margin-left: 40px;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+header .login::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 3px;
+	bottom: -5px;
+	left: 0;
+	background-color: #ef7c09;
+	transition: width 0.3s ease;
+}
+
+header .login:hover::after {
+	width: 100%;
+}
+
+header .login a {
+	color: #ef7c09;
+	text-decoration: none;
+}
+
+header .login a:visited {
+	color: #ef7c09;
+}
+
+/* 드롭다운 스타일 */
+.dropdown {
+	position: relative;
+}
+
+.dropdown-link {
+	color: #ef7c09;
+	text-decoration: none;
+	margin: 0 15px;
+	position: relative;
+	transition: all 0.6s ease;
+}
+
+.dropdown-link:hover {
+	color: rgb(75, 73, 73);
+	border-bottom: 2px solid rgb(75, 73, 73);
+	transform: scale(1.1); /* 살짝 커지는 효과 */
+}
+
+.dropdown-content {
+	position: absolute;
+	top: 100%; /* 부모 요소 아래로 배치 */
+	left: 0;   /* 부모 요소의 왼쪽에 정렬 */
+	background-color: #ffffff;
+	min-width: 200px;
+	box-shadow: grey;
+	z-index: 1;
+	border-radius: 4px;
+	opacity: 0; /* 초기 투명도 */
+    transition: opacity 0.2s ease, max-height 0.8s ease; /* 애니메이션 효과 */
+    max-height: 0; /* 초기 최대 높이 */
+    overflow: hidden; /* 넘치는 내용 숨김 */
+    margin-top: 22px;
+}
+
+.dropdown-content a {
+	color: #333;
+	padding: 10px 15px;
+	text-decoration: none;
+	display: block;
+	transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+	background-color: #ef7c09;
+	color: #ffff; 
+}
+
+.dropdown:hover .dropdown-content {
+    padding : 10px 0;
+    opacity:1;
+	max-height:200px;
+}
+

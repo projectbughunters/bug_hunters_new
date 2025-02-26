@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.footer {
+	text-align: center;
+	padding: 20px;
+	border-top: solid 1px #ef7c09; 
+	background-color: white;
+	color: black;
+	bottom: 0;
+	width: 100%;
+	font-size: 14px;
+	margin-bottom: 0;
+	position: relative;
+}
+
+.footer p {
+	margin: 0;
+	opacity: 0.9;
+}

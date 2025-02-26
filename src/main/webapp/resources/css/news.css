@@ -1,0 +1,208 @@
+@charset "UTF-8";
+
+body {
+	font-family: "Noto Serif KR", serif;
+	margin: 0;
+	padding: 0;
+	background-color: #ffffff;
+	min-height: 110vh;
+}
+
+.container {
+	display: flex;
+	flex-direction: column; /* 세로로 배치 */
+	align-items: center; /* 가로축 기준 중앙 정렬 */
+	padding: 20px;
+	gap: 20px; /* 섹션 간 간격 추가 */
+}
+
+.news-section {
+	position: relative; /* 제목과 이미지를 겹치기 위한 기준 설정 */
+	background-color: #f8f8f8;
+    display: flex;
+    flex-direction: initial;
+    justify-content: space-between; /* 섹션 내 콘텐츠 간의 간격 조정 */
+    align-items: center;
+    box-sizing: border-box; /* 패딩 포함 크기 계산 */
+    overflow: hidden; /* 콘텐츠가 초과되면 숨김 */
+    width: 300px; /* 고정 너비 */
+    height: 400px; /* 고정 높이 */
+    gap: 20px; /* 두 섹션 간 간격 */
+	width: 100%; /* 전체 너비 차지 */
+	border-radius: 10px;
+	justify-content: flex-end; /* 내용이 아래쪽에 정렬되도록 설정 */
+}
+
+
+.news-section .content {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    overflow-y: auto; /* 수직 스크롤 가능 */
+    padding-bottom:20px;
+    padding-right:10px;
+}
+
+.news-section .image-container {
+    position: relative;
+    width: 100%;
+    height: 80%; /* 이미지 영역의 비율 설정 */
+}
+
+.news-section .image-container img {
+	width: 230px;
+    height: 190px;
+	border-radius: 5px; /* 이미지 모서리 둥글게 */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 이미지에 그림자 추가 */
+	object-fit: cover; /* 이미지를 영역에 맞게 조정 */
+}
+/* 유튜브 영상 섹션 스타일 */
+.video-section {
+    position: relative;
+    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100%; 
+    border-radius: 10px;
+    padding: 20px;
+    gap: 20px;
+}
+
+.video-section .video-container {
+    width: 650px;
+    max-width: 1200px; /* 최대 너비 제한 */
+   	height: 360px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.video-section .video-container iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* 반응형 처리 */
+@media (max-width: 1200px) {
+    .video-section {
+        padding: 10px;
+    }
+}
+
+
+.news-section h2 {
+	margin-top: 0;
+	text-align: center; /* 제목 가운데 정렬 */
+	position: absolute; /* 이미지 위로 겹치도록 설정 */
+	top: 10px; /* 이미지 내부에서 위쪽 위치 */
+    left: 10px; /* 이미지 내부에서 왼쪽 위치 */
+    color: white; /* 텍스트 색상 */
+    font-size: 20px; /* 제목 크기 */
+    background-color: rgba(0, 0, 0, 0.5); /* 반투명 배경으로 가독성 개선 */
+    padding: 5px 10px; /* 텍스트와 배경 사이 여백 */
+    border-radius: 5px; /* 제목 배경 모서리를 둥글게 설정 */
+    z-index: 2; /* 이미지보다 위에 표시되도록 설정 */
+	
+}
+
+.news-section ul {
+	list-style-type: none;
+	padding-left: 0;
+	margin: 0;
+	flex-grow: 1; /* 리스트가 남은 공간을 채우도록 설정 */
+	overflow-y: auto; /* 수직 스크롤 활성화 */
+}
+
+.news-section ul li {
+	margin: 10px 0;
+	text-overflow: ellipsis; /* 텍스트가 너무 길 경우 생략 표시 */
+	white-space: nowrap; /* 텍스트 줄바꿈 방지 */
+    overflow: hidden; /* 텍스트 넘침 방지 */
+    border-bottom: 1px solid #dcdcdc; /* 회색 줄 추가 */
+    line-height: 2.0; /* 줄 간격 조정 */
+    padding : 5px;
+}
+
+.news-section ul li a {
+	color: #3f3f3f;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.news-section ul li a:hover {
+	text-decoration: underline;
+}
+
+.list-container {
+	flex-grow: 0; /* flex-grow를 0으로 설정하여 남은 공간을 차지하지 않도록 설정 */
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 1800px; /* 고정된 너비 설정 */
+    height: 400px; /* 고정된 높이 설정 */
+    overflow-y: auto; /* 내용이 넘칠 경우 수직 스크롤 표시 */
+}
+
+#newsList {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	max-height: 300px; /* 적절한 높이 지정 */
+	overflow: hidden;
+}
+
+.pagination {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 10px; /* 버튼과 리스트 간격 */
+}
+
+button {
+	padding: 10px 12px;
+	font-size: 14px;
+	background-color: #ef7c09;
+	color: white;
+	border: none;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+button:disabled {
+	background-color: #ccc;
+	cursor: not-allowed;
+}
+
+/* 새로운 스타일 추가 */
+/* 코인 뉴스와 주식 뉴스를 가로로 나란히 배치 */
+.row {
+	display: flex;
+	justify-content: space-between;
+	gap: 20px; /* 두 섹션 간 간격 */
+	width: 100%; /* 전체 너비 차지 */
+}
+
+.row .news-section {
+	flex: 1;
+	max-width: none; /* 고정 너비 제거 */
+	min-width: 45%; /* 최소 너비 설정 */
+}
+
+/* 반응형 처리 */
+@media (max-width: 768px) {
+	.row {
+		flex-direction: column; /* 작은 화면에서는 세로 배치 */
+		gap: 10px;
+	}
+	.news-section {
+		width: 100%;
+	}
+}

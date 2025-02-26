@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+/* 고정된 AI 봇 박스 스타일 */
+#exchangePanel {
+	position: fixed;
+	top: 200px;
+	right: 20px;
+	width: 400px;
+	height: 200px;
+	background-color: #f0f0f0;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1000;
+	padding: 16px;
+	font-family: Arial, sans-serif;
+	font-size: 19px; 
+	overflow-y: auto;
+	display: none;
+}
+
+#exchangePanel h2 {
+	margin-top: 0;
+	font-size: 1.8rem;
+	color: #333;
+	text-align: center;
+}
+
+#exchangePanel p {
+	font-size: 20px;
+	text-align: center;
+	color: slategrey;
+}
+
+#toggleExchangeButton {
+	position: fixed;
+	top: 200px;
+	right: 20px;
+	background-color: #ef7c09;
+	color: white;
+	border: none;
+	padding: 10px 16px;
+	margin: 15px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+	z-index: 1001;
+}
+
+/* 스크롤바 스타일 (선택적) */
+#exchangePanel::-webkit-scrollbar {
+	width: 8px;
+}
+
+#exchangePanel::-webkit-scrollbar-thumb {
+	background-color: #aaa;
+	border-radius: 4px;
+}
+

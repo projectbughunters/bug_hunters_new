@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+body {
+    font-family: "Noto Serif KR", serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+h2{
+	text-align: center;
+	margin-bottom: 50px;
+	font-size: 30px;
+}
+
+.read-container {
+	font-family: 'Segoe UI', Arial, sans-serif;
+    width: 80%;
+    max-width: 1000px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+.read-header {
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ef7c09;
+    padding-bottom: 15px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between; /* 양쪽 정렬 */
+    margin-bottom: 20px; /* 아래 여백 */
+}
+
+.stats-row {
+    display: flex;
+    text-align : center;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    margin-bottom: 20px; /* 아래 여백 */
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-basis: calc(30% - 10px); /* 각 정보의 너비를 조정 */
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* 작은 텍스트 스타일 */
+.form-group p.small {
+    font-size: 14px; /* 작은 폰트 크기 */
+    color: #666; /* 진한 색상 */
+    margin: 0; /* 기본 여백 제거 */
+}
+
+/* 내용 박스 스타일 */
+.form-group p.content {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9; /* 읽기 전용 배경 색상 */
+    min-height: 200px; /* 최소 높이 설정 */
+    overflow-y: auto; /* 내용이 길어질 경우 스크롤 */
+}
+
+/* 제목 박스 스타일 */
+.form-group p.content.title {
+    padding: 10px; /* 제목 박스 패딩 */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px; /* 제목 폰트 크기 */
+    background-color: #f9f9f9; /* 읽기 전용 배경 색상 */
+    min-height: 30px; /* 높이 설정 */
+    overflow: hidden; /* 내용이 길어질 경우 숨김 */
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.back-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #6c757d;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+.back-btn:hover {
+    background-color: #5a6268;
+}
+
+button {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ef7c09;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #d66c08;
+}
+
+#recommend{
+	width : 50px;
+	height : 50px;
+	padding: 5px;
+	font-size: 30px;
+	background: #f9f9f9;
+	text-align: center;
+}
+.comment-input {
+    display: flex;
+    align-items: center; /* 수직 정렬 */
+    gap: 10px; /* 레이블과 텍스트 영역 사이 간격 */
+}
+
+.comment-input label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    min-width: 50px; /* 레이블 최소 너비 설정 */
+}
+
+.comment-input textarea {
+    flex: 1; /* 나머지 공간 차지 */
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+
+/* 댓글 섹션 스타일 */
+.comment-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px solid #ef7c09;
+}
+
+.comment-section h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* 개별 댓글 스타일 */
+.comment {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* 댓글 작성자 정보 */
+.comment p strong {
+    color: #ef7c09;
+    font-size: 16px;
+}
+
+.comment p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 15px;
+}
+
+/* 댓글 입력 폼 */
+.comment-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #f3f3f3;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.comment-section textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 버튼 정렬 */
+.comment .button-group {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.comment button {
+    padding: 8px 15px;
+    font-size: 14px;
+}
+
