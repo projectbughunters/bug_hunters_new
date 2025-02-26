@@ -40,6 +40,7 @@
 						<form:button type="submit" class="register-btn">포트폴리오 생성</form:button>
 					</form:form>
 					</div>
+		<c:import url="/WEB-INF/views/include/bottom.jsp"/>
 
 </body>
 </html>
