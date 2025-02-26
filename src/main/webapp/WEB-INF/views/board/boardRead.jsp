@@ -23,7 +23,7 @@ function confirmDelete(boardIdx) {
 <body>
 
 <c:import url="/WEB-INF/views/include/topMenu.jsp" />
-
+<div class="primary-container">
 <div class="read-container">
     <div class="read-header">
         <h2>게시글 읽기</h2>
@@ -158,7 +158,7 @@ function confirmDelete(boardIdx) {
         </div>
     </div>
 
-
+</div>
 <c:import url="/WEB-INF/views/include/bottom.jsp" />
 
 <script>

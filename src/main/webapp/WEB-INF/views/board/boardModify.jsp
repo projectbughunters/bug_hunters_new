@@ -14,7 +14,7 @@
 <body>
 
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
-
+<div class="primary-container">
 	<div class="modify-container">
 		<div class="modify-header">
 			<h2>게시글 수정</h2>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 	</div>
-
+</div>
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />
 </body>
 </html>

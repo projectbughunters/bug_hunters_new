@@ -50,12 +50,12 @@ public class CoinController {
         try {
             List<Map<String, Object>> coins = coinService.getAllCoins();
 //            
-            Map<String, List<Map<String, Object>>> newsData = newsService.fetchAllNews();
+            List<Map<String, Object>> coinInfoNews=newsService.coinInfoNews(symbol);
             
             model.addAttribute("coins", coins);
             model.addAttribute("symbol", symbol);
             model.addAttribute("name", name);
-            model.addAttribute("coinItems", newsData.get("coinItems"));
+            model.addAttribute("coinInfoNews", coinInfoNews);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", "차트 데이터를 불러오지 못했습니다.");

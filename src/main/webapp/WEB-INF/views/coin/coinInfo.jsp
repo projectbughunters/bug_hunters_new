@@ -87,25 +87,26 @@
 <div class="row">
       <!-- 코인 뉴스 -->
       <div class="news-section">
-         <h2>코인 뉴스</h2>
-         <div class="content">
-            <div class="image-container">
-               <img alt="코인 뉴스 이미지" src="${root }image/coin.jpg">
-            </div>
+    <h2>${symbol} 경제 뉴스</h2>
+    <div class="content">
+        <!-- advertisement-slider 클래스 추가 -->
+        <div class="advertisement-slider">
             <div class="list-container">
-               <ul id="coinNewsList">
-                  <c:forEach var="coinNews" items="${coinItems}">
-                     <li><a href="${coinNews.link}" target="_blank">${coinNews.title}</a>
-                     </li>
-                  </c:forEach>
-               </ul>
-               <div class="pagination">
-                  <button id="coinPrevBtn" disabled>이전</button>
-                  <button id="coinNextBtn">다음</button>
-               </div>
+                <ul id="coinNewsList">
+                    <c:forEach var="coinInfoNew" items="${coinInfoNews}">
+                        <li>
+                            <a href="${coinInfoNew.link}" target="_blank">${coinInfoNew.title}</a><br />
+                            ${coinInfoNew.description}
+                        </li>
+                    </c:forEach>
+                </ul>
             </div>
-         </div>
-      </div>
+            <!-- 좌우 화살표 버튼을 advertisement-slider 내부로 이동 -->
+            <button class="advertisement-arrow advertisement-arrow-left">&#10094;</button>
+            <button class="advertisement-arrow advertisement-arrow-right">&#10095;</button>
+        </div>
+    </div>
+</div>
       </div>
       </div>
       <c:import url="/WEB-INF/views/include/bottom.jsp" />
