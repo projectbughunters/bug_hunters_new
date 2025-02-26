@@ -10,25 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | TMI</title>
-<link rel="stylesheet" href="${root}css/portfolio.css">
-
-<style type="text/css">
-body {
-	height: 100vh;
-}
-#portfolio-list, #portfolio-summary, #portfolio-chart, #portfolio-holdings{
-	margin: 60px auto;
-}
-
-.portfolio-list, .portfolio-summary, .portfolio-chart,
-	.portfolio-holdings {
-	background-color: f8f8f8;
-}
-
-.footer {
-	margin-top: 70px;
-}
-</style>
+	<link rel="stylesheet" href="${root}css/newPortfolio.css"> 
 </head>
 <body>
 
@@ -36,6 +18,9 @@ body {
 	<div class="primary-container">
 	
 	<form:form action="${root }portfolio/newPortfolio_pro" method="post" modelAttribute="newPortfolioBean">
+						<div class="input-group" id="main-title">
+							<label >나의 포트폴리오 생성</label>
+						</div>
 						<div class="input-group">
 							<form:label path="title">제목</form:label>
 							<form:input path="title" class="form-control"  />
