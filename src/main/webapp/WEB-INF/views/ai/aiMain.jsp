@@ -12,7 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Take Money Information | TMI</title>
+    <title>AI Partner | TMI</title>
     <link rel="stylesheet" href="${root}css/ai.css">
 </head>
 <body>

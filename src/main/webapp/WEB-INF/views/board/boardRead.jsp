@@ -10,7 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Take Money Information | TMI</title>
+<title>Notice | TMI</title>
 <link rel="stylesheet" href="${root}css/boardRead.css">
 <script>
 function confirmDelete(boardIdx) {

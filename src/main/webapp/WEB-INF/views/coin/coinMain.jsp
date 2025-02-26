@@ -11,7 +11,7 @@
    <link rel="stylesheet" href="${root}css/bugMain.css"> 
    <link rel="stylesheet" href="${root}css/coinMain.css">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>Take Money Information | TMI</title>
+<title>Crypto | TMI</title>
 
 <style>
     .iframe-container {
@@ -31,7 +31,7 @@
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
 
-
+<div class="primary-container">
 <h2>암호화폐 테이블</h2>
 
 <table>
@@ -125,6 +125,7 @@
         <c:if test="${pageBean.currentPage < pageBean.totalPage}">
             <a href="?page=${pageBean.currentPage + 1}">다음</a>
         </c:if>
+    </div>
     </div>
 <c:import url="/WEB-INF/views/include/bottom.jsp"/>
 

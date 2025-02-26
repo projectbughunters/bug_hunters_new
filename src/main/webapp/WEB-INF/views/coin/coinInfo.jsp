@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="${root}css/coinInfo.css">
 <link rel="stylesheet" href="${root}css/bugMain.css">
 <link rel="stylesheet" href="${root}css/news.css">
-<title>Take Money Information | TMI</title>
+<title>Crypto | TMI</title>
 <!-- Chart.js 라이브러리 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -22,7 +22,7 @@
 
 <body>
    <c:import url="/WEB-INF/views/include/topMenu.jsp" />
-
+	<div class="primary-container">
    <div class="">
 
       <button id="coinDateBtn" onclick="fetchData('DAILY')">일</button>
@@ -37,8 +37,79 @@
             <canvas id="coinChart"></canvas>
          </div>
       </div>
+</div>
+      
+   
+<div class="coinTableContainer">
+  <table id="coinTable">
+    <thead>
+      <tr>
+        <th class="rankCol">순위</th>
+        <th>코인</th>
+        <th>가격 (KRW)</th>
+        <th>총 시가</th>
+        <th>거래량 (24H)</th>
+        <th>변동 (24H)</th>
+        <th>변동 (7D)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <c:forEach var="coin" items="${coins}">
+          <c:if test="${coin.symbol == symbol}">
+          <tr>
+            <td class="row">${coin.rank}</td>
+                  <td>${coin.symbol}</td>
+                  <td class="row">₩<script>document.write((${coin.quotes.USD.price} / 1000).toFixed(1) + 'K');</script></td>
+                  <td class="row">₩<script>document.write((${coin.quotes.USD.market_cap} / 1000000000000).toFixed(2) + 'T');</script></td>
+                  <td class="row">₩<script>document.write((${coin.quotes.USD.volume_24h} / 1000000000000).toFixed(2) + 'T');</script></td>
+                  <td
+                     class="row ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
+                     <script>
+            var percentChange24h = ${coin.quotes.USD.percent_change_24h};
+            document.write((percentChange24h).toFixed(2) + "%");
+        </script>
+                  </td>
+                  <td
+                     class="row ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
+                     <script>
+            var percentChange7d = ${coin.quotes.USD.percent_change_7d};
+            document.write((percentChange7d).toFixed(2) + "%");
+        </script></td>
+        </tr>
+          </c:if>
+        
+      </c:forEach>
+      
+    </tbody>
+  </table>
+</div>
 
-      <script>
+<div class="row">
+      <!-- 코인 뉴스 -->
+      <div class="news-section">
+         <h2>코인 뉴스</h2>
+         <div class="content">
+            <div class="image-container">
+               <img alt="코인 뉴스 이미지" src="${root }image/coin.jpg">
+            </div>
+            <div class="list-container">
+               <ul id="coinNewsList">
+                  <c:forEach var="coinNews" items="${coinItems}">
+                     <li><a href="${coinNews.link}" target="_blank">${coinNews.title}</a>
+                     </li>
+                  </c:forEach>
+               </ul>
+               <div class="pagination">
+                  <button id="coinPrevBtn" disabled>이전</button>
+                  <button id="coinNextBtn">다음</button>
+               </div>
+            </div>
+         </div>
+      </div>
+      </div>
+      </div>
+      <c:import url="/WEB-INF/views/include/bottom.jsp" />
+<script>
    
    const apiUrl = "http://localhost:3000/coin";
    let myChart; // 차트 인스턴스를 저장할 전역 변수
@@ -202,101 +273,31 @@
         });
     });
     
+    
+ // 모든 FAQ 제목(h2)에 이벤트 리스너 추가
+    document.querySelectorAll('.faq h2').forEach(function(header) {
+        header.addEventListener('click', function() {
+            const faq = this.parentElement; // 현재 클릭한 h2의 부모 요소 (FAQ 전체)
+            const allFaqs = document.querySelectorAll('.faq'); // 모든 FAQ 요소 가져오기
+            
+            // 다른 FAQ가 열려있으면 닫기
+            allFaqs.forEach(function(item) {
+                if (item !== faq) {
+                    item.classList.remove('open'); // 다른 FAQ에서 open 클래스 제거
+                }
+            });
+
+            // 현재 FAQ는 열거나 닫기
+            faq.classList.toggle('open');
+        });
+    });
+    
     // 페이지 로드 시 기본 데이터 로드
     document.addEventListener('DOMContentLoaded', (event) => {
         fetchData('DAILY'); // 기본적으로 'daily' 데이터를 요청
     });
     
     </script>
-   </div>
-<div class="coinTableContainer">
-  <table id="coinTable">
-    <thead>
-      <tr>
-        <th class="rankCol">순위</th>
-        <th>코인</th>
-        <th>가격 (KRW)</th>
-        <th>총 시가</th>
-        <th>거래량 (24H)</th>
-        <th>변동 (24H)</th>
-        <th>변동 (7D)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <c:forEach var="coin" items="${coins}">
-          <c:if test="${coin.symbol == symbol}">
-          <tr>
-            <td class="row">${coin.rank}</td>
-                  <td>${coin.symbol}</td>
-                  <td class="row">₩<script>document.write((${coin.quotes.USD.price} / 1000).toFixed(1) + 'K');</script></td>
-                  <td class="row">₩<script>document.write((${coin.quotes.USD.market_cap} / 1000000000000).toFixed(2) + 'T');</script></td>
-                  <td class="row">₩<script>document.write((${coin.quotes.USD.volume_24h} / 1000000000000).toFixed(2) + 'T');</script></td>
-                  <td
-                     class="row ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
-                     <script>
-            var percentChange24h = ${coin.quotes.USD.percent_change_24h};
-            document.write((percentChange24h).toFixed(2) + "%");
-        </script>
-                  </td>
-                  <td
-                     class="row ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
-                     <script>
-            var percentChange7d = ${coin.quotes.USD.percent_change_7d};
-            document.write((percentChange7d).toFixed(2) + "%");
-        </script></td>
-        </tr>
-          </c:if>
-        
-      </c:forEach>
-      
-    </tbody>
-  </table>
-</div>
-
    
-    <script>
-        // 모든 FAQ 제목(h2)에 이벤트 리스너 추가
-        document.querySelectorAll('.faq h2').forEach(function(header) {
-            header.addEventListener('click', function() {
-                const faq = this.parentElement; // 현재 클릭한 h2의 부모 요소 (FAQ 전체)
-                const allFaqs = document.querySelectorAll('.faq'); // 모든 FAQ 요소 가져오기
-                
-                // 다른 FAQ가 열려있으면 닫기
-                allFaqs.forEach(function(item) {
-                    if (item !== faq) {
-                        item.classList.remove('open'); // 다른 FAQ에서 open 클래스 제거
-                    }
-                });
-
-                // 현재 FAQ는 열거나 닫기
-                faq.classList.toggle('open');
-            });
-        });
-    </script>
-
-   <div class="row">
-      <!-- 코인 뉴스 -->
-      <div class="news-section">
-         <h2>코인 뉴스</h2>
-         <div class="content">
-            <div class="image-container">
-               <img alt="코인 뉴스 이미지" src="${root }image/coin.jpg">
-            </div>
-            <div class="list-container">
-               <ul id="coinNewsList">
-                  <c:forEach var="coinNews" items="${coinItems}">
-                     <li><a href="${coinNews.link}" target="_blank">${coinNews.title}</a>
-                     </li>
-                  </c:forEach>
-               </ul>
-               <div class="pagination">
-                  <button id="coinPrevBtn" disabled>이전</button>
-                  <button id="coinNextBtn">다음</button>
-               </div>
-            </div>
-         </div>
-      </div>
-      
-      <c:import url="/WEB-INF/views/include/bottom.jsp" />
 </body>
 </html>

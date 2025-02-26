@@ -14,6 +14,7 @@
 <body>
 
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
+	<div class="primary-container">
 	<h4>거래 추가</h4>
     <form action="${root}portfolio/search" method="post">
     	<input type="hidden" name="portfolio_idx" value="${portfolio_idx }">
@@ -52,7 +53,7 @@
 	    <button type="submit">추가하기</button>
 	</form:form>
 	
-	
+	</div>
 	
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />
 	
