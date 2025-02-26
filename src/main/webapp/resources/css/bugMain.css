@@ -2,56 +2,54 @@
 
 /* 기본 스타일 및 배경 */
 body {
-   font-family: "Noto Serif KR", serif;
-   font-optical-sizing: auto;
-   font-weight: 400;
-   font-style: normal;
-   margin: 0;
-   padding: 0;
-   background-color: #fff; /* 부드러운 그레이 톤 */
-   color: #333;
-   min-height: 150vh;
+	font-family: "Noto Serif KR", serif;
+	font-optical-sizing: auto;
+	font-weight: 400;
+	font-style: normal;
+	margin: 0;
+	padding: 0;
+	background-color: #fff; /* 부드러운 그레이 톤 */
+	color: #333;
+	min-height: 150vh;
 }
 
-h2{
-	text-align :justify;
-	padding-left: 30px;
+h2 {
+	text-align: center;
+	font-size: x-large;
 }
-
 
 /* 컨테이너 여백 */
 .primary-container {
-   padding: 10px 10%;
+	padding: 10px 10%;
 }
 
 /* 콘텐츠 컨테이너 (여러 섹션을 위한 flex 레이아웃) */
 .content-container {
-	padding: 30px;
-   display: flex;
-   flex-wrap: nowrap;
-   gap: 45px;
-   align-items: center;
+	padding: 10px;
+	display: flex;
+	flex-wrap: nowrap;
+	gap: 30px;
+	align-items: center;
 }
 
 /* 광고 영역 */
 .advertisement {
-   width: 100%;
-   height: 300px;
-   margin-bottom: 20px;
-   margin-top: 5px;
-   background-color: #f4f4f9;
-   border-radius: 8px;
-   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	height: 300px;
+	margin-bottom: 20px;
+	margin-top: 5px;
+	background-color: #f4f4f9;
+	border-radius: 8px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-
 
 /* 슬라이더 컨테이너 */
 .advertisement-slider {
-  position: relative;
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-  overflow: hidden;
+	position: relative;
+	width: 100%;
+	max-width: 1300px;
+	margin: auto;
+	overflow: hidden;
 }
 
 .adver-img {
@@ -61,214 +59,212 @@ h2{
 
 /* 슬라이드 래퍼 */
 .advertisement-slides {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+	display: flex;
+	transition: transform 0.5s ease-in-out;
 }
 
 /* 각 슬라이드 */
 .advertisement-slide {
-  min-width: 100%;
-  box-sizing: border-box;
-  position: relative;
+	min-width: 100%;
+	box-sizing: border-box;
+	position: relative;
 }
 
 /* 좌우 화살표 버튼 */
 .advertisement-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2em;
-  color: #fff;
-  background-color: rgba(0,0,0,0.5);
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  display: none;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 2em;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: none;
+	padding: 10px;
+	cursor: pointer;
+	display: none;
 }
+
 .advertisement-arrow-left {
-  left: 10px;
+	left: 10px;
 }
+
 .advertisement-arrow-right {
-  right: 10px;
+	right: 10px;
 }
 
 /* 슬라이더 영역에 마우스 오버 시 화살표 보이기 */
 .advertisement-slider:hover .advertisement-arrow {
-  display: block;
+	display: block;
 }
 
 /* 인디케이터 (밑의 작은 원) */
 .advertisement-indicators {
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
 }
 
 .advertisement-indicator {
-  height: 10px;
-  width: 10px;
-  background-color: rgba(255,255,255,0.5);
-  margin: 0 5px;
-  border-radius: 50%;
-  cursor: pointer;
+	height: 10px;
+	width: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	margin: 0 5px;
+	border-radius: 50%;
+	cursor: pointer;
 }
+
 .active {
-  background-color: rgba(255,255,255,1);
+	background-color: rgba(255, 255, 255, 1);
 }
 
 /* 섹션 제목 */
 .news-section h2, .advertisement h2 {
-   margin-top: 0;
-   color: #222;
-   font-size: 1.8rem;
+	margin-top: 0;
+	color: #222;
+	font-size: 1.8rem;
 }
-
 
 /* 유튜브 영역 */
 .youtube {
-   background-color: #ffffff;
-   width: 350px;
-   height: 250px;
-   border-radius: 10px;
-   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-   margin-left: 50px;
-   
+	background-color: #ffffff;
+	width: 350px;
+	height: 250px;
+	border-radius: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.stock-title{
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 /* 테이블 디자인 개선: 주식 & 코인 */
-.stock-table table,
-.coin-table table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
+.stock-table table, .coin-table table {
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 0;
+	background-color: #ffffff;
+	border: 1px solid #e0e0e0;
+	border-radius: 10px;
+	overflow: hidden;
 }
 
 /* 주식 및 코인 영역: 테이블과 차트를 한 div 안에 두고 좌우 배치 */
 .stock-content, .coin-content {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    justify-content: center;
+	display: flex;
+	flex-direction: row;
+	gap: 40px;
+	justify-content: center;
 }
 
 /* 영역 너비 조정: */
 .stock-table, .coin-table {
-    width: 60%;
+	width: 60%;
 }
 
 .stock-chart-wrapper, .coin-chart-wrapper {
-    width: 40%;
+	width: 40%;
 }
 
 /* 테이블 헤더 */
-.stock-table th,
-.coin-table th {
-    background-color: #f5f5f5;
-    color: #333;
-    padding: 12px;
-    font-weight: bold;
-    border-bottom: 2px solid #ddd;
-    text-align: left;
+.stock-table th, .coin-table th {
+	background-color: #f5f5f5;
+	color: #333;
+	padding: 12px;
+	font-weight: bold;
+	border-bottom: 2px solid #ddd;
+	text-align: left;
 }
 
 /* 테이블 바디 셀 */
-.stock-table td,
-.coin-table td {
-    padding: 12px;
-    border-bottom: 1px solid #f0f0f0;
-    text-align: left;
+.stock-table td, .coin-table td {
+	padding: 12px;
+	border-bottom: 1px solid #f0f0f0;
+	text-align: left;
 }
 
 /* 짝수 행 배경색 (줄무늬 효과) */
-.stock-table table tr:nth-child(even),
-.coin-table table tr:nth-child(even) {
-    background-color: #f9f9f9;
+.stock-table table tr:nth-child(even), .coin-table table tr:nth-child(even)
+	{
+	background-color: #f9f9f9;
 }
 
 /* 행 hover 효과 */
-.stock-table table tr:hover,
-.coin-table table tr:hover {
-    background-color: #eaf4ff;
-    transition: background-color 0.3s ease;
+.stock-table table tr:hover, .coin-table table tr:hover {
+	background-color: #eaf4ff;
+	transition: background-color 0.3s ease;
 }
 
 /* 차트 영역 디자인 개선 */
-.stock-chart-wrapper,
-.coin-chart-wrapper {
-    background-color: #ffffff;
-    padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 20%;
-    
+.stock-chart-wrapper, .coin-chart-wrapper {
+	background-color: #ffffff;
+	padding: 20px;
+	border: 1px solid #e0e0e0;
+	border-radius: 10px;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+	width: 20%;
 }
 
 /* 캔버스 차트 반응형 적용 */
 .stock-chart-wrapper canvas {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 200px;
-    transform: translateY(50px);
+	width: 100% !important;
+	height: auto !important;
+	max-height: 200px;
+	transform: translateY(50px);
 }
 
 .coin-chart-wrapper canvas {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 200px;
+	width: 100% !important;
+	height: auto !important;
+	max-height: 200px;
 }
 
 /* 추가: 버튼 스타일 (테이블과 차트 영역 간 이동 시) */
 #prevStockBtn, #nextStockBtn, #prevCoinBtn, #nextCoinBtn {
-    background-color: #4a90e2;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+	background-color: #4a90e2;
+	color: #fff;
+	border: none;
+	padding: 10px 15px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
-#prevStockBtn:hover, #nextStockBtn:hover, 
-#prevCoinBtn:hover, #nextCoinBtn:hover {
-    background-color: #357abd;
+#prevStockBtn:hover, #nextStockBtn:hover, #prevCoinBtn:hover,
+	#nextCoinBtn:hover {
+	background-color: #357abd;
 }
 
 /* 컨테이너를 그리드 레이아웃으로 설정하여 한 줄에 10개의 이미지를 배치 */
 #cyptoexchangeList {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr); /* 10개 열로 나눕니다 */
-  gap: 10px; /* 이미지 사이 간격 */
-  list-style: none; /* 불릿 제거 */
-  padding: 0;       /* 기본 여백도 제거 */
-  margin: 0;        /* 기본 마진 제거 (필요에 따라) */
+	display: grid;
+	grid-template-columns: repeat(10, 1fr); /* 10개 열로 나눕니다 */
+	gap: 10px; /* 이미지 사이 간격 */
+	list-style: none; /* 불릿 제거 */
+	padding: 0; /* 기본 여백도 제거 */
+	margin: 0; /* 기본 마진 제거 (필요에 따라) */
 }
 
 /* 각 이미지 아이템에 대한 기본 스타일 */
 .cyptoexchange-item {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 /* 이미지 크기 조절: 너비를 100%로 하여 컨테이너에 맞추고, 높이는 비율에 따라 자동 조절 */
 .cyptoexchange-item img {
-  width: 130px;
-  height: 80px;
+	width: 130px;
+	height: 80px;
 }
 
-
 /* 반응형 디자인 */
-@media (max-width: 768px) {
-   .stock-content, .coin-content {
-      justify-content: center; /* 작은 화면에서는 가운데 정렬 */
-      flex-direction: column;
-   }
-   .stock-table, .coin-table, .stock-chart-wrapper, .coin-chart-wrapper {
-      width: 100%;
-   }
+@media ( max-width : 768px) {
+	.stock-content, .coin-content {
+		justify-content: center; /* 작은 화면에서는 가운데 정렬 */
+		flex-direction: column;
+	}
+	.stock-table, .coin-table, .stock-chart-wrapper, .coin-chart-wrapper {
+		width: 100%;
+	}
 }

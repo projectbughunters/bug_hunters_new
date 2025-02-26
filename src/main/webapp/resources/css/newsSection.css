@@ -1,10 +1,9 @@
 @charset "UTF-8";
 .news-section {
-   font-family: "Noto Serif KR", serif;
-   width: 60%;
+   width: 90%;
    min-height: 250px;
    padding: 20px;
-   background-color: #f4f4f9;
+   background-color: #f9f9f9;
    border-radius: 10px;
    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
    margin-bottom: 20px;
@@ -24,7 +23,6 @@
 .news-slide {
    position: absolute;
    top: 0;
-   left: 0;
    width: 100%;
    display: flex;
    justify-content: space-around;
@@ -86,10 +84,10 @@
 }
 .pagination-controls button {
    pointer-events: auto; /* 버튼은 클릭 가능 */
-   background-color: rgba(0,0,0,0.5);
+   background-color: rgba(0,0,0,0.3);
    color: #fff;
    border: none;
-   border-radius: 0;
+   border-radius: 13px;
    width: 40px;
    height: 40px;
    cursor: pointer;
