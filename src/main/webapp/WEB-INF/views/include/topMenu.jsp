@@ -5,11 +5,6 @@
 <c:set var="root" value='${pageContext.request.contextPath }/' />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap"
-	rel="stylesheet">
 <link rel="stylesheet" href="${root}css/topMenu.css">
 
 <script>
@@ -32,12 +27,11 @@
 
 <header>
 	<h1>
-		<a href="${root}"><image src="${root}image/TMI.png" style="width: 80px; height : 50px"/></a>
+		<a href="${root}"><image src="${root}image/TMI_Y.png" style="width: 70px; height : 50px"/></a>
 	</h1>
 	<nav>
 		<a href="${root}stock/stockMain">STOCK</a> 
 		<a href="${root}coin/coinMain">CRYPTO</a> 
-		<a href="${root}economy/economyMain">ECONOMY</a> 
 		<div class="dropdown">
 			<a href="#" class="dropdown-link">AI PARTNER ▾</a>
 			<div class="dropdown-content">

@@ -5,11 +5,6 @@
 <c:set var="root" value='${pageContext.request.contextPath }/' />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-   href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap"
-   rel="stylesheet">
 
 <div class="news-section">
    <h2>실시간 뉴스</h2>
@@ -28,7 +23,8 @@
                <!-- 단일 뉴스 아이템 -->
                <div class="news-item">
                   <c:if test="${not empty news.image}">
-                     <img class="news-image" src="${news.image}" alt="${news.title}"/>
+                     <a href="https://n.news.naver.com/mnews/article/${news.officeId}/${news.articleId}"
+                     target="_blank"><img class="news-image" src="${news.image}" alt="${news.title}"/></a>
                   </c:if>
                   <a href="https://n.news.naver.com/mnews/article/${news.officeId}/${news.articleId}"
                      target="_blank">${news.title}</a>

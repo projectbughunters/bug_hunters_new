@@ -14,7 +14,7 @@ body {
 }
 
 /* 컨테이너 여백 */
-.container {
+.primary-container {
    padding: 10px 80px;
 }
 
@@ -36,6 +36,7 @@ body {
    border-radius: 8px;
    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 /* 슬라이더 컨테이너 */
 .advertisement-slider {
@@ -97,6 +98,7 @@ body {
   transform: translateX(-50%);
   display: flex;
 }
+
 .advertisement-indicator {
   height: 10px;
   width: 10px;

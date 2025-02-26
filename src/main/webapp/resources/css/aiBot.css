@@ -7,14 +7,14 @@
 	right: 20px;
 	width: 800px;
 	height: 600px;
-	background-color: #f0f0f0;
+	background-color: #ffffff;
 	border: 2px solid #ddd;
 	border-radius: 8px;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 	z-index: 1000;
 	padding: 16px;
 	font-family: Arial, sans-serif;
-	font-size: 19px; 
+	font-size: 19px;
 	overflow-y: auto;
 	display: none;
 }
@@ -57,13 +57,21 @@
 	border-radius: 4px;
 }
 
-
 #stockRecommendations {
-  word-wrap: break-word;
-  white-space: pre-line;
-  max-height: 460px;
-  overflow-y: auto;
-  background-color: #f9f9f9;
-  padding: 10px;
-  border: 1px solid #ddd;
+	word-wrap: break-word;
+	white-space: pre-line;
+	max-height: 460px;
+	overflow-y: auto;
+	background-color: #f0f0f0;
+	padding: 10px;
+	border: 1px solid #ddd;
+}
+
+#loading {
+	display: none; /* 기본적으로 숨김 */
+	position: fixed;
+	left: 78%;
+	top: 60%;
+	transform: translate(-50%, -50%);
+	z-index: 1000;
 }

@@ -8,9 +8,6 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" >
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="${root}css/bugMain.css">
 	<link rel="stylesheet" href="${root}css/stockMain.css"> 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -20,6 +17,7 @@
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
 <c:import url="/WEB-INF/views/stock/exchange.jsp"/>
 
+<div class="primary-container">
 <h2>주식 스크리너</h2>
     <table>
         <thead>
@@ -103,6 +101,7 @@
             <a href="?page=${pageBean.currentPage + 1}">다음</a>
         </c:if>
     </div>
+</div>
 <c:import url="/WEB-INF/views/include/bottom.jsp"/>
 <script>
     $(document).ready(function() {

@@ -1,8 +1,9 @@
 @charset "UTF-8";
 
 header {
-	background-color: #ffffff;
-	color: #ef7c09;
+	font-family: "NotoSansKR", "Sans-serif";
+	background-color: black;
+	color: #ffffff;
 	padding: 10px;
 	display: flex;
 	align-items: center;
@@ -10,12 +11,13 @@ header {
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-	border-bottom: solid 1px #ef7c09;
+	box-shadow: grey;
 }
+
 
 h1 {
 	margin: 0;
-	margin-right: 70px;
+	margin-right: 120px;
 	cursor: pointer;
 	transition: all 0.3s ease;
 }
@@ -23,6 +25,11 @@ h1 {
 h1 a {
 	text-decoration: none;
 	display: block;
+	
+}
+
+h1 :visited {
+	color: #ffffff;
 }
 
 header h1:hover {
@@ -39,7 +46,8 @@ nav {
 }
 
 nav a {
-	color: #ef7c09;
+	font-size:19px;
+	color: #ffffff;
 	text-decoration: none;
 	margin: 0 15px;
 	position: relative;
@@ -47,7 +55,7 @@ nav a {
 }
 
 nav a:hover {
-	color: rgb(75, 73, 73);
+	color: #ffffff;
 	border-bottom: 2px solid rgb(75, 73, 73);
 	transform: scale(1.1); /* 살짝 커지는 효과 */
 }
@@ -64,7 +72,7 @@ header .login::before {
 	content: '';
 	width: 10px;
 	height: 10px;
-	background-color: #ef7c09;
+	background-color: #ffde59;
 	border-radius: 50%;
 	display: inline-block;
 }
@@ -85,7 +93,7 @@ header .login::after {
 	height: 3px;
 	bottom: -5px;
 	left: 0;
-	background-color: #ef7c09;
+	background-color: #ffde59;
 	transition: width 0.3s ease;
 }
 
@@ -94,12 +102,12 @@ header .login:hover::after {
 }
 
 header .login a {
-	color: #ef7c09;
+	color: #ffffff;
 	text-decoration: none;
 }
 
 header .login a:visited {
-	color: #ef7c09;
+	color: #ffffff;
 }
 
 /* 드롭다운 스타일 */
@@ -108,7 +116,7 @@ header .login a:visited {
 }
 
 .dropdown-link {
-	color: #ef7c09;
+	color: #ffffff;
 	text-decoration: none;
 	margin: 0 15px;
 	position: relative;
@@ -116,7 +124,7 @@ header .login a:visited {
 }
 
 .dropdown-link:hover {
-	color: rgb(75, 73, 73);
+	color: #ffffff;
 	border-bottom: 2px solid rgb(75, 73, 73);
 	transform: scale(1.1); /* 살짝 커지는 효과 */
 }
@@ -124,17 +132,17 @@ header .login a:visited {
 .dropdown-content {
 	position: absolute;
 	top: 100%; /* 부모 요소 아래로 배치 */
-	left: 0;   /* 부모 요소의 왼쪽에 정렬 */
+	left: 0; /* 부모 요소의 왼쪽에 정렬 */
 	background-color: #ffffff;
 	min-width: 200px;
 	box-shadow: grey;
 	z-index: 1;
 	border-radius: 4px;
 	opacity: 0; /* 초기 투명도 */
-    transition: opacity 0.2s ease, max-height 0.8s ease; /* 애니메이션 효과 */
-    max-height: 0; /* 초기 최대 높이 */
-    overflow: hidden; /* 넘치는 내용 숨김 */
-    margin-top: 22px;
+	transition: opacity 0.2s ease, max-height 0.8s ease; /* 애니메이션 효과 */
+	max-height: 0; /* 초기 최대 높이 */
+	overflow: hidden; /* 넘치는 내용 숨김 */
+	margin-top: 22px;
 }
 
 .dropdown-content a {
@@ -146,13 +154,12 @@ header .login a:visited {
 }
 
 .dropdown-content a:hover {
-	background-color: #ef7c09;
-	color: #ffff; 
+	background-color: #737373;
+	color: #ffff;
 }
 
 .dropdown:hover .dropdown-content {
-    padding : 10px 0;
-    opacity:1;
-	max-height:200px;
+	padding: 10px 0;
+	opacity: 1;
+	max-height: 200px;
 }
-

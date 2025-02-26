@@ -9,9 +9,6 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" >
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="${root}css/stockMain.css"> 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -23,7 +20,7 @@
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
 <c:import url="/WEB-INF/views/stock/aiBot.jsp"/>
-<div id="body">
+<div class="primary-container">
  <h1 id="symbolImg"><img src="https://financialmodelingprep.com/image-stock/${symbol}.png" style="width: 50px; height: 50px; margin-right: 10px;" />
   ${processedData.name} (${symbol})</h1>
     

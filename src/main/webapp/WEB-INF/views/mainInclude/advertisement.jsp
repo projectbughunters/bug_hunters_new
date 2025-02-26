@@ -6,9 +6,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>광고 슬라이더</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap" rel="stylesheet">
 
   <div class="advertisement-slider">
     <div class="advertisement-slides">
@@ -24,10 +21,9 @@
             <img class="adver-img" alt="" src="${root }image/advertisement2.png"/>
           </div>
       </div>
-      <!-- 슬라이드 3 -->
       <div class="advertisement-slide">
           <div class="advertisement">
-
+            <img class="adver-img" alt="" src="${root }image/advertisement3.png"/>
           </div>
       </div>
     </div>
