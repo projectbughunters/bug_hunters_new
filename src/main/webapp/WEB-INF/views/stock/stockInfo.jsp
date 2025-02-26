@@ -15,7 +15,7 @@
 	<!-- 플러그인 추가 -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
-<title>Take Money Information | TMI</title>
+<title>Stock | TMI</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>

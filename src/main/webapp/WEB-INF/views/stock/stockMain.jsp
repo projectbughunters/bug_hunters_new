@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="${root}css/bugMain.css">
 	<link rel="stylesheet" href="${root}css/stockMain.css"> 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>Take Money Information | TMI</title>
+<title>Stock | TMI</title>
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
