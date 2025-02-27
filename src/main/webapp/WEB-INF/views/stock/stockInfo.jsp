@@ -23,8 +23,6 @@
 <div class="primary-container">
  <h1 id="symbolImg"><img src="https://financialmodelingprep.com/image-stock/${symbol}.png" style="width: 50px; height: 50px; margin-right: 10px;" />
   ${processedData.name} (${symbol})</h1>
-  <br />
-	<hr />
     <h3 id="explaneCompany">${processedData.marketPrice } 
     	<span class="${processedData.marketChange > 0 ? 'positive-change' : 'negative-change'}">(
     		<script>
@@ -57,12 +55,15 @@
 				        </c:if>
 				        <!-- 단일 뉴스 아이템 영역 -->
 				        <div class="news-item">
-				            <a href="${stockInfoNew.link}" target="_blank">${stockInfoNew.title}</a><br/>
+				            <a class="news-title" href="${stockInfoNew.link}" target="_blank">${stockInfoNew.title}</a><br/>
+				            <br />
 				            ${stockInfoNew.description}
 				        </div>
 				        <!-- 각 뉴스 아이템 사이 구분선 (원한다면) -->
 				        <c:if test="${(status.index % 3) != 2 && !status.last}">
+				        	<br />
 				            <hr/>
+				            <br />
 				        </c:if>
 				        <!-- 3개를 채웠거나 마지막 항목이면 </li> 닫기 -->
 				        <c:if test="${status.index % 3 == 2 || status.last}">
@@ -149,7 +150,7 @@
   </div>
   
 </div>
-
+<c:import url="/WEB-INF/views/include/bottom.jsp"/>
 <script>
 var chartInstance = null; // 차트 인스턴스를 저장할 변수
 

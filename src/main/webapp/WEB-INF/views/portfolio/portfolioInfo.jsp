@@ -138,11 +138,11 @@ body {
 	    let dataLabels = [];
 	    let dataValues = [];
 	    let backgroundColors = [
-    	  'rgba(13, 59, 102, 0.2)',  // #0D3B66 + 투명도 0.2
-    	  'rgba(20, 83, 116, 0.35)', // #145374 + 0.35
-    	  'rgba(30, 129, 176, 0.5)', // #1E81B0 + 0.5
-    	  'rgba(113, 169, 247, 0.65)', // #71A9F7 + 0.65
-    	  'rgba(165, 216, 255, 0.8)'   // #A5D8FF + 0.8
+    	  'rgba(13, 59, 102, 0.6)',  // #0D3B66 + 투명도 0.2
+    	  'rgba(20, 83, 116, 0.6)', // #145374 + 0.35
+    	  'rgba(30, 129, 176, 0.6)', // #1E81B0 + 0.5
+    	  'rgba(113, 169, 247, 0.6)', // #71A9F7 + 0.65
+    	  'rgba(165, 216, 255, 0.6)'   // #A5D8FF + 0.8
     	];
 
     	// Hover 시 약간 더 진하게 (또는 채도를 높여서 더 선명하게)
@@ -197,6 +197,7 @@ body {
 	            datasets: [{
 	                data: dataValues,
 	                backgroundColor: backgroundColors.slice(0, dataLabels.length),
+	                hoverBackgroundColor: hoverBackgroundColors.slice(0, dataLabels.length),
 	                borderWidth: 1
 	            }]
 	        },

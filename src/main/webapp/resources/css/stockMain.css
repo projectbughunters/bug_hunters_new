@@ -5,11 +5,12 @@
     margin-top: 40px;
     margin-bottom: 20px;
     margin-left: 110px;
+    border-bottom: 1px solid #ccc;
 }
 
 h2 {
 	font-size: 30px;
-	margin-top: 40px;
+	margin-top: 20px;
 	text-align: center;
 	color: #333;
 	margin-bottom: 30px;
@@ -17,7 +18,7 @@ h2 {
 
 #explaneCompany {
 	font-size: 45px;
-	margin-top: 40px;
+	margin-top: 27px;
 	margin-left: 100px; /* 왼쪽에서 150px 떨어지게 설정 */
 	color: #333;
 	margin-bottom: 30px;
@@ -214,6 +215,7 @@ td.clickable {
 .news-section {
     width: 100%;          /* 차트 영역과 동일한 너비 */
     margin-top: 20px;    /* 상단 여백 및 중앙 정렬 */
+    border-top: 1px solid #ccc; 
 }
 
 .highlight {
@@ -316,6 +318,8 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 /* 개별 뉴스 아이템 스타일 */
 .news-item {
   margin-bottom: 10px; /* 아이템 간격 */
+  font-size: 15px;
+  color: #595959;
 }
 
 /* hr 스타일 (선택사항) */
@@ -324,6 +328,20 @@ box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-top: 1px solid #ccc;
   margin: 10px 0;
 }
+
+/* 링크 타이틀 기본 스타일 */
+.news-title {
+  font-size: 18px;        /* 원하는 글자 크기 */
+  color: #000000;         /* 검정색 텍스트 */
+  text-decoration: none;  /* 밑줄 제거 */
+  transition: color 0.2s ease; /* 마우스오버 시 부드러운 변화를 원한다면 */
+}
+
+/* 링크 위에 마우스를 올렸을 때 */
+.news-title:hover {
+  text-decoration: underline; /* 밑줄 표시 */
+}
+
 
 
 /* 슬라이더 컨테이너 */
