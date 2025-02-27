@@ -3,20 +3,24 @@
 /* 고정된 AI 봇 박스 스타일 */
 #exchangePanel {
 	position: fixed;
-	top: 200px;
-	right: 20px;
-	width: 400px;
-	height: 200px;
-	background-color: #f0f0f0;
-	border: 2px solid #ddd;
-	border-radius: 8px;
-	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
-	z-index: 1000;
-	padding: 16px;
-	font-family: Arial, sans-serif;
-	font-size: 19px; 
-	overflow-y: auto;
+    top: 200px;
+    right: 20px;
+    width: 450px;
+    height: 300px;
+    background-color: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 16px;
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    overflow-y: auto;
 	display: none;
+}
+
+h3{
+	padding-left: 30px;
 }
 
 #exchangePanel h2 {
@@ -33,10 +37,11 @@
 }
 
 #toggleExchangeButton {
+	font-size: large;
 	position: fixed;
 	top: 200px;
 	right: 20px;
-	background-color: #ef7c09;
+	background-color: #595959;
 	color: white;
 	border: none;
 	padding: 10px 16px;
@@ -45,6 +50,9 @@
 	cursor: pointer;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 	z-index: 1001;
+}
+#toggleExchangeButton:hover{
+	background: #999;
 }
 
 /* 스크롤바 스타일 (선택적) */
@@ -56,4 +64,42 @@
 	background-color: #aaa;
 	border-radius: 4px;
 }
+
+#currencyForm {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group{
+	padding: 7px;
+    display: flex;
+    justify-content: end;
+    gap: 30px;
+	
+}
+.form-group label{
+	font-size: 20px;
+}
+
+input#fromCurrency {
+    font-size: 18px;
+    text-align: end;
+    border-radius: 5px;
+}
+
+select#toCurrency {
+    font-size: 16px;
+}
+
+#calculation{
+	padding: 5px;
+    font-size: 20px;
+    border-radius: 5px;
+    background: #999;
+    border: none;
+	margin-top: 20px;
+}
+
+
 
