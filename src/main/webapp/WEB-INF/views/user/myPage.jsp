@@ -43,6 +43,7 @@
 			<div class="info-group">
 				<span class="info-label">생성날짜</span> <span class="info-value">${profileBean.created_at }</span>
 			</div>
+			<button class="submit-btn" onclick="location.href='${root}user/deleteMember'">회원탈퇴</button>
 		</div>
 
 		<div class="password-section">
@@ -50,11 +51,11 @@
 			<form:form class="password-form" action="${root}user/changePassword" method="post" modelAttribute="tempLoginUserBean">
 				<div class="form-group">
 					<form:label path="password">현재 비밀번호</form:label> 
-					<form:input path="password" id="password" required="true"/>
+					<form:password path="password" id="password" required="true"/>
 				</div>
 				<div class="form-group">
 					<form:label path="password2">새 비밀번호</form:label> 
-					<form:input path="password2" id="password2" required="true"/>
+					<form:password path="password2" id="password2" required="true"/>
 				</div>
 				<div class="form-group">
 					<label for="confirmPassword">비밀번호 확인</label> 

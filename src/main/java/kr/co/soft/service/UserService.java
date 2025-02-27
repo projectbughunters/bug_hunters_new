@@ -187,6 +187,10 @@ public class UserService {
 	            return "서버와 통신 중 문제가 발생했습니다."; // Node.js 통신 에러
 	        }
 	    }
+	    
+	    public void deleteMemberById(int member_idx) {
+	    	userDao.deleteMemberById(member_idx);
+		};
 
 		
 }

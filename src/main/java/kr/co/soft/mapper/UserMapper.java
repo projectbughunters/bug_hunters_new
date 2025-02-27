@@ -1,5 +1,6 @@
 package kr.co.soft.mapper;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -16,7 +17,7 @@ public interface UserMapper {
 	
 	@Select("select member_name from member where member_id=#{member_id}")
 	String checkUserIdExist(String member_id);
-	
+
 	@Insert("insert into member(member_idx, member_name, member_id, password, birth, email, type) values(member_seq.nextval, #{member_name}, "
 			+ "#{member_id}, #{password}, #{birth},#{email}, 'user')")
 	void addUserInfo(UserBean joinUserBean);
@@ -66,5 +67,8 @@ public interface UserMapper {
 	
 	@Update("UPDATE member SET password=#{password} WHERE member_id=#{member_id}")
 	void updatePassword(@Param("password")String password ,@Param("member_id") String member_id);
+	
+	@Delete("DELETE FROM member WHERE member_idx = #{member_idx}")
+    void deleteMemberById(@Param("member_idx") int member_idx);
 
 }
