@@ -23,7 +23,7 @@
 						</div>
 						<div class="input-group">
 							<form:label path="title">제목</form:label>
-							<form:input path="title" class="form-control"  />
+							<form:input path="title" class="form-control" required="required" />
 							<form:errors path="title" style="color:red" />
 						</div>
 						<div class="input-group">
