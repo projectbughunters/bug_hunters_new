@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <div class="cyptoexchange-section">
-    <h2>암호화폐 거래소</h2>
+    <h2 id="crypto-title">암호화폐 거래소</h2>
     <ul id="cyptoexchangeList">
       <c:forEach var="cyptoexchange" items="${cyptoexchangeList}">
         <li class="cyptoexchange-item">

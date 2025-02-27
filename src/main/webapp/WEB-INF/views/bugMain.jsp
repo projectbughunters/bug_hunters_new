@@ -26,9 +26,11 @@
     <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
     
     <div class="primary-container">
-        <!-- 광고 영역 -->
-        <c:import url="/WEB-INF/views/mainInclude/advertisement.jsp" />
         
+        <div class="ad-main">
+        <!-- 광고 영역 -->
+        	<c:import url="/WEB-INF/views/mainInclude/advertisement.jsp" />
+        </div>
         <!-- 뉴스 및 유튜브 영역 -->
         <div class="content-container">
             <c:import url="/WEB-INF/views/mainInclude/newsSection.jsp" />
@@ -42,7 +44,7 @@
 		</div>
         
         <!-- 캘린더와 차트 영역 -->
-        <div class="content-container">
+        <div class="content-container" id="calender-product">
             <c:import url="/WEB-INF/views/mainInclude/widgetSection.jsp" />
             <c:import url="/WEB-INF/views/mainInclude/productSection.jsp" />
         </div>
