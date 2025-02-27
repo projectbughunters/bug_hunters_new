@@ -29,7 +29,7 @@
             <h1 id="symbolImg">
                <img
                   src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040"
-                  style="height: 50px; margin-right: 5px;"> ${coin.name}
+                  style="height: 50px; margin-right: 20px;"> ${coin.name}
                (${coin.symbol})
             </h1>
 
