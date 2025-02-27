@@ -1,0 +1,395 @@
+@charset "UTF-8";
+
+#symbolImg {
+    margin-top: 40px;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+    margin-left: 110px;
+    border-bottom: 1px solid #ccc;
+}
+
+h2 {
+   font-size: 30px;
+   margin-top: 40px;
+   text-align: center;
+   color: #333;
+   margin-bottom: 30px;
+   font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#explaneCompany {
+   font-size: 45px;
+   margin-top: 40px;
+   margin-left: 100px;
+   color: #333;
+   margin-bottom: 30px;
+   font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+#explaneCompany span {
+   font-size: 25px;
+}
+
+table {
+   width: 100%;
+   border-collapse: collapse;
+   background-color: white;
+   overflow: hidden;
+   font-family: 'Segoe UI', Arial, sans-serif;
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 20px;
+   background-color: #f5f5f5;
+   border: none;
+}
+
+th, td {
+   padding: 15px;
+   text-align: center; /* 모든 셀 중앙 정렬로 변경 */
+   border-bottom: 1px solid #ddd;
+}
+
+th {
+   background-color: white;
+   font-weight: 500;
+}
+
+tr:hover {
+   background-color: #f8f9fa;
+}
+
+.light-bg {
+   background-color: #ffffff;
+}
+
+.align-right {
+   text-align: center; /* align-right 클래스를 center로 변경 */
+}
+
+.rankCol {
+   width: 80px;
+}
+
+.nameCol {
+   width: 150px;
+   text-align: left; /* 종목명만 좌측 정렬 유지 */
+}
+
+.positive-change {
+   color: #2ecc71;
+}
+
+.negative-change {
+   color: #e74c3c;
+}
+
+.chart-and-info {
+   display: flex; /* 가로로 나열 */
+   align-items: flex-start; /* 상단 정렬 */
+   gap: 20px; /* 차트와 테이블 사이 간격 */
+   margin: 20px 80px; /* 페이지 가운데 정렬을 원한다면 auto 사용 */
+   max-width: 1500px; /* 적절한 너비 지정 */
+}
+
+.left-column {
+   display: flex;
+   flex-direction: column; /* 차트와 뉴스는 세로로 배치 */
+   width: 727px; /* 차트 너비에 맞춰 조정 */
+}
+
+/* 차트 컨테이너 */
+#chartContainer {
+   position: relative;
+   width: 100%;
+   height: 445px;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+   padding: 60px 20px;
+   overflow: hidden;
+}
+
+#coinChart {
+   width: 727px !important;
+   height: 500px !important;
+   max-height: none;
+}
+
+.buttonGroup {
+   position: absolute;
+   top: 20px; /* 차트 위쪽 10px 여백 */
+   right: -5%;
+   transform: translateX(-50%);
+   z-index: 10; /* 차트보다 위에 표시 */
+   display: flex;
+   gap: 10px;
+}
+
+/* 차트 관련 스타일 */
+.closePrice {
+   text-align: center;
+   font-size: 24px;
+   font-weight: bold;
+   margin-bottom: 10px;
+}
+
+.chartjs-reset-zoom {
+   display: none !important;
+}
+
+table img {
+   width: 30px;
+   height: 30px;
+   margin-right: 10px;
+   border-radius: 50%; /* 이미지를 동그랗게 만듭니다 */
+   object-fit: cover; /* 이미지가 비율을 유지하며 영역에 맞도록 조정됩니다 */
+}
+
+td.clickable {
+   cursor: pointer;
+   padding: 15px 0;
+   padding-right: 10px;
+}
+
+/* 버튼 스타일 */
+.coinButton {
+   background-color: rgba(255, 165, 0, 1);
+   color: #fff;
+   border: none;
+   padding: 5px 10px;
+   margin: 0;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+
+.coinButton:hover {
+   background-color: #0056b3;
+}
+
+.container {
+   display: flex;
+   width: 500px;
+   flex-direction: column;
+   gap: 20px;
+   margin-top: -70px;
+   margin-left: 30px;
+   padding-top: 70px;
+}
+
+.table {
+   width: 100%;
+   background-color: #fff;
+   padding: 20px;
+   border: 1px solid #eaeaea;
+   border-radius: 8px;
+   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+   margin-bottom: 20px;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table h3 {
+   margin-top: 0;
+   margin-bottom: 15px;
+   font-size: 20px;
+   border-bottom: 2px solid #eee;
+   padding-bottom: 10px;
+}
+
+.table .row {
+   display: flex;
+   justify-content: space-between;
+   padding: 8px 0;
+   font-size: 16px;
+}
+
+.table .row strong {
+   font-weight: 600;
+   margin-right: 10px; /* 레이블과 값 사이 간격 */
+}
+
+.news-section {
+   width: 100%; /* 차트 영역과 동일한 너비 */
+   margin-top: 20px; /* 상단 여백 및 중앙 정렬 */
+   border-top: 1px solid #ccc;
+}
+
+.news-group {
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+}
+
+/* 개별 뉴스 아이템 스타일 */
+.news-item {
+   margin-bottom: 10px; /* 아이템 간격 */
+   font-size: 15px;
+   color: #595959;
+}
+
+/* 링크 타이틀 기본 스타일 */
+.news-title {
+   font-size: 18px; /* 원하는 글자 크기 */
+   color: #000000; /* 검정색 텍스트 */
+   text-decoration: none; /* 밑줄 제거 */
+   transition: color 0.2s ease; /* 마우스오버 시 부드러운 변화를 원한다면 */
+}
+
+/* 링크 위에 마우스를 올렸을 때 */
+.news-title:hover {
+   text-decoration: underline; /* 밑줄 표시 */
+}
+
+.highlight {
+   text-align: center;
+   margin-top: 15px;
+   padding: 10px 15px;
+   background-color: #4CAF50;
+   color: #fff;
+   border: none;
+   border-radius: 3px;
+   cursor: pointer;
+   text-decoration: none;
+   display: inline-block;
+}
+
+.highlight:hover {
+   background-color: #45a049;
+}
+
+.pagination {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 20px 0;
+}
+
+.pagination a {
+   margin: 0 5px;
+   padding: 8px 12px;
+   text-decoration: none;
+   color: #007BFF;
+   border: 1px solid #ddd;
+   border-radius: 4px;
+   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination a:hover {
+   background-color: #007BFF;
+   color: #fff;
+}
+
+.pagination a.active {
+   background-color: #007BFF;
+   color: #fff;
+   border-color: #007BFF;
+   pointer-events: none;
+}
+
+/* 기본 즐겨찾기 버튼 스타일 */
+.fav-btn {
+   background-color: #ffffff;
+   border: none;
+   width: 25px;
+   height: 25px;
+   clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%,
+      32% 57%, 2% 35%, 39% 35%);
+   color: #ffffff;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   cursor: pointer;
+   transition: transform 0.3s ease, box-shadow 0.3s ease, background-color
+      0.3s ease, color 0.3s ease;
+}
+
+.fav-btn:hover {
+   transform: scale(1.1);
+}
+
+/* 즐겨찾기가 활성화된 상태 (추가된 상태) */
+.fav-btn.active, .fav-btn.favorited {
+   background: #f37335;
+   border: none;
+   color: #f37335;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.list-container {
+   width: 100%;
+   overflow: hidden; /* 넘치는 내용은 숨김 처리 */
+   position: relative;
+}
+
+.list-container ul {
+   display: flex; /* li들을 가로로 나열 */
+   padding: 0;
+   margin: 0;
+   list-style: none;
+}
+
+.list-container li {
+   width: 100%; /* 컨테이너와 같은 너비 */
+   flex-shrink: 0; /* li가 줄어들지 않도록 설정 */
+}
+
+/* hr 스타일 (선택사항) */
+.news-group hr {
+   border: 0;
+   border-top: 1px solid #ccc;
+   margin: 10px 0;
+}
+
+/* 슬라이더 컨테이너 */
+.advertisement-slider {
+   position: relative;
+   width: 100%;
+   max-width: 800px;
+   margin: auto;
+   overflow: hidden;
+}
+
+/* 슬라이드 래퍼 */
+.advertisement-slides {
+   display: flex;
+   transition: transform 0.5s ease-in-out;
+}
+
+/* 각 슬라이드 */
+.advertisement-slide {
+   min-width: 100%;
+   box-sizing: border-box;
+   position: relative;
+}
+
+/* 좌우 화살표 버튼 */
+.advertisement-arrow {
+   position: absolute;
+   top: 50%;
+   transform: translateY(-50%);
+   font-size: 2em;
+   color: #fff;
+   background-color: rgba(0, 0, 0, 0.5);
+   border: none;
+   padding: 10px;
+   cursor: pointer;
+   display: none;
+}
+
+.advertisement-arrow-left {
+   left: 10px;
+}
+
+.advertisement-arrow-right {
+   right: 10px;
+}
+
+/* 슬라이더 영역에 마우스 오버 시 화살표 보이기 */
+.advertisement-slider:hover .advertisement-arrow {
+   display: block;
+}

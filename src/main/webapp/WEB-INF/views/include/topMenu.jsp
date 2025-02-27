@@ -46,6 +46,13 @@
 	
 	<c:choose>
 				<c:when test="${loginUserBean.userLogin == true}">
+						<!-- 즐겨찾기 버튼 추가 -->
+				         <div class="dropdown">
+				            <a href="#" class="dropdown-link" onclick="loadFavorites()">FAVORITES ▾</a>
+				            <div class="dropdown-content" id="favoritesDropdown">
+				               <!-- AJAX 결과가 여기에 표시됩니다. -->
+				            </div>
+				         </div>
 						<span class="login"><a href="${root }user/myPage" class="nav-link">MYPAGE</a></span>
 						<c:if test="${loginUserBean != null && loginUserBean.type == 'google'}">
 							<span class="login"><a href="${root }google/logout" class="nav-link">LOGOUT</a></span>
@@ -61,3 +68,34 @@
 	</c:choose>
 	
 </header>
+
+<script type="text/javascript">
+function loadFavorites() {
+    $.ajax({
+       url: '${root}favorite/select',
+       type: 'POST',
+       dataType: 'json',
+       success: function(data) {
+          var favorites = '<tbody>';
+          $.each(data, function(index, item) {
+             if (item.type === 'stock') {
+                favorites += '<tr>' +
+                   '<td><a href="${root}stock/info/' + item.symbol + '">' + item.symbol + '</a></td>' +
+                   '<td><button class="delete-fav-btn" data-symbol="' + item.symbol + '" data-type="stock">삭제</button></td>' +
+                   '</tr>';
+             } else {
+                favorites += '<tr>' +
+                   '<td><a href="${root}coin/info/' + item.symbol + '/' + item.type + '">' + item.symbol + '</a></td>' +
+                   '<td><button class="delete-fav-btn" data-symbol="' + item.symbol + '" data-type="' + item.type + '">삭제</button></td>' +
+                   '</tr>';
+             }
+          });
+          favorites += '</tbody>';
+          $('#favoritesDropdown').html(favorites);
+       },
+       error: function() {
+          alert('즐겨찾기 목록을 불러오는 데 실패했습니다.');
+       }
+    });
+ }
+</script>

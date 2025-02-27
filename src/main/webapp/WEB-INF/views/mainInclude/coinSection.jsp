@@ -21,7 +21,6 @@
          <table>
             <thead>
                <tr>
-                  <th class="headCol rankCol">순위</th>
                   <th class="headCol nameCol">종목</th>
                   <th>기호</th>
                   <th>가격(KRW)</th>
@@ -34,42 +33,51 @@
             <tbody>
                <c:forEach var="coin" items="${pageBeanForCoins.list}">
                   <tr>
-                     <td class="headCol rankCol">${coin.rank}</td>
                      <td class="headCol nameCol"
                         onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
                         <img
                         src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040"
-                        style="height: 20px; margin-right: 5px;"> ${coin.name}
+                        style="width: 30px; height: 30px; margin-right: 10px;"> ${coin.name}
                      </td>
                      <td>${coin.symbol}</td>
-                     <td class="align-right">$ <script>
-                                    var price = (${coin.quotes.USD.price}).toFixed(2);
-                                    document.write(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-                                </script>
+                     <td class="align-right">
+                         <script>
+                             var price = Number(${coin.quotes.USD.price});
+                             // 단위 축약 (K, M, B, T) 적용
+                             document.write("$ " + formatEBITDA(price));
+                         </script>
                      </td>
-                     <td class="align-right">$ <script>
-                                    var market_cap = (${coin.quotes.USD.market_cap}).toFixed(0);
-                                    document.write(market_cap.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-                                </script>
+                     
+                     <!-- 시가총액 (Market Cap) -->
+                     <td class="align-right">
+                         <script>
+                             var marketCap = Number(${coin.quotes.USD.market_cap});
+                             document.write("$ " + formatEBITDA(marketCap));
+                         </script>
                      </td>
-                     <td class="align-right">$ <script>
-                                    var volume_24h = (${coin.quotes.USD.volume_24h}).toFixed(2);
-                                    document.write(volume_24h.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-                                </script>
+                     
+                     <!-- 24시간 거래량 (Volume 24h) -->
+                     <td class="align-right">
+                         <script>
+                             var volume24h = Number(${coin.quotes.USD.volume_24h});
+                             document.write("$ " + formatEBITDA(volume24h));
+                         </script>
                      </td>
-                     <td
-                        class="align-right ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
-                        <script>
-                                    var percentChange24h = ${coin.quotes.USD.percent_change_24h};
-                                    document.write(percentChange24h.toFixed(2) + "%");
-                                </script>
+                     
+                     <!-- 24시간 변동률 -->
+                     <td class="align-right ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
+                         <script>
+                             var percentChange24h = Number(${coin.quotes.USD.percent_change_24h});
+                             document.write(percentChange24h.toFixed(2) + "%");
+                         </script>
                      </td>
-                     <td
-                        class="align-right ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
-                        <script>
-                                    var percentChange7d = ${coin.quotes.USD.percent_change_7d};
-                                    document.write(percentChange7d.toFixed(2) + "%");
-                                </script>
+                     
+                     <!-- 7일 변동률 -->
+                     <td class="align-right ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
+                         <script>
+                             var percentChange7d = Number(${coin.quotes.USD.percent_change_7d});
+                             document.write(percentChange7d.toFixed(2) + "%");
+                         </script>
                      </td>
                   </tr>
                </c:forEach>

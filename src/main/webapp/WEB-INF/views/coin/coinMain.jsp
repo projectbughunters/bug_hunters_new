@@ -30,6 +30,7 @@
 </head>
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
+<c:import url="/WEB-INF/views/stock/exchange.jsp"/>
 
 <div class="primary-container">
 <h2>암호화폐 테이블</h2>
@@ -37,7 +38,7 @@
 <table>
     <thead>
         <tr>
-        	<th></th>
+           <th></th>
             <th class="headCol nameCol">종목</th>
             <th>기호</th>
             <th>가격(KRW)</th>
@@ -47,70 +48,84 @@
             <th>변동(7D)</th>
         </tr>
     </thead>
-    <tbody>
-        <!-- coins 배열을 순회 -->
-        <c:forEach var="coin" items="${pageBean.list}">
-        <tr>
-        	<!-- 1. 일단 false로 초기화 -->
-	        <c:set var="isFavorited" value="false" />
-	
-	        <!-- 2. favorites 목록을 돌며, 이 stock이 있는지 확인 -->
-	        <c:forEach var="favorite" items="${favorites}">
-	            <c:if test="${stock.symbol == favorite.symbol}">
-	                <c:set var="isFavorited" value="true" />
-	            </c:if>
-	        </c:forEach>
-			<c:if test="${loginUserBean.userLogin == true }">
-					<!-- 3. 최종적으로 isFavorited에 따라 active 클래스 적용 여부 결정 -->
-		        <td>
-		            <button class="fav-btn ${isFavorited ? 'active' : ''}"
-		                    data-symbol="${stock.symbol}"
-		                    data-type="${coin.name}">
-		            </button>
-		        </td>
-			</c:if>
-			<c:if test="${loginUserBean.userLogin == false }">
-				<td></td>
-			</c:if>
-		    <td class="headCol nameCol" onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
-		    <img src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040" 
-		          style="height: 20px; margin-right: 5px;"> 
-		    ${coin.name}</td>
-		    <td>${coin.symbol}</td>
-		    <td class="align-right">$
-		    	<script>
-				    var price = (${coin.quotes.USD.price}).toFixed(2);
-				    document.write(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				</script>
-		    </td>
-		    <td class="align-right">$
-		    	<script>
-				    var market_cap = (${coin.quotes.USD.market_cap}).toFixed(0);
-				    document.write(market_cap.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				</script>
-		    </td>
-		    <td class="align-right">$
-		    	<script>
-				    var volume_24h = (${coin.quotes.USD.volume_24h}).toFixed(2);
-				    document.write(volume_24h.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				</script>
-		    </td>
-		    <td class="align-right ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
-		        <script>
-		            var percentChange24h = ${coin.quotes.USD.percent_change_24h};
-		            document.write((percentChange24h).toFixed(2) + "%");
-		        </script>
-		    </td>
-		    <td class="align-right ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
-		        <script>
-		            var percentChange7d = ${coin.quotes.USD.percent_change_7d};
-		            document.write((percentChange7d).toFixed(2) + "%");
-		        </script>
-		    </td>
-		</tr>
-		</c:forEach>
-
-    </tbody>
+          <tbody>
+          <!-- coins 배열을 순회 -->
+          <c:forEach var="coin" items="${pageBean.list}">
+              <tr>
+                  <!-- 1. 일단 false로 초기화 -->
+                  <c:set var="isFavorited" value="false" />
+          
+                  <!-- 2. favorites 목록을 돌며, 이 stock이 있는지 확인 -->
+                  <c:forEach var="favorite" items="${favorites}">
+                      <c:if test="${stock.symbol == favorite.symbol}">
+                          <c:set var="isFavorited" value="true" />
+                      </c:if>
+                  </c:forEach>
+      
+                  <c:if test="${loginUserBean.userLogin == true }">
+                      <!-- 3. 최종적으로 isFavorited에 따라 active 클래스 적용 여부 결정 -->
+                      <td>
+                          <button class="fav-btn ${isFavorited ? 'active' : ''}"
+                                  data-symbol="${stock.symbol}"
+                                  data-type="${coin.name}">
+                          </button>
+                      </td>
+                  </c:if>
+                  <c:if test="${loginUserBean.userLogin == false }">
+                      <td></td>
+                  </c:if>
+      
+                  <!-- 코인 이름/심볼 -->
+                  <td class="headCol nameCol"
+                      onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
+                      <img src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040"
+                           style="height: 20px; margin-right: 5px;">
+                      ${coin.name}
+                  </td>
+                  <td>${coin.symbol}</td>
+      
+                  <!-- 가격 (Price) -->
+                  <td class="align-right">
+                      <script>
+                          var price = Number(${coin.quotes.USD.price});
+                          document.write("$ " + formatEBITDA(price));
+                      </script>
+                  </td>
+      
+                  <!-- 시가총액 (Market Cap) -->
+                  <td class="align-right">
+                      <script>
+                          var marketCap = Number(${coin.quotes.USD.market_cap});
+                          document.write("$ " + formatEBITDA(marketCap));
+                      </script>
+                  </td>
+      
+                  <!-- 24시간 거래량 (Volume 24h) -->
+                  <td class="align-right">
+                      <script>
+                          var volume24h = Number(${coin.quotes.USD.volume_24h});
+                          document.write("$ " + formatEBITDA(volume24h));
+                      </script>
+                  </td>
+      
+                  <!-- 24시간 변동률 -->
+                  <td class="align-right ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
+                      <script>
+                          var percentChange24h = Number(${coin.quotes.USD.percent_change_24h});
+                          document.write(percentChange24h.toFixed(2) + "%");
+                      </script>
+                  </td>
+      
+                  <!-- 7일 변동률 -->
+                  <td class="align-right ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
+                      <script>
+                          var percentChange7d = Number(${coin.quotes.USD.percent_change_7d});
+                          document.write(percentChange7d.toFixed(2) + "%");
+                      </script>
+                  </td>
+              </tr>
+          </c:forEach>
+      </tbody>
 </table>
 <!-- 페이지네이션 내비게이션 -->
     <div class="pagination">

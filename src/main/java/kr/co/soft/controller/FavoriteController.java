@@ -1,10 +1,8 @@
 package kr.co.soft.controller;
 
-import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,6 +51,14 @@ public class FavoriteController {
    } catch (Exception e) {
      return "오류가 발생했습니다. 즐겨찾기를 삭제할 수 없습니다.";
    }
+ }
+ 
+ // POST 방식으로 /favorite/select 요청 시 즐겨찾기 목록 반환 (JSON)
+ @PostMapping("/favorite/select")
+ public List<FavoriteBean> selectFavorite() {
+   int member_idx = loginUserBean.getMember_idx();
+   List<FavoriteBean> favorites = favoriteService.selectFavoritesByMemberIdx(member_idx);
+   return favorites;
  }
 
 

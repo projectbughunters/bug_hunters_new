@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.positive-change {
+   color: #2ecc71;
+}
+
+.negative-change {
+   color: #e74c3c;
+}
