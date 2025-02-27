@@ -18,14 +18,8 @@
 body {
 	height: 100vh;
 }
-#portfolio-list, #portfolio-summary, #portfolio-chart, #portfolio-holdings{
-	margin: 60px auto;
-}
 
-.portfolio-list, .portfolio-summary, .portfolio-chart,
-	.portfolio-holdings {
-	background-color: f8f8f8;
-}
+
 
 .footer {
 	margin-top: 70px;
@@ -63,20 +57,7 @@ body {
 				</div>
 			</div>
 
-			<div class="asset-distribution">
-				<div class="distribution-item">
-					<div class="distribution-value">45%</div>
-					<div class="distribution-label">주식</div>
-				</div>
-				<div class="distribution-item">
-					<div class="distribution-value">30%</div>
-					<div class="distribution-label">암호화폐</div>
-				</div>
-				<div class="distribution-item">
-					<div class="distribution-value">25%</div>
-					<div class="distribution-label">현금성 자산</div>
-				</div>
-			</div>
+			
 		</div>
 
 		<div class="portfolio-chart" id="portfolio-chart" style="opacity: 1; display: flex; justify-content: space-around; align-items: center;">
@@ -156,8 +137,22 @@ body {
 
 	    let dataLabels = [];
 	    let dataValues = [];
-	    let backgroundColors = ['#3498db', '#f1c40f', '#2ecc71', '#e74c3c', '#9b59b6'];
-	    let hoverBackgroundColors = ['#2980b9', '#f39c12', '#27ae60', '#c0392b', '#8e44ad'];
+	    let backgroundColors = [
+    	  'rgba(13, 59, 102, 0.2)',  // #0D3B66 + 투명도 0.2
+    	  'rgba(20, 83, 116, 0.35)', // #145374 + 0.35
+    	  'rgba(30, 129, 176, 0.5)', // #1E81B0 + 0.5
+    	  'rgba(113, 169, 247, 0.65)', // #71A9F7 + 0.65
+    	  'rgba(165, 216, 255, 0.8)'   // #A5D8FF + 0.8
+    	];
+
+    	// Hover 시 약간 더 진하게 (또는 채도를 높여서 더 선명하게)
+    	let hoverBackgroundColors = [
+    	  '#0C355C',
+    	  '#114765',
+    	  '#1A6C93',
+    	  '#5F8FDC',
+    	  '#91C6E5'
+    	];
 
 	    const rows = document.querySelectorAll('.holdings-table tbody tr');
 	    console.log("찾은 행들:", rows);

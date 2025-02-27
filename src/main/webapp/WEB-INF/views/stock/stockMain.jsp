@@ -48,7 +48,7 @@
 			        </c:forEach>
 					<c:if test="${loginUserBean.userLogin == true }">
 							<!-- 3. 최종적으로 isFavorited에 따라 active 클래스 적용 여부 결정 -->
-				        <td>
+				        <td class="fav-td">
 				            <button class="fav-btn ${isFavorited ? 'active' : ''}"
 				                    data-symbol="${stock.symbol}"
 				                    data-type="stock">
