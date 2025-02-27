@@ -307,7 +307,7 @@ h2#chartTitle {
 	width: 100px;
     height: 30px;
     background: #d9d9d9;
-    border-radius: 15px;
+    border-radius: 10px;
     border: none;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
     transition: background-color 0.3s, transform 0.3s; /* 배경색과 크기 변환 전환 */

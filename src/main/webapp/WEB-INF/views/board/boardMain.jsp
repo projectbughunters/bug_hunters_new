@@ -36,8 +36,8 @@
             <thead>
                 <tr>
                     <th>번호</th>
-                    <th>카테고리</th>
-                    <th width="50%">제목</th>
+                    <th style="width:10%;">카테고리</th>
+                    <th style="width:38%;">제목</th>
                     <th>작성자</th>
                     <th>작성일</th>
                     <th>조회수</th>

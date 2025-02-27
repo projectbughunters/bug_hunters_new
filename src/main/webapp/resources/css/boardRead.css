@@ -6,6 +6,11 @@ body {
     padding: 0;
     background-color: #ffffff;
 }
+
+.primary-container {   
+    background: #f9f9f9;
+}
+
 h2{
 	text-align: center;
 	margin-bottom: 50px;
@@ -25,13 +30,13 @@ h2{
 
 .read-header {
     margin-bottom: 30px;
-    border-bottom: 2px solid #ef7c09;
+    border-bottom: 2px solid #d9d9d9;
     padding-bottom: 15px;
 }
 
 .info-row {
     display: flex;
-    justify-content: space-between; /* 양쪽 정렬 */
+    justify-content: center; 
     margin-bottom: 20px; /* 아래 여백 */
 }
 
@@ -97,13 +102,13 @@ h2{
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #6c757d;
+    background-color: #595959;
     color: white;
     transition: background-color 0.3s;
 }
 
 .back-btn:hover {
-    background-color: #5a6268;
+    background-color: #999;
 }
 
 button {
@@ -112,22 +117,23 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #ef7c09;
+    background-color: #595959;
     color: white;
     transition: background-color 0.3s;
 }
 
 button:hover {
-    background-color: #d66c08;
+    background-color: #999;
 }
 
 #recommend{
-	width : 50px;
-	height : 50px;
-	padding: 5px;
-	font-size: 30px;
-	background: #f9f9f9;
-	text-align: center;
+	width: 60px;
+    height: 60px;
+    padding: 5px;
+    font-size: 30px;
+    background: #f9f9f9;
+    border-radius: 30px;
+    text-align: center;
 }
 .comment-input {
     display: flex;
@@ -156,7 +162,7 @@ button:hover {
 .comment-section {
     margin-top: 40px;
     padding: 20px;
-    border-top: 2px solid #ef7c09;
+    border-top: 2px solid #d9d9d9;
 }
 
 .comment-section h3 {
@@ -177,7 +183,7 @@ button:hover {
 
 /* 댓글 작성자 정보 */
 .comment p strong {
-    color: #ef7c09;
+    color: #170086;;
     font-size: 16px;
 }
 
@@ -187,13 +193,13 @@ button:hover {
     font-size: 15px;
 }
 
+
+
 /* 댓글 입력 폼 */
 .comment-section form {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    background-color: #f3f3f3;
-    padding: 15px;
     border-radius: 5px;
 }
 
@@ -205,6 +211,35 @@ button:hover {
     border-radius: 5px;
     resize: none;
 }
+.comment-btn {
+	display: flex;
+	justify-content: end;
+    font-size: 14px;
+    gap: 10px;
+}
+
+.comment button {
+    padding: 8px 15px;
+    font-size: 14px;
+    width: 70px;
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+}
+#comment-click{
+	width: 93%;
+    margin-left: 7%;
+}
+
+#del{
+	margin-bottom: 0px !important;
+}
+
+.comment-row #comment-btn{
+	width: 70px;
+    height: 40px;
+    justify-content: initial;
+}
 
 /* 버튼 정렬 */
 .comment .button-group {
@@ -212,10 +247,5 @@ button:hover {
     justify-content: flex-end;
     gap: 10px;
     margin-top: 5px;
-}
-
-.comment button {
-    padding: 8px 15px;
-    font-size: 14px;
 }
 

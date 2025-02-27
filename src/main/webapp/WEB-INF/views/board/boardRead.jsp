@@ -93,7 +93,7 @@ function confirmDelete(boardIdx) {
 		            <form:textarea id="comment_content" path="comment_content" rows="4" required="required" 
 		                           disabled="${loginUserBean.userLogin==false}"></form:textarea>
 		        </div>
-		        <button type="submit" ${loginUserBean.userLogin==false ? 'disabled' : ''}>댓글 작성</button>
+		        <button id="comment-click" type="submit" ${loginUserBean.userLogin==false ? 'disabled' : ''}>댓글 작성</button>
 		    </form:form>
 		</div>
 	<div class="comment-section">
@@ -108,32 +108,37 @@ function confirmDelete(boardIdx) {
 		        <c:when test="${not empty commentList}">
 		            <c:forEach var="comment" items="${commentList}">
 		                <div class="comment">
-		                    <p>
-				                <strong>
-				                    ${userIdMap[comment.member_idx]} <!-- member_idx에 해당하는 user_id를 가져옵니다. -->
-				                </strong> (${comment.comment_time})
-				            </p> 
-		                    <!-- 기존 댓글 내용 -->
-		                    <p id="comment-text-${comment.comment_idx}">${comment.comment_content}</p>
-		
-		                    <!-- 수정 폼 (초기에는 숨김) -->
-		                    <form:form action="${root}board/commentUpdate" method="post" modelAttribute="commentBean"
-		                               id="edit-form-${comment.comment_idx}" style="display:none;">
-		                        <form:hidden path="comment_idx" value="${comment.comment_idx}" />
-		                        <form:hidden path="board_idx" value="${comment.board_idx}" />
-		                        <form:input path="comment_content" value="${comment.comment_content}" />
-		                        <button type="submit">저장</button>
-		                    </form:form>
-		
+		                	<div class="comment-row">
+			                    <p>
+					                <strong>
+					                    ${userIdMap[comment.member_idx]} <!-- member_idx에 해당하는 user_id를 가져옵니다. -->
+					                </strong> (${comment.comment_time})
+					            </p> 
+			                    <!-- 기존 댓글 내용 -->
+			                    <p id="comment-text-${comment.comment_idx}">${comment.comment_content}</p>
+							</div>
+							<div class="comment-row" id="comment-btn">
+			                    <!-- 수정 폼 (초기에는 숨김) -->
+			                    <form:form action="${root}board/commentUpdate" method="post" modelAttribute="commentBean"
+			                               id="edit-form-${comment.comment_idx}" style="display:none;">
+			                        <form:hidden path="comment_idx" value="${comment.comment_idx}" />
+			                        <form:hidden path="board_idx" value="${comment.board_idx}" />
+			                        <form:input path="comment_content" value="${comment.comment_content}" />
+			                        <button type="submit">저장</button>
+			                    </form:form>
+							
 		                    <!-- 버튼 영역 -->
-		                    <c:if test="${comment.member_idx == loginUserBean.member_idx && loginUserBean.userLogin==true}">
-		                        <button onclick="editComment(${comment.comment_idx})">수정</button>
-		                        <form:form action="${root}board/commentDelete" method="post" modelAttribute="commentBean" style="display:inline;">
-		                            <form:hidden path="comment_idx" value="${comment.comment_idx}" />
-		                            <form:hidden path="board_idx" value="${comment.board_idx}" />
-		                            <button type="submit" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</button>
-		                        </form:form>
-		                    </c:if>
+		                    	<c:if test="${comment.member_idx == loginUserBean.member_idx && loginUserBean.userLogin==true}">
+			                        <div class="comment-btn">
+				                        <button onclick="editComment(${comment.comment_idx})">수정</button>
+					                    <form:form id="del" action="${root}board/commentDelete" method="post" modelAttribute="commentBean" >
+					                    <form:hidden path="comment_idx" value="${comment.comment_idx}" />
+				                        <form:hidden path="board_idx" value="${comment.board_idx}" />
+				                        <button type="submit" onclick="return confirm('정말 삭제하시겠습니까?');" ">삭제</button>
+				                        </form:form>
+			                        </div> 
+		                    	</c:if>
+		                       </div>
 		                </div>
 		                <hr>
 		            </c:forEach>
