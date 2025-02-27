@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -79,7 +81,7 @@ public class BoardController {
 
 	@PostMapping("/boardWriteSuccess")
 	public String writeSuccess(@ModelAttribute("boardWriteBean") BoardInfoBean boardInfoBean, Model model,
-			BindingResult result) {
+			BindingResult result, HttpServletRequest request) {
 		if (result.hasErrors()) {
 			return "board/write";
 		}
@@ -90,7 +92,7 @@ public class BoardController {
 		}
 
 		// 서비스 호출
-		boardService.addContentInfo(boardInfoBean);
+		boardService.addContentInfo(boardInfoBean, request);
 
 		model.addAttribute("boardInfoBean", boardInfoBean);
 		return "board/boardWriteSuccess";
@@ -160,8 +162,8 @@ public class BoardController {
 
 	// 게시글 수정 처리
 	@PostMapping("/boardModifyPro")
-	public String boardWritePro(@ModelAttribute("boardBean") BoardInfoBean boardBean) {
-		boardService.updateBoardInfo(boardBean); // 수정된 게시글 정보 업데이트
+	public String boardWritePro(@ModelAttribute("boardBean") BoardInfoBean boardBean, HttpServletRequest request) {
+		boardService.updateBoardInfo(boardBean, request); // 수정된 게시글 정보 업데이트
 
 		return "redirect:/board/boardRead"; // 수정 후 게시글 목록으로 리다이렉트
 	}

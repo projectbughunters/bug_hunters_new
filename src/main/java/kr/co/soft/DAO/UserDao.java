@@ -82,4 +82,8 @@ public class UserDao {
 		userMapper.updatePassword(password, member_id);
 	};
 	
+	public void deleteMemberById(int member_idx) {
+		userMapper.deleteMemberById(member_idx);
+	};
+	
 }

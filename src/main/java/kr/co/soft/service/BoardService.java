@@ -7,6 +7,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +61,12 @@ public class BoardService {
 		return boardDAO.getBoardInfo(board_idx);
 	}
 
-	public void addContentInfo(BoardInfoBean boardInfoBean) {
+	public void addContentInfo(BoardInfoBean boardInfoBean, HttpServletRequest request) {
 
 		MultipartFile upload_file = boardInfoBean.getUpload_file();
 
 		if (upload_file.getSize() > 0) {
-			String file_name = saveUploadFile(upload_file);
+			String file_name = saveUploadFile(upload_file, request);
 			// 첨부파일 이름 저장
 			boardInfoBean.setContent_file(file_name);
 		}
@@ -82,7 +84,7 @@ public class BoardService {
 		boardDAO.deleteBoardInfo(board_idx);
 	}
 
-	public void updateBoardInfo(BoardInfoBean boardInfoBean) {
+	public void updateBoardInfo(BoardInfoBean boardInfoBean, HttpServletRequest request) {
 		// 현재 날짜를 write_date에 설정
 		boardInfoBean.setWrite_date(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
 
@@ -90,30 +92,41 @@ public class BoardService {
 		MultipartFile upload_file = boardInfoBean.getUpload_file();
 
 		if (upload_file.getSize() > 0) {// upload가 있다면
-			String file_name = saveUploadFile(upload_file);
+			String file_name = saveUploadFile(upload_file, request);
 			boardInfoBean.setContent_file(file_name);
 		}
 
 		boardDAO.updateBoardInfo(boardInfoBean);
 	}
 
-	private String saveUploadFile(MultipartFile upload_file) {
-		// 파일 이름 생성
-		String file_name = System.currentTimeMillis() + "_tmi_uploadFile" + "."
-				+ FilenameUtils.getExtension(upload_file.getOriginalFilename());
-		String path_upload = "/Users/ej/Desktop/cording/soldesk/Spring_WS/bugHunters_TMI/src/main/webapp/resources/upload";
-		System.out.println("파일 저장 경로: " + path_upload);
+	private String saveUploadFile(MultipartFile upload_file, HttpServletRequest request) {
+        // 파일 이름 생성
+        String fileName = System.currentTimeMillis() + "_tmi_uploadFile."
+                + FilenameUtils.getExtension(upload_file.getOriginalFilename());
 
-		try {
-			upload_file.transferTo(new File(path_upload + "/" + file_name));
-		} catch (IOException e) {
-			System.out.println("파일 저장 오류 발생 : " + e.getMessage());
-			// 예외 처리
-			throw new RuntimeException("파일 저장 중 오류가 발생했습니다.", e);
-		}
+        // 상대 경로 (webapp/resources/upload) 설정
+        String relativePath = "/resources/upload";
 
-		return file_name;
-	}
+        // request에서 ServletContext 획득
+        String pathUpload = request.getServletContext().getRealPath(relativePath);
+        System.out.println("파일 저장 경로: " + pathUpload);
+
+        // 디렉토리가 없으면 생성
+        File uploadDir = new File(pathUpload);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdirs();
+        }
+
+        try {
+            // 파일 저장
+            upload_file.transferTo(new File(uploadDir, fileName));
+        } catch (IOException e) {
+            System.out.println("파일 저장 오류 발생: " + e.getMessage());
+            throw new RuntimeException("파일 저장 중 오류가 발생했습니다.", e);
+        }
+
+        return fileName;
+    }
 
 	@Transactional
 	public void incrementViewCount(int boardIdx) {

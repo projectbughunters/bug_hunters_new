@@ -205,7 +205,7 @@ public class ServletAppContext implements WebMvcConfigurer {
 	      
 	      CheckLoginInterceptor checkLoginInterceptor = new CheckLoginInterceptor(loginUserBean);
 	      InterceptorRegistration reg2 = registry.addInterceptor(checkLoginInterceptor);
-	      reg2.addPathPatterns("/portfolio/**","/user/myPage","user/changePassword");
+	      reg2.addPathPatterns("/portfolio/**","/user/myPage","user/changePassword", "user/deleteMember");
 	      reg2.excludePathPatterns("/portfolio/loginError");  // 로그인 오류 페이지는 예외처리
 	      //reg2.excludePathPatterns("/board/main");
 	}

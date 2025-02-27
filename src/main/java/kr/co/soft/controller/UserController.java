@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,11 +17,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.soft.DAO.UserDao;
 import kr.co.soft.beans.ProfileBean;
 import kr.co.soft.beans.UserBean;
 import kr.co.soft.service.UserService;
@@ -33,6 +34,11 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+    private UserDao userDao;
+	
+	@Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
@@ -214,7 +220,31 @@ public class UserController {
 	    return "user/findPasswordResult";
 	}   
 	
+	@GetMapping("/deleteMember")
+	public String deleteMember() {
+
+	    return "user/deleteMember";
+	}
 	
+	@PostMapping("/deleteMember_pro")
+	public String deleteMember_pro(@RequestParam("member_idx") int member_idx, @RequestParam("member_id") String member_id, @RequestParam("password") String password ) {
+		try {
+			UserBean userBean = new UserBean();
+			userBean.setMember_id(member_id);
+			UserBean userBean2 = userDao.getLoginUserInfo(userBean);
+			if (passwordEncoder.matches(password.trim(), userBean2.getPassword().trim())) {
+				userService.deleteMemberById(member_idx);
+			}else {
+				return "user/deleteMemberError";
+			}
+	        
+	        
+	    } catch (Exception e) {
+	        e.getMessage();
+	    }
+
+	    return "user/deleteMemberResult";
+	}
 	
 	@GetMapping("/checkUserIdExist/{member_id}")
 	@ResponseBody
