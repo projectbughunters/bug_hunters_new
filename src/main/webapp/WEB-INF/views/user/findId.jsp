@@ -18,7 +18,7 @@
 <body>
     <div class="findId-container">
         <div class="findId-header">
-            <h1><a href="${root }">TMI</a></h1>
+            <a href="${root}"><image src="${root}image/TMI_YB.png" style="width: 70px; height : 50px"/></a>
             <p>아이디 찾기</p>
             <p>회원가입 시 입력한 이름과 이메일을 입력해주세요.</p>
             <br/>

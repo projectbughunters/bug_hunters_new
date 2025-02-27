@@ -13,38 +13,13 @@
     <link rel="stylesheet" href="${root}css/login.css"> 
     
     <title>Take Money Information | TMI</title>
-    <style type="text/css">
-    	.alert-danger {
-    background-color: #ffe6e6; /* 밝은 빨간색 배경 */
-    color: #d9534f; /* 경고용 빨간 텍스트 */
-    border: 1px solid #f5c6cb; /* 부드러운 경계선 */
-    border-radius: 5px; /* 둥근 모서리 */
-    padding: 15px; /* 여백 */
-    margin-bottom: 20px; /* 아래 여백 */
-    text-align: center; /* 텍스트 가운데 정렬 */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* 약간의 그림자 효과 */
-    font-size: 14px; /* 텍스트 크기 */
-}
-
-.alert-danger h3 {
-    font-size: 18px; /* 제목 크기 */
-    margin-bottom: 10px; /* 아래 여백 */
-    color: #d9534f; /* 제목 색상 */
-    font-weight: 700; /* 굵은 글씨 */
-}
-
-.alert-danger p {
-    margin: 0; /* 기본 여백 제거 */
-    color: #d9534f; /* 문단 텍스트 색상 */
-}
-    	
-    </style>
+    
     
 </head>
 <body>
     <div class="login-container">
         <div class="login-header">
-            <h1><a href="${root }">TMI</a></h1>
+            <a href="${root}"><image src="${root}image/TMI_YB.png" style="width: 70px; height : 50px"/></a>
             <p>로그인하여 서비스를 이용하세요</p>
             <c:if test="${fail == true }">
                      <div class="alert-danger">

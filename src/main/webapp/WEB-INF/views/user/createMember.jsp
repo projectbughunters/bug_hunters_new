@@ -53,7 +53,7 @@
 <body>
     <div class="register-container">
         <div class="register-header">
-            <h1><a href="${root }">TMI</a></h1>
+            <a href="${root}"><image src="${root}image/TMI_YB.png" style="width: 70px; height : 50px"/></a>
             <p>회원가입</p>
         </div>
         <form:form action="${root }user/createMember_pro" method="post" modelAttribute="joinUserBean">

@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+
+.primary-container {
+  padding: 10px 10%;
+  margin-bottom: 50px;
+}
+
+.text-container {
+  width: 100%;
+  margin-top: 30px;
+  background-color: #ededed;
+}
+
+.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-around; /* 버튼 간격을 일정하게 */
+  margin-top: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+  gap: 20px;
+}
+.text-container{
+  width: 100%;
+  border: dotted 2px lightgray;
+}
+.inner-text-container {
+  padding-left: 40px; /* 왼쪽 패딩 추가 */
+}
+.bcontainer-container{
+  width: 100%;
+}
+
+.custom-button {
+  width: 400px;
+  height: 250px;
+  display: flex; /* flexbox를 사용하여 내부 요소 정렬 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  align-items: center;
+  justify-content: center; /* 버튼 중앙 정렬 */
+  font-size: 18px; /* 텍스트 크기 */
+  padding: 10px;
+  background-color: #ffffff; /* 버튼 배경색 */
+  color: black; /* 텍스트 색상 */
+  border-radius: 5px; /* 둥근 모서리 */
+  border: solid 1px lightgray;
+  cursor: pointer;
+  transition: 0.6s ease; /* 호버 효과 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 테두리에 그림자 추가 */
+  margin-left: auto;
+  margin-right: auto;
+}
+.custom-button1{
+  display: flex; /* flexbox를 사용하여 내부 요소 정렬 */
+  flex-direction: column; /* 세로 방향으로 정렬 */
+  align-items: center;
+  margin-top: 7px;
+  width: 80px;
+  height: 30px;
+  background-color: #ff9955;
+  border-radius: 5px; /* 둥근 모서리 */
+  border: solid 1px lightgray;
+  cursor: pointer;
+  color: #ffffff;
+  transition: 0.6s ease; /* 호버 효과 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 테두리에 그림자 추가 */
+  justify-content: center; /* 세로 방향 정렬 */
+}
+.custom-button1 h5{
+ font-weight: 300;
+}
+.custom-button1:hover {
+  transform: scale(1.05); /* 크기를 5% 증가 */
+}
+
+.custom-button:hover {
+  transform: scale(1.05); /* 크기를 5% 증가 */
+}
+
+#chatbotResponse {
+  margin-top: 20px;
+  padding: 10px;
+  border: solid 1px lightgray;
+  width: calc(100% - 20px); /* 버튼과 같은 너비로 맞추기 */
+  border-radius: 5px; /* 둥근 모서리 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 테두리에 그림자 추가 */
+  font-family: 'Noto Serif KR', serif; /* 글씨체 변경 */
+  font-size: 16px; /* 글씨 크기 */
+  color: #333; /* 글씨 색상 */
+  line-height: 1.5; /* 줄 간격 */
+}
