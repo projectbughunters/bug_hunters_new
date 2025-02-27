@@ -27,7 +27,7 @@
     
     <div class="primary-container">
         
-        <div class="ad-main">
+        <div class="advertise-main">
         <!-- 광고 영역 -->
         	<c:import url="/WEB-INF/views/mainInclude/advertisement.jsp" />
         </div>
