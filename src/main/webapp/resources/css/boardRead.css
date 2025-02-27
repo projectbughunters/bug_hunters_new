@@ -58,11 +58,12 @@ h2{
 .form-group label {
     font-weight: bold;
     color: #333;
+    font-size: 20px;
 }
 
 /* 작은 텍스트 스타일 */
 .form-group p.small {
-    font-size: 14px; /* 작은 폰트 크기 */
+    font-size: 17px; /* 작은 폰트 크기 */
     color: #666; /* 진한 색상 */
     margin: 0; /* 기본 여백 제거 */
 }
@@ -87,6 +88,7 @@ h2{
     background-color: #f9f9f9; /* 읽기 전용 배경 색상 */
     min-height: 30px; /* 높이 설정 */
     overflow: hidden; /* 내용이 길어질 경우 숨김 */
+    align-content: center;
 }
 
 .button-group {
@@ -142,7 +144,7 @@ button:hover {
 }
 
 .comment-input label {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     color: #333;
     min-width: 50px; /* 레이블 최소 너비 설정 */
