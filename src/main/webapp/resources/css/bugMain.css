@@ -30,6 +30,7 @@ h2 {
 	flex-wrap: nowrap;
 	gap: 30px;
 	align-items: center;
+	
 }
 
 /* 광고 영역 */
@@ -265,6 +266,48 @@ h2 {
 	list-style: none; /* 불릿 제거 */
 	padding: 0; /* 기본 여백도 제거 */
 	margin: 0; /* 기본 마진 제거 (필요에 따라) */
+}
+
+.widget{
+	width : 50%;
+}
+
+.product-section{
+	width : 50%;
+}
+
+.chart-select {
+    display: flex;
+}
+/* 가격정보 버튼 세로로 정렬 */
+.commodity-buttons{
+	align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.commodity-buttons button{
+	width: 100px;
+    height: 30px;
+    background: #d9d9d9;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 그림자 */
+    transition: background-color 0.3s, transform 0.3s; /* 배경색과 크기 변환 전환 */
+}
+
+.commodity-buttons button:hover{
+	color : black;
+	cursor: pointer;
+	transform: scale(1.05);    /* 호버 시 크기를 5% 키움 */
+	background-color: #999;
+}
+
+/* 차트 부분 */
+.chart-box{
+	width : 100%;	
 }
 
 /* 각 이미지 아이템에 대한 기본 스타일 */
