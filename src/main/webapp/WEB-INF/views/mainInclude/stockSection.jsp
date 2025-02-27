@@ -31,8 +31,8 @@
             <tbody>
                <c:forEach var="stock" items="${pageBeanForStocks.list}">
                   <tr>
-                     <td><img src="https://financialmodelingprep.com/image-stock/${stock.symbol}.png"
-                              style="width: 30px; height: 30px; margin-right: 10px;" /></td>
+                     <td style="background: rgba(105, 105, 105, 0.2);"><img src="https://financialmodelingprep.com/image-stock/${stock.symbol}.png"
+                              style="width: 30px; height: 30px; margin-right: 10px; "/></td>
                      <td class="clickable" onclick="location.href='${root}stock/info/${stock.symbol}'">
                         ${stock.symbol}</td>
                      <td class="light-bg">${stock.name}</td>
@@ -63,13 +63,13 @@
          </table>
       </div>
       <div class="stock-chart-wrapper">
-         <div class="chart-navigation">
-            <button id="prevStockBtn" class="chart-button">◀</button>
-            <button id="nextStockBtn" class="chart-button">▶</button>
-         </div>
          <div id="stockNameDisplay" class="stock-name-display"></div>
          <div id="stockChartContainer" class="chart-container">
             <canvas id="stockChart"></canvas>
+            <div class="arrow-btn">
+	            <button id="prevStockBtn" class="chart-button">◀</button>
+	            <button id="nextStockBtn" class="chart-button">▶</button>
+            </div>
          </div>
       </div>
    </div>

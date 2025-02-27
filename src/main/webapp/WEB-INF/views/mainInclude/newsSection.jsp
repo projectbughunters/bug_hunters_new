@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <div class="news-section">
-   <h2>실시간 뉴스</h2>
+   <h2 style="border-bottom: solid 2px #d9d9d9; padding-bottom: 15px;">실시간 뉴스</h2>
 
    <!-- 슬라이드를 감싸는 래퍼 -->
    <div class="news-slider-wrapper">

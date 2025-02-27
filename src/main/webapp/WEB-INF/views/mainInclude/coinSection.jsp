@@ -77,11 +77,13 @@
          </table>
       </div>
       <div class="coin-chart-wrapper">
-         <button id="prevCoinBtn">◀</button>
-         <button id="nextCoinBtn">▶</button>
          <div id="coinNameDisplay"></div>
          <div id="coinChartContainer">
             <canvas id="coinChart"></canvas>
+            <div class="arrow-btn">
+		        <button id="prevCoinBtn">◀</button>
+		        <button id="nextCoinBtn">▶</button>
+	        </div>
          </div>
       </div>
    </div>
