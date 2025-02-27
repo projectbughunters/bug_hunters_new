@@ -7,9 +7,11 @@
 
 <div class="stock-section">
 <div class="stock-title">
+   <div class="title-container">
    <h2>주식</h2>
+   </div>
    <div class="button-container">
-      <button class="navigate-button" onclick="location.href='${root}stock/stockMain'">바로가기</button>
+      <button class="navigate-button" onclick="location.href='${root}stock/stockMain'">&#10095;</button>
    </div>
 </div>
    <div class="stock-content">

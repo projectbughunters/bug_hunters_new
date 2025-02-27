@@ -7,11 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
 <div class="coin-section">
-   <h2>
-      코인
-      <button onclick="location.href='${root}coin/coinMain'"
-         style="margin-left: 10px;">바로가기</button>
-   </h2>
+   <div class="stock-title">
+   <div class="title-container">
+   <h2>코인</h2>
+   </div>
+   <div class="button-container">
+      <button class="navigate-button" onclick="location.href='${root}coin/coinMain'">&#10095;</button>
+   </div>
+</div>
    <!-- 테이블과 차트를 감싸는 컨테이너 -->
    <div class="coin-content">
       <div class="coin-table">

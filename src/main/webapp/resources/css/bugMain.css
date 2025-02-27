@@ -120,10 +120,9 @@ h2 {
 }
 
 /* 섹션 제목 */
-.news-section h2, .advertisement h2 {
+.news-section h2{
 	margin-top: 0;
 	color: #222;
-	font-size: 1.8rem;
 }
 
 /* 유튜브 영역 */
@@ -138,6 +137,28 @@ h2 {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+.title-container{
+	margin-left : auto;
+}
+.button-container{
+	margin-left : auto;
+}
+
+/*주식, 코인섹션 버튼*/
+.navigate-button{
+	width: 40px;
+    height: 40px;
+    border-radius: 15px;
+    border: none;
+    background: #b9b9b9;
+    margin-right: 10px;
+    color: white;
+    font-size: 20px;
+   	cursor:pointer;	
+}
+.navigete-button:hover{
+	background-color:#595959;
 }
 
 /* 테이블 디자인 개선: 주식 & 코인 */
@@ -204,7 +225,6 @@ h2 {
 	border: 1px solid #e0e0e0;
 	border-radius: 10px;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-	width: 20%;
 }
 
 /* 캔버스 차트 반응형 적용 */
