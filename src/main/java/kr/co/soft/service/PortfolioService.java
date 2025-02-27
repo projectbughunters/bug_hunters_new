@@ -133,7 +133,8 @@ public class PortfolioService {
             String response = restTemplate.postForObject("http://localhost:3000/stock-overview", requestPayload, String.class);
 
             Map<String, Object> data = objectMapper.readValue(response, new TypeReference<>() {});
-            double marketPrice = (double) data.get("marketPrice");
+            Number marketPriceNumber = (Number) data.get("marketPrice");
+            double marketPrice = marketPriceNumber.doubleValue();
 
             return new BigDecimal(marketPrice * infoBean.getAmount()).setScale(2, RoundingMode.HALF_UP);
         } catch (Exception e) {
@@ -149,7 +150,8 @@ public class PortfolioService {
             String response = restTemplate.getForObject("http://localhost:3000/getCoinInfo?symbol="+symbol,  String.class);
 
             Map<String, Object> data = objectMapper.readValue(response, new TypeReference<>() {});
-            double marketPrice = (double) data.get("price");
+            Number marketPriceNumber = (Number) data.get("price");
+            double marketPrice = marketPriceNumber.doubleValue();
 
             return new BigDecimal(marketPrice * infoBean.getAmount()).setScale(2, RoundingMode.HALF_UP);
         } catch (Exception e) {

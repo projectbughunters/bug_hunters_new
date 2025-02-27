@@ -23,8 +23,6 @@
 <div class="primary-container">
  <h1 id="symbolImg"><img src="https://financialmodelingprep.com/image-stock/${symbol}.png" style="width: 50px; height: 50px; margin-right: 10px;" />
   ${processedData.name} (${symbol})</h1>
-    
-	
     <h3 id="explaneCompany">${processedData.marketPrice } 
     	<span class="${processedData.marketChange > 0 ? 'positive-change' : 'negative-change'}">(
     		<script>
@@ -49,13 +47,30 @@
         <div class="advertisement-slider">
             <div class="list-container">
                 <ul id="stockNewsList">
-                    <c:forEach var="stockInfoNew" items="${stockInfoNews}">
-                        <li>
-                            <a href="${stockInfoNew.link}" target="_blank">${stockInfoNew.title}</a><br />
-                            ${stockInfoNew.description}
-                        </li>
-                    </c:forEach>
-                </ul>
+				    <c:forEach var="stockInfoNew" items="${stockInfoNews}" varStatus="status">
+				        <!-- 3개 단위로 <li> 태그를 시작 -->
+				        <c:if test="${status.index % 3 == 0}">
+				            <li class="news-slide"> 
+				                <!-- 슬라이드 하나에 최대 3개의 뉴스 아이템을 담음 -->
+				        </c:if>
+				        <!-- 단일 뉴스 아이템 영역 -->
+				        <div class="news-item">
+				            <a class="news-title" href="${stockInfoNew.link}" target="_blank">${stockInfoNew.title}</a><br/>
+				            <br />
+				            ${stockInfoNew.description}
+				        </div>
+				        <!-- 각 뉴스 아이템 사이 구분선 (원한다면) -->
+				        <c:if test="${(status.index % 3) != 2 && !status.last}">
+				        	<br />
+				            <hr/>
+				            <br />
+				        </c:if>
+				        <!-- 3개를 채웠거나 마지막 항목이면 </li> 닫기 -->
+				        <c:if test="${status.index % 3 == 2 || status.last}">
+				            </li>
+				        </c:if>
+				    </c:forEach>
+				</ul>
             </div>
             <!-- 좌우 화살표 버튼을 advertisement-slider 내부로 이동 -->
             <button class="advertisement-arrow advertisement-arrow-left">&#10094;</button>
@@ -135,7 +150,7 @@
   </div>
   
 </div>
-
+<c:import url="/WEB-INF/views/include/bottom.jsp"/>
 <script>
 var chartInstance = null; // 차트 인스턴스를 저장할 변수
 
@@ -278,13 +293,14 @@ $(document).ready(function() {
  
  var $slider = $('.list-container');
  var $ul = $slider.find('ul');
- var $slides = $ul.find('li');
+ var $slides = $ul.find('.news-slide');
  var count = $slides.length;
  var currentIndex = 0;
  var slideWidth = $slider.width();
 
  // 각 li의 너비를 슬라이더 너비로 설정
  $slides.width(slideWidth);
+
  // ul의 전체 너비 설정 (슬라이드 개수 * 슬라이더 너비)
  $ul.width(slideWidth * count);
 
@@ -295,16 +311,16 @@ $(document).ready(function() {
 
  // 슬라이드 전환 함수
  function goToSlide(index) {
-     if(index < 0) {
-         index = count - 1;
-     } else if(index >= count) {
-         index = 0;
-     }
-     $ul.animate({
-         marginLeft: -index * slideWidth
-     }, 500); // 500ms 애니메이션 효과
-     currentIndex = index;
- }
+    if(index < 0) {
+        index = count - 1;
+    } else if(index >= count) {
+        index = 0;
+    }
+    $ul.animate({
+        marginLeft: -index * slideWidth
+    }, 500);
+    currentIndex = index;
+}
 
  // 다음, 이전 슬라이드 함수
  function nextSlide() {
