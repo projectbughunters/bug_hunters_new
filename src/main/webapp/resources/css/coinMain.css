@@ -71,6 +71,7 @@ tr:hover {
 
 .favorite, .headCol-nameCol{
 	background: #f5f5f5;
+	cursor: pointer;
 }
 
 .positive-change {

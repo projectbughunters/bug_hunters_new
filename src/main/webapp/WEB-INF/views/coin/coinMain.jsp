@@ -71,11 +71,11 @@
                       </td>
                   </c:if>
                   <c:if test="${loginUserBean.userLogin == false }">
-                      <td></td>
+                      <td class="favorite"></td>
                   </c:if>
       
                   <!-- 코인 이름/심볼 -->
-                  <td class="headCol nameCol"
+                  <td class="headCol-nameCol"
                       onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
                       <img src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040"
                            style="height: 20px; margin-right: 5px;">
