@@ -112,7 +112,7 @@ $(document).ready(function() {
                     <option value="GBP">영국 파운드 (GBP)</option>
                 </select>
             </div>
-            <button type="submit">계산하기</button>
+            <button id="calculation" type="submit">계산하기</button>
         </form>
 
         <div class="result" id="result"></div>
