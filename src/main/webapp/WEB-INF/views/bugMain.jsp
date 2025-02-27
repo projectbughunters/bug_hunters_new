@@ -51,8 +51,6 @@
         
         
                   
-        <!-- 즐겨찾기 영역 -->
-        <c:import url="/WEB-INF/views/mainInclude/favoriteSection.jsp" />
         
         <!-- 거래소 영역 -->
         <c:import url="/WEB-INF/views/mainInclude/cyptoexchangeSection.jsp" />
