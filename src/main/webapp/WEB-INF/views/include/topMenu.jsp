@@ -32,13 +32,7 @@
 	<nav>
 		<a href="${root}stock/stockMain">STOCK</a> 
 		<a href="${root}coin/coinMain">CRYPTO</a> 
-		<div class="dropdown">
-			<a href="#" class="dropdown-link">AI PARTNER ▾</a>
-			<div class="dropdown-content">
-				<a href="${root}ai/aiMain">AI 챗봇</a>
-				<a href="${root }ai/aiRecommend">AI가 추천하는 주식</a>
-			</div>
-		</div>
+		<a href="${root }ai/aiRecommend">STOCK-AI</a>
 		<div class="dropdown">
 			<a href="#" class="dropdown-link">PORTFOLIO ▾</a>
 			<div class="dropdown-content">

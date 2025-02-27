@@ -22,7 +22,7 @@
 <body>
     <div class="findPw-container">
         <div class="findPw-header">
-            <h1><a href="${root }">TMI</a></h1>
+            <a href="${root}"><image src="${root}image/TMI_YB.png" style="width: 70px; height : 50px"/></a>
             <p>비밀번호 찾기</p>
             <p>가입한 아이디와 이메일을 입력해주세요.</p>
         </div>
