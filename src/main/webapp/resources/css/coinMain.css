@@ -25,11 +25,7 @@ h2 {
 }
 
 table {
-<<<<<<< HEAD
-	width: 80%;
-=======
 	width: 90%;
->>>>>>> ff5a5904f82510f938d8553153adb9c597aabfea
 	border-collapse: collapse;
 	background-color: white;
 	overflow: hidden;
@@ -221,21 +217,21 @@ td.clickable {
 	margin: 0 5px;
 	padding: 8px 12px;
 	text-decoration: none;
-	color: #007BFF;
+	color: #595959;
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .pagination a:hover {
-	background-color: #007BFF;
+	background-color: #999;
 	color: #fff;
 }
 
 .pagination a.active {
-	background-color: #007BFF;
+	background-color: #595959;
 	color: #fff;
-	border-color: #007BFF;
+	border-color: #595959;
 	pointer-events: none;
 }
 

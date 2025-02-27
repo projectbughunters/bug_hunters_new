@@ -34,15 +34,10 @@
 
 <div class="primary-container">
 <h2>암호화폐 테이블</h2>
-
 <table>
     <thead>
         <tr>
-<<<<<<< HEAD
            <th></th>
-=======
-        	<th ></th>
->>>>>>> ff5a5904f82510f938d8553153adb9c597aabfea
             <th class="headCol nameCol">종목</th>
             <th>기호</th>
             <th>가격(KRW)</th>
@@ -52,7 +47,6 @@
             <th>변동(7D)</th>
         </tr>
     </thead>
-<<<<<<< HEAD
           <tbody>
           <!-- coins 배열을 순회 -->
           <c:forEach var="coin" items="${pageBean.list}">
@@ -131,72 +125,6 @@
               </tr>
           </c:forEach>
       </tbody>
-=======
-    <tbody>
-        <!-- coins 배열을 순회 -->
-        <c:forEach var="coin" items="${pageBean.list}">
-        <tr>
-        	<!-- 1. 일단 false로 초기화 -->
-	        <c:set var="isFavorited" value="false" />
-	
-	        <!-- 2. favorites 목록을 돌며, 이 stock이 있는지 확인 -->
-	        <c:forEach var="favorite" items="${favorites}">
-	            <c:if test="${stock.symbol == favorite.symbol}">
-	                <c:set var="isFavorited" value="true" />
-	            </c:if>
-	        </c:forEach>
-			<c:if test="${loginUserBean.userLogin == true }">
-					<!-- 3. 최종적으로 isFavorited에 따라 active 클래스 적용 여부 결정 -->
-		        <td>
-		            <button class="fav-btn ${isFavorited ? 'active' : ''}"
-		                    data-symbol="${stock.symbol}"
-		                    data-type="${coin.name}">
-		            </button>
-		        </td>
-			</c:if>
-			<c:if test="${loginUserBean.userLogin == false }">
-				<td class="favorite"></td>
-			</c:if>
-		    <td class="headCol-nameCol" onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
-		    <img src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040" 
-		          style="height: 20px; margin-right: 5px;"> 
-		    ${coin.name}</td>
-		    <td>${coin.symbol}</td>
-		    <td class="align-right">$
-		    	<script>
-				    var price = (${coin.quotes.USD.price}).toFixed(2);
-				    document.write(price.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				</script>
-		    </td>
-		    <td class="align-right">$
-		    	<script>
-				    var market_cap = (${coin.quotes.USD.market_cap}).toFixed(0);
-				    document.write(market_cap.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				</script>
-		    </td>
-		    <td class="align-right">$
-		    	<script>
-				    var volume_24h = (${coin.quotes.USD.volume_24h}).toFixed(2);
-				    document.write(volume_24h.replace(/\B(?=(\d{3})+(?!\d))/g, ","));
-				</script>
-		    </td>
-		    <td class="align-right ${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
-		        <script>
-		            var percentChange24h = ${coin.quotes.USD.percent_change_24h};
-		            document.write((percentChange24h).toFixed(2) + "%");
-		        </script>
-		    </td>
-		    <td class="align-right ${coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change'}">
-		        <script>
-		            var percentChange7d = ${coin.quotes.USD.percent_change_7d};
-		            document.write((percentChange7d).toFixed(2) + "%");
-		        </script>
-		    </td>
-		</tr>
-		</c:forEach>
-
-    </tbody>
->>>>>>> ff5a5904f82510f938d8553153adb9c597aabfea
 </table>
 <!-- 페이지네이션 내비게이션 -->
     <div class="pagination">
