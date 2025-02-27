@@ -37,7 +37,7 @@
 <table>
     <thead>
         <tr>
-        	<th></th>
+        	<th ></th>
             <th class="headCol nameCol">종목</th>
             <th>기호</th>
             <th>가격(KRW)</th>
@@ -70,9 +70,9 @@
 		        </td>
 			</c:if>
 			<c:if test="${loginUserBean.userLogin == false }">
-				<td></td>
+				<td class="favorite"></td>
 			</c:if>
-		    <td class="headCol nameCol" onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
+		    <td class="headCol-nameCol" onclick="location.href='${root}coin/info/${coin.symbol}/${coin.name}'">
 		    <img src="https://cryptologos.cc/logos/${coin.name.toLowerCase()}-${coin.symbol.toLowerCase()}-logo.png?v=040" 
 		          style="height: 20px; margin-right: 5px;"> 
 		    ${coin.name}</td>

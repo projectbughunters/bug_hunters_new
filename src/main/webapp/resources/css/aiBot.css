@@ -36,7 +36,7 @@
 	position: fixed;
 	top: 200px;
 	right: 20px;
-	background-color: #ef7c09;
+	background-color: #595959;
 	color: white;
 	border: none;
 	padding: 10px 16px;
@@ -45,6 +45,10 @@
 	cursor: pointer;
 	box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
 	z-index: 1001;
+}
+
+#toggleBotButton:hover{
+	background: #999;
 }
 
 /* 스크롤바 스타일 (선택적) */
@@ -71,7 +75,8 @@
 	display: none; /* 기본적으로 숨김 */
 	position: fixed;
 	left: 78%;
-	top: 60%;
+	top: 50%;
 	transform: translate(-50%, -50%);
 	z-index: 1000;
 }
+
