@@ -96,6 +96,7 @@
         <div>
             <!-- 챗봇 응답을 출력할 영역 -->
             <div id="chatbotResponse">
+            <h3 id="response-title"></h3>
                 <p id="responseContent">여기에 챗봇의 응답이 표시됩니다.</p>
             </div>
         </div>
@@ -119,9 +120,10 @@
                     theme: theme,
                     stocks: data
                 });
-
-                // 서버 응답 받아서 div에 출력
-                document.getElementById('responseContent').innerText = response.data.result;
+				
+                // 서버 응답 받아서 div에 출력 
+                document.getElementById('response-title').innerText = "📊 Stock Hunter AI의 답변 📈"
+                document.getElementById('responseContent').innerText =response.data.result;
             } catch (error) {
                 console.error(`${theme} 데이터 전송 중 오류 발생:`, error);
                 alert(`${theme} 데이터 전송 중 오류가 발생했습니다.`);
