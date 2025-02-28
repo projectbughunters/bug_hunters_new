@@ -46,13 +46,15 @@
 	
 	<c:choose>
 				<c:when test="${loginUserBean.userLogin == true}">
-						<!-- 즐겨찾기 버튼 추가 -->
-				         <div class="dropdown">
-				            <a href="#" class="dropdown-link" onclick="loadFavorites()">FAVORITES ▾</a>
-				            <div class="dropdown-content" id="favoritesDropdown">
-				               <!-- AJAX 결과가 여기에 표시됩니다. -->
-				            </div>
-				         </div>
+						<nav>
+							<!-- 즐겨찾기 버튼 추가 -->
+					         <div class="dropdown">
+					            <a href="#" class="dropdown-link" id="favorite-drop" onclick="loadFavorites()">FAVORITES ▾</a>
+					            <div class="dropdown-content" id="favoritesDropdown">
+					               <!-- AJAX 결과가 여기에 표시됩니다. -->
+					            </div>
+					         </div>
+				         </nav>
 						<span class="login"><a href="${root }user/myPage" class="nav-link">MYPAGE</a></span>
 						<c:if test="${loginUserBean != null && loginUserBean.type == 'google'}">
 							<span class="login"><a href="${root }google/logout" class="nav-link">LOGOUT</a></span>

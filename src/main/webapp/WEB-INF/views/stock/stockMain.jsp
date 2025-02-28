@@ -19,7 +19,7 @@
 
 <div class="primary-container">
 <h2>주식 스크리너</h2>
-    <table>
+    <table class="api-table">
         <thead>
             <tr>
             	<th></th>
