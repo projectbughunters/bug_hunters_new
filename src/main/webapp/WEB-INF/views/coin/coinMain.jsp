@@ -71,7 +71,7 @@
                       </td>
                   </c:if>
                   <c:if test="${loginUserBean.userLogin == false }">
-                      <td class="favorite"></td>
+                      <td class="favorite-type"></td>
                   </c:if>
       
                   <!-- 코인 이름/심볼 -->

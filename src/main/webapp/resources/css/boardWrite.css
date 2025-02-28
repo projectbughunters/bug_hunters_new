@@ -19,7 +19,7 @@ body {
 
 .write-header {
     margin-bottom: 30px;
-    border-bottom: 2px solid #ef7c09;
+    border-bottom: 2px solid #595959;
     padding-bottom: 15px;
 }
 
@@ -42,24 +42,33 @@ body {
 
 .form-group select,
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.select#complain_category {
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 16px;
     transition: border-color 0.3s;
 }
-
 .form-group select:focus,
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #ef7c09;
+    border-color: #595959;
 }
 
 .form-group textarea {
     min-height: 300px;
     resize: vertical;
+}
+
+select#complain_category {
+    padding: 10px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    transition: border-color 0.3s;
+    border-radius: 5px;
+    margin-left: 30px;
 }
 
 .categorySelectContainer {
@@ -90,19 +99,19 @@ body {
 }
 
 .submit-btn {
-    background-color: #ef7c09;
+    background-color: #595959;
     color: white;
 }
 
 .submit-btn:hover {
-    background-color: #d66c08;
+    background-color: #999;
 }
 
 .cancel-btn {
-    background-color: #6c757d;
+    background-color: #595959;
     color: white;
 }
 
 .cancel-btn:hover {
-    background-color: #5a6268;
+    background-color: #999;
 }
