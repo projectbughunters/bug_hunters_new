@@ -51,11 +51,13 @@ public class CoinController {
             List<Map<String, Object>> coins = coinService.getAllCoins();
 //            
             List<Map<String, Object>> coinInfoNews=newsService.coinInfoNews(symbol);
+            Map<String, Object> dominanceData = coinService.getCryptoDominance();
             
             model.addAttribute("coins", coins);
             model.addAttribute("symbol", symbol);
             model.addAttribute("name", name);
             model.addAttribute("coinInfoNews", coinInfoNews);
+            model.addAttribute("dominanceData", dominanceData);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", "차트 데이터를 불러오지 못했습니다.");

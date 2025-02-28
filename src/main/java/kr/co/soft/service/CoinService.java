@@ -1,7 +1,12 @@
 package kr.co.soft.service;
 
+import java.math.BigDecimal;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -58,6 +63,37 @@ public class CoinService {
         pageBean.setTotalPage(totalPage);
 
         return pageBean;
+    }
+    
+    public Map<String, Object> getCryptoDominance() throws Exception {
+        String nodeResponse = restTemplate.getForObject("http://localhost:3000/dominance", String.class);
+        Map<String, Object> rawData = objectMapper.readValue(nodeResponse, new TypeReference<Map<String, Object>>() {});
+
+        Map<String, BigDecimal> formattedData = new HashMap<>();
+        
+        // 데이터를 변환하여 소수점 두 자리 반올림
+        for (Map.Entry<String, Object> entry : rawData.entrySet()) {
+            try {
+                double value = Double.parseDouble(entry.getValue().toString());
+                BigDecimal roundedValue = new BigDecimal(value).setScale(2, BigDecimal.ROUND_HALF_UP); // 소수점 둘째 자리 반올림
+                formattedData.put(entry.getKey(), roundedValue);
+            } catch (NumberFormatException e) {
+                // 숫자가 아닌 값은 무시
+            }
+        }
+
+        // 내림차순(점유율 높은 순) 정렬
+        Map<String, Object> sortedData = formattedData.entrySet()
+            .stream()
+            .sorted(Map.Entry.<String, BigDecimal>comparingByValue(Comparator.reverseOrder())) // 내림차순 정렬
+            .collect(Collectors.toMap(
+                Map.Entry::getKey, 
+                Map.Entry::getValue, 
+                (e1, e2) -> e1, 
+                LinkedHashMap::new // 순서를 유지하는 LinkedHashMap 사용
+            ));
+
+        return sortedData;
     }
 
 }
