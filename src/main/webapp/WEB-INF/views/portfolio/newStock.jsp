@@ -65,7 +65,7 @@
 					placeholder="0.0" />
 
 				<p></p>
-				<button class="btn-section" type="submit">추가하기</button>
+				<button class="btn-section" type="submit" style="margin-bottom: 20px;">추가하기</button>
 			</form:form>
 		</div>
 

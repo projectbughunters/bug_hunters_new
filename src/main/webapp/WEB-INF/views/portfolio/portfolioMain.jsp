@@ -43,7 +43,7 @@ body {
 
 
 		<div id="portfolio-list" class="portfolio-list" style="opacity: 1; margin-top: 0px;">
-		    <h3>내 포트폴리오 리스트</h3>
+		    <h3 class="list-title">내 포트폴리오 리스트</h3>
 		    <table class="holdings-table">
 		        <thead>
 		            <tr>

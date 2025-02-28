@@ -48,8 +48,8 @@
         }
 
         .option:hover {
-            background-color: #fff3e6;
-            border-color: #ef7c09;
+            background-color: #ffeb9a;
+            border-color: #ffde59;
         }
 
         .option input[type="radio"] {
@@ -61,7 +61,7 @@
             width: 200px;
             margin: 30px auto;
             padding: 15px 30px;
-            background-color: #ef7c09;
+            background-color: #595959;
             color: white;
             border: none;
             border-radius: 5px;
@@ -71,7 +71,7 @@
         }
 
         .submit-btn:hover {
-            background-color: #d66c08;
+            background-color: #999;
         }
 
         #result {

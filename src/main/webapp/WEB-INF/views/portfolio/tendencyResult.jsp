@@ -16,7 +16,7 @@
 <body>
 <c:import url="/WEB-INF/views/include/topMenu.jsp" />
     <div class="result-container">
-        <h1>투자 성향 분석 결과</h1>
+        <h1 id="result-title">투자 성향 분석 결과</h1>
         <p>당신의 점수는 <strong>${total}</strong>점이며,</p>
         <p><strong>${type}</strong> 투자자입니다.</p>
         <p>${description}</p>

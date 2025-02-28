@@ -7,15 +7,20 @@ body {
 }
 
 .primary-container {
-    max-width: 600px; /* 최대 너비 설정 */
+    height: 100%;
+    padding: 85px 10% !important;
+}
+.primary-container div{
+	margin-top: 20px;
+}
+
+.box-container{
+	max-width: 600px; /* 최대 너비 설정 */
     margin :125px auto;
     padding: 30px 30px !important; /* 여백 설정 */
     background-color: #ffffff; /* 박스 배경색 */
     border-radius: 8px; /* 둥근 모서리 */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 */
-}
-.primary-container div{
-	margin-top: 20px;
 }
 
 .input-group {

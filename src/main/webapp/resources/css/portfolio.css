@@ -6,6 +6,11 @@ body {
 	background-attachment: fixed; /* 스크롤 시 배경 고정 */
 }
 
+.list-title{
+	font-size: x-large;
+	padding-left: 30px;
+}
+
 #newPortfolio {
 		color: white;
 		background-color: #595959;
@@ -159,6 +164,7 @@ body {
 	padding: 12px;
 	text-align: left;
 	border-bottom: 1px solid #ddd;
+	cursor: pointer;
 }
 
 .holdings-table th {
