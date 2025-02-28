@@ -37,7 +37,7 @@
 <table>
     <thead>
         <tr>
-           <th></th>
+           <th ></th>
             <th class="headCol nameCol">종목</th>
             <th>기호</th>
             <th>가격(KRW)</th>
@@ -63,7 +63,7 @@
       
                   <c:if test="${loginUserBean.userLogin == true }">
                       <!-- 3. 최종적으로 isFavorited에 따라 active 클래스 적용 여부 결정 -->
-                      <td>
+                      <td class="favorite-type">
                           <button class="fav-btn ${isFavorited ? 'active' : ''}"
                                   data-symbol="${coin.symbol}"
                                   data-type="${coin.name}">
