@@ -239,6 +239,15 @@
                </c:if>
             </c:forEach>
          </div>
+         <div class="table">
+                <h3>시장 점유율</h3>
+                <c:forEach var="entry" items="${dominanceData}">
+                    <div class="row">
+                        <strong>${entry.key}</strong> 
+                        <span>${entry.value}%</span>
+                    </div>
+                </c:forEach>
+           </div>
       </div>
    </div>
 

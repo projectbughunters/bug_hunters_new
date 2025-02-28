@@ -56,7 +56,7 @@
           
                   <!-- 2. favorites 목록을 돌며, 이 stock이 있는지 확인 -->
                   <c:forEach var="favorite" items="${favorites}">
-                      <c:if test="${stock.symbol == favorite.symbol}">
+                      <c:if test="${coin.symbol == favorite.symbol}">
                           <c:set var="isFavorited" value="true" />
                       </c:if>
                   </c:forEach>
@@ -65,7 +65,7 @@
                       <!-- 3. 최종적으로 isFavorited에 따라 active 클래스 적용 여부 결정 -->
                       <td>
                           <button class="fav-btn ${isFavorited ? 'active' : ''}"
-                                  data-symbol="${stock.symbol}"
+                                  data-symbol="${coin.symbol}"
                                   data-type="${coin.name}">
                           </button>
                       </td>
@@ -141,6 +141,7 @@
         </c:if>
     </div>
     </div>
+    
 <c:import url="/WEB-INF/views/include/bottom.jsp"/>
 
 <script>
