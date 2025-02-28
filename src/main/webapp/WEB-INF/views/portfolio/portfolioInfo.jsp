@@ -93,7 +93,7 @@ body {
 		                <tr >
 		                	<td>${portfolioInfoBean.stock_name}</td>
 		                	<td>${portfolioInfoBean.symbol}</td>
-		                	<td>${portfolioInfoBean.asset_type}</td>
+		                	<td>${portfolioInfoBean.type}</td>
 		                    <td>
 					            ${portfolioInfoBean.amount}
 					        </td>

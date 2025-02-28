@@ -109,11 +109,11 @@ public class PortfolioService {
         BigDecimal totalPurchase = BigDecimal.ZERO;
 
         for (PortfolioInfoBean infoBean : portfolioInfoBeans) {
-        	if(infoBean.getAsset_type().equals("stock")) {
+        	if(infoBean.getType().equals("stock")) {
         		BigDecimal evaluation = getStockEvaluation(infoBean);
                 totalEvaluation = totalEvaluation.add(evaluation);
         	}
-            if(infoBean.getAsset_type().equals("crypto")) {
+            if(infoBean.getType().equals("crypto")) {
             	BigDecimal evaluation = getCoinEvaluation(infoBean);
                 totalEvaluation = totalEvaluation.add(evaluation);
             }

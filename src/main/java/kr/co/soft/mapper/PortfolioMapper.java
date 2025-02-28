@@ -34,12 +34,12 @@ public interface PortfolioMapper {
 	        "WHERE UPPER(company_name) LIKE UPPER(#{company_name}) || '%'")
 	List<StockInfoBean> searchStocksByCompanyName(String company_name);
 	
-	@Insert("insert into portfolio_info(portfolio_info_idx, portfolio_idx, stock_name, symbol, asset_type, price, amount) "
+	@Insert("insert into portfolio_info(portfolio_info_idx, portfolio_idx, stock_name, symbol, asset_type, type, price, amount) "
 			+ "values(portfolio_info_seq.nextval, #{portfolio_idx}, #{stock_name}, #{symbol}, "
-			+ "#{asset_type}, #{price}, #{amount})")
+			+ "#{asset_type}, #{type}, #{price}, #{amount})")
 	void addPortfolioInfo(PortfolioInfoBean newPortfolioInfoBean);
 
-	@Select("select portfolio_info_idx, portfolio_idx, stock_name, symbol, asset_type, price, amount from portfolio_info where portfolio_idx=#{portfolio_idx}")
+	@Select("select portfolio_info_idx, portfolio_idx, stock_name, symbol, asset_type, type, price, amount from portfolio_info where portfolio_idx=#{portfolio_idx}")
 	List<PortfolioInfoBean> getPortfolioInfoBean(int portfolio_idx);
 	
 	@Delete("DELETE FROM portfolio_info WHERE portfolio_info_idx = #{portfolio_info_idx}")

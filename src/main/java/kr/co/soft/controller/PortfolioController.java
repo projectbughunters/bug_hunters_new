@@ -219,12 +219,10 @@ public class PortfolioController {
 	   public String newStock_pro(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
 		  int portfolio_idx=newPortfolioInfoBean.getPortfolio_idx();
 		  if(newPortfolioInfoBean.getType().equals("stock")) {
-				newPortfolioInfoBean.setAsset_type("stock");
 				portfolioService.addPortfolioInfo(newPortfolioInfoBean);
 		  }
 		  
 		  if(newPortfolioInfoBean.getType().equals("crypto")) {
-			  newPortfolioInfoBean.setAsset_type("crypto");
 			  portfolioService.addPortfolioInfo(newPortfolioInfoBean);
 		  }
 		   portfolioService.updatePortfolioDeposit(portfolio_idx);

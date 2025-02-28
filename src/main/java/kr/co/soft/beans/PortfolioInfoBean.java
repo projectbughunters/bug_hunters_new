@@ -7,9 +7,10 @@ public class PortfolioInfoBean {
 	private String stock_name;
 	private String symbol;
 	private String asset_type;
+	private String type;
 	private double price; //매입 가격
 	private double amount;
-	private String type;
+	
 
 	public int getPortfolio_info_idx() {
 		return portfolio_info_idx;
