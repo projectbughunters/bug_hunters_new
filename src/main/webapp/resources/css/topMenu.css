@@ -1,16 +1,15 @@
 @charset "UTF-8";
 
-body{
-	margin:0;
+body {
+	margin: 0;
 	position: relative; /* 부모 요소에 상대 위치 설정 */
 	min-height: 100vh; /* 페이지 높이를 100%로 설정 */
 	font-family: "NotoSansKR", "Sans-serif";
-	
 }
 
 /* 컨테이너 여백 */
 .primary-container {
-   padding: 10px 10%;
+	padding: 10px 10%;
 }
 
 header {
@@ -20,25 +19,24 @@ header {
 	padding: 10px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: initial;
 	position: sticky;
 	top: 0;
 	z-index: 1000;
-	box-shadow: grey;
+	box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
+
 }
 
-
 h1 {
-	margin: 0;
-	margin-right: 120px;
-	cursor: pointer;
-	transition: all 0.3s ease;
+	margin:0px;
+	width: 20%;
+    cursor: pointer;
+    transition: all 0.3sease;
 }
 
 h1 a {
 	text-decoration: none;
 	display: block;
-	
 }
 
 h1 :visited {
@@ -56,10 +54,11 @@ header h1 a:hover {
 nav {
 	display: flex;
 	align-items: center;
+	margin-right: 160px;
 }
 
 nav a {
-	font-size:19px;
+	font-size: 19px;
 	color: #ffffff;
 	text-decoration: none;
 	margin: 0 15px;
@@ -123,6 +122,11 @@ header .login a:visited {
 	color: #ffffff;
 }
 
+.login-top {
+	display: flex;
+	flex-direction: row;
+}
+
 /* 드롭다운 스타일 */
 .dropdown {
 	position: relative;
@@ -177,7 +181,7 @@ header .login a:visited {
 	max-height: 200px;
 }
 
-#favoriteDropdown{
+#favoriteDropdown {
 	position: absolute;
 	top: 100%; /* 부모 요소 아래로 배치 */
 	left: 0; /* 부모 요소의 왼쪽에 정렬 */
@@ -192,21 +196,23 @@ header .login a:visited {
 	overflow: hidden; /* 넘치는 내용 숨김 */
 	margin-top: 29px;
 }
-#favoriteDropdown a{
+
+#favoriteDropdown a {
 	color: #333;
 	padding: 10px 15px;
 	text-decoration: none;
 	display: block;
 	transition: all 0.3s ease;
 }
-button.delete-fav-btn{
+
+button.delete-fav-btn {
 	border: none;
-	font-size:15px;
+	font-size: 15px;
 	width: 40px;
 	height: 30px;
 	background: #595959;
 }
 
-button.delete-fav-btn{
+button.delete-fav-btn {
 	background: #999;
 }

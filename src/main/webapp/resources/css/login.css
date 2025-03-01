@@ -11,7 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(to bottom, #999999, black);
+  background: linear-gradient(to bottom, #545454, black);
 }
 
 .login-container {
@@ -28,6 +28,9 @@ body {
 .login-header {
   text-align: center;
   margin-bottom: 20px;
+}
+.login-header p{
+	padding : 20px 0px;
 }
 
 .input-group {
