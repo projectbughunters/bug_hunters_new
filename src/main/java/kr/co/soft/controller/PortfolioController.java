@@ -214,7 +214,7 @@ public class PortfolioController {
     	
         return "portfolio/newStock";
     }
-	
+	/*
 	@PostMapping("/newStock_pro")
 	   public String newStock_pro(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
 		  int portfolio_idx=newPortfolioInfoBean.getPortfolio_idx();
@@ -229,7 +229,21 @@ public class PortfolioController {
 		   
 		   return "redirect:/portfolio/info/" + portfolio_idx;
 	}
-	
+	*/
+    @PostMapping("/newStock_pro")
+	   public String newStock_pro(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
+		  int portfolio_idx=newPortfolioInfoBean.getPortfolio_idx();
+		  if(newPortfolioInfoBean.getType().equals("stock")) {
+				portfolioService.addPortfolioInfo(newPortfolioInfoBean);
+		  }
+		  
+		  if(newPortfolioInfoBean.getType().equals("crypto")) {
+			  portfolioService.addPortfolioInfo(newPortfolioInfoBean);
+		  }
+		   portfolioService.updatePortfolioDeposit(portfolio_idx);
+		   
+		   return "redirect:/portfolio/info/" + portfolio_idx;
+	}
     
 	@GetMapping("/tendencyTest")
 	public String tendencyMain(Model model) {
