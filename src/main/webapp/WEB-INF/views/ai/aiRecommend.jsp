@@ -36,7 +36,7 @@
                         <img src="${root}image/blue_chart.png" style="width: 300px; height: auto; margin-right: 10px;">
                     </div>
                     <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}';">
-                        <h5>대시보드</h5>
+                        <h5>대시보드  &#10095;</h5>
                     </div>
                 </div>
                 <div>
@@ -46,7 +46,7 @@
                         <img src="${root}image/braun_chart.png" style="width: 300px; height: auto; margin-right: 10px;">
                     </div>
                     <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}';">
-                        <h5>대시보드</h5>
+                        <h5>대시보드  &#10095;</h5>
                     </div>
                 </div>
                 <div>
@@ -56,7 +56,7 @@
                         <img src="${root}image/green_chart.png" style="width: 300px; height: auto; margin-right: 10px;">
                     </div>
                     <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}';">
-                        <h5>대시보드</h5>
+                        <h5>대시보드  &#10095;</h5>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                         <img src="${root}image/orange_chart.png" style="width: 300px; height: auto; margin-right: 10px;">
                     </div>
                     <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}';">
-                        <h5>대시보드</h5>
+                        <h5>대시보드  &#10095;</h5>
                     </div>
                 </div>
                 <div>
@@ -78,7 +78,7 @@
                         <img src="${root}image/purple_chart.png" style="width: 300px; height: auto; margin-right: 10px;">
                     </div>
                     <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}';">
-                        <h5>대시보드</h5>
+                        <h5>대시보드  &#10095;</h5>
                     </div>
                 </div>
                 <div>
@@ -88,7 +88,7 @@
                         <img src="${root}image/yellow_chart.png" style="width: 300px; height: auto; margin-right: 10px;">
                     </div>
                     <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}';">
-                        <h5>대시보드</h5>
+                        <h5>대시보드  &#10095;</h5>
                     </div>
                 </div>
             </div>

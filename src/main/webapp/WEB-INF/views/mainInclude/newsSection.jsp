@@ -36,6 +36,9 @@
          </c:if>
 
       </c:forEach>
+      
+      
+      
    </div><!-- /.news-slider-wrapper -->
 
    <div class="pagination-controls">
