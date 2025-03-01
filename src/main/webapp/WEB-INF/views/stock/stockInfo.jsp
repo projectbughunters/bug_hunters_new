@@ -21,8 +21,12 @@
 <c:import url="/WEB-INF/views/include/topMenu.jsp"/>
 <c:import url="/WEB-INF/views/stock/aiBot.jsp"/>
 <div class="primary-container">
- <h1 id="symbolImg"><img src="https://financialmodelingprep.com/image-stock/${symbol}.png"  />
-  ${processedData.name} (${symbol})</h1>
+ <div class="stock-name">
+	 <h1 id="symbolImg">
+	 <img src="https://financialmodelingprep.com/image-stock/${symbol}.png"  />
+	  ${processedData.name} (${symbol})
+	 </h1>
+ </div>
     <h3 id="explaneCompany">${processedData.marketPrice } 
     	<span class="${processedData.marketChange > 0 ? 'positive-change' : 'negative-change'}">(
     		<script>

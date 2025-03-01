@@ -24,6 +24,7 @@
    <c:import url="/WEB-INF/views/include/topMenu.jsp" />
 
    <div class="primary-container">
+   <div class="coin-name">
       <c:forEach var="coin" items="${coins}">
          <c:if test="${coin.symbol == symbol}">
             <h1 id="symbolImg">
@@ -46,7 +47,7 @@
                                            closingPriceEl.style.fontSize = "50px"; })(); </script></h3>
          </c:if>
       </c:forEach>
-
+	</div>
    <!-- 차트와 뉴스 영역을 감싸는 컨테이너 -->
    <div class="chart-and-info">
       <div class="left-column">

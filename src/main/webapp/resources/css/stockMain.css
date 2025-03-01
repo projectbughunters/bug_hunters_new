@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 #symbolImg {
+	width: 100%;
 	margin-top: 40px;
 	margin-bottom: 0px;
 	display: flex;
@@ -226,7 +227,7 @@ td.clickable {
 
 .news-section {
 	width: 100%; /* 차트 영역과 동일한 너비 */
-	margin-top: 20px; /* 상단 여백 및 중앙 정렬 */
+	margin-top: 50px; /* 상단 여백*/
 	border-top: 1px solid #ccc;
 }
 
