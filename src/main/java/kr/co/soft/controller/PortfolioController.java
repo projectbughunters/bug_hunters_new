@@ -259,16 +259,38 @@ public class PortfolioController {
 	}
 	
 	@PostMapping("/newStockRatio_pro")
-	   public String newStockRatio_pro(@PathVariable("portfolio_idx") int portfolio_idx, Model model) {
+	   public String newStockRatio_pro(HttpServletRequest request, Model model) {
 		  
-			String tendency_code=profileBean.getPersonal_tendency_code();
-		
-		   portfolioService.updatePortfolioDeposit(portfolio_idx);
-		   
-		   List<PortfolioInfoBean> portfolioRatioInfos = portfolioService.getPortfolioInfoBean(portfolio_idx);
-	        model.addAttribute("portfolio_idx", portfolio_idx);
-	        model.addAttribute("portfolioRatioInfos", portfolioRatioInfos);
-	        model.addAttribute("tendency_code", tendency_code);
+		// 폼에서 전체 portfolio_idx를 전달받음
+	    int portfolio_idx = Integer.parseInt(request.getParameter("portfolio_idx"));
+	    
+	    // 폼에 전달된 모든 파라미터를 가져옴
+	    Map<String, String[]> paramMap = request.getParameterMap();
+	    
+	    // "quantity_"로 시작하는 파라미터를 순회하며 각 행의 값을 처리
+	    for (String key : paramMap.keySet()) {
+	        if (key.startsWith("quantity_")) {
+	            // 예: key="quantity_101"이면 idStr = "101"
+	            String idStr = key.substring("quantity_".length());
+	            double quantity = 0;
+	            try {
+	                quantity = Double.parseDouble(request.getParameter(key));
+	            } catch (NumberFormatException e) {
+	                // 수량이 숫자로 변환되지 않으면 0으로 처리
+	                quantity = 0;
+	            }
+	            
+	            // symbol 정보가 있을 경우 사용, 없으면 stockName을 대신 사용 (실제 업데이트에 필요한 값)
+	            String symbol = request.getParameter("symbol_" + idStr);
+	            if (symbol == null || symbol.isEmpty()) {
+	                symbol = request.getParameter("stockName_" + idStr);
+	            }
+	            
+	            // 서비스 메서드를 통해 DB 업데이트 호출
+	            // updatePortfolioInfoAmount(portfolio_idx, amount, symbol)
+	            portfolioService.updatePortfolioInfoAmount(portfolio_idx, quantity, symbol);
+	        }
+	    }
 		   
 		   return "redirect:/portfolio/info/" + portfolio_idx;
 	}
