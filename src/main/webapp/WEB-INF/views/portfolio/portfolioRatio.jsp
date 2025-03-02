@@ -104,174 +104,179 @@ body {
 				    </table>
 				</div>
 				</div>
-
-				<!-- 투자 비율 -->
-				<div id="portfolio-summary" class="portfolio-summary">
-					<h2>투자 비율</h2>
-			    <div class="performance-metrics">
-			        <c:choose>
-			            <c:when test="${tendency_code == '보수형'}">
-			                <div>
-						        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">70</span>%</label>
-						        <input type="range" id="safeRatioSlider" min="0" max="100" value="70" oninput="updateRatios()">
-						    </div>
-						    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
-						    <div>
-						        <label>위험자산 비율: <span id="riskRatioDisplay">30</span>%</label>
-						    </div>
-			            </c:when>
-			            <c:when test="${tendency_code == '중립형'}">
-			                <div>
-						        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">50</span>%</label>
-						        <input type="range" id="safeRatioSlider" min="0" max="100" value="50" oninput="updateRatios()">
-						    </div>
-						    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
-						    <div>
-						        <label>위험자산 비율: <span id="riskRatioDisplay">50</span>%</label>
-						    </div>
-			            </c:when>
-			            <c:when test="${tendency_code == '공격형'}">
-			                <div>
-						        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">30</span>%</label>
-						        <input type="range" id="safeRatioSlider" min="0" max="100" value="30" oninput="updateRatios()">
-						    </div>
-						    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
-						    <div>
-						        <label>위험자산 비율: <span id="riskRatioDisplay">70</span>%</label>
-						    </div>
-			            </c:when>
-		            </c:choose>
-				</div>
-
-				<!-- 자산 입력 칸 -->
-				<div id="portfolio-chart" class="portfolio-chart">
-					<h2>자산 입력</h2>
-					<div class="input-group">
-						<input type="number" id="totalInvestment" placeholder="투자 금액 입력" />
-						<button id="calculateBtn">계산</button>
+				<div class="portfolio-tendency-slider">
+					<!-- 투자 비율 -->
+					<div id="portfolio-summary" class="portfolio-summary">
+						<h2>투자 비율</h2>
+				    <div class="performance-metrics">
+				        <c:choose>
+				            <c:when test="${tendency_code == '보수형'}">
+				                <div>
+							        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">70</span>%</label>
+							        <input type="range" id="safeRatioSlider" min="0" max="100" value="70" oninput="updateRatios()">
+							    </div>
+							    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
+							    <div>
+							        <label>위험자산 비율: <span id="riskRatioDisplay">30</span>%</label>
+							    </div>
+				            </c:when>
+				            <c:when test="${tendency_code == '중립형'}">
+				                <div>
+							        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">50</span>%</label>
+							        <input type="range" id="safeRatioSlider" min="0" max="100" value="50" oninput="updateRatios()">
+							    </div>
+							    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
+							    <div>
+							        <label>위험자산 비율: <span id="riskRatioDisplay">50</span>%</label>
+							    </div>
+				            </c:when>
+				            <c:when test="${tendency_code == '공격형'}">
+				                <div>
+							        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">30</span>%</label>
+							        <input type="range" id="safeRatioSlider" min="0" max="100" value="30" oninput="updateRatios()">
+							    </div>
+							    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
+							    <div>
+							        <label>위험자산 비율: <span id="riskRatioDisplay">70</span>%</label>
+							    </div>
+				            </c:when>
+			            </c:choose>
 					</div>
+				</div>
+				</div>
+				<div class="portfolio-money-input">
+					<!-- 자산 입력 칸 -->
+					<div id="portfolio-chart" class="portfolio-chart">
+						<h2>자산 입력</h2>
+						<div class="input-group">
+							<input type="number" id="totalInvestment" placeholder="투자 금액 입력" />
+							<button id="calculateBtn">계산</button>
+						</div>
+					
 
-					<!-- 계산된 자산 표시 -->
-					<div class="calculated-assets" id="calculatedAssets"
-						style="display: none;">
-						<div class="performance-metrics">
-							<div class="metric-card">
-								<div class="metric-value" id="safeAssetAmount">0원</div>
-								<div class="metric-label">안전자산 배분액</div>
-							</div>
-							<div class="metric-card">
-								<div class="metric-value" id="riskAssetAmount">0원</div>
-								<div class="metric-label">위험자산 배분액</div>
+						<!-- 계산된 자산 표시 -->
+						<div class="calculated-assets" id="calculatedAssets"
+							style="display: none;">
+							<div class="performance-metrics2">
+								<div class="metric-card">
+									<div class="metric-value" id="safeAssetAmount">0원</div>
+									<div class="metric-label">안전자산 배분액</div>
+								</div>
+								<div class="metric-card">
+									<div class="metric-value" id="riskAssetAmount">0원</div>
+									<div class="metric-label">위험자산 배분액</div>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				
-				<form id="portfolioForm" action="${root}portfolio/updateQuantities" method="post">
-				<input type="hidden" name="portfolio_idx" 
-                                       value="${portfolio_idx}" />
-				<!-- 안전자산 테이블 -->
-				<div id="portfolio-holdings-safe" class="portfolio-holdings">
-				    <h2>안전자산 보유 종목 정보</h2>
-				    <table class="holdings-table">
-				        <thead>
-				            <tr>
-				                <th>주식명</th>
-				                <th>타입</th>
-				                <th>구매가</th>
-				                <th>수량</th>
-				                <th>총 구매금액</th>
-				            </tr>
-				        </thead>
-				        <tbody>
-				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
-				                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
-				                    <tr>
-				                        <td>${portfolioRatioInfo.stock_name}
-				                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
-			                                <input type="hidden" name="stockName_${portfolioRatioInfo.portfolio_info_idx}" 
-			                                       value="${portfolioRatioInfo.stock_name}" />
-				                        </td>
-				                        <td>
-				                            <c:choose>
-				                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
-				                                    주식
-				                                </c:when>
-				                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
-				                                    암호화폐
-				                                </c:when>
-				                            </c:choose>
-				                        </td>
-				                        <td>${portfolioRatioInfo.price}</td>
-				                        <td>
-				                            <input type="number" class="quantity-input"
-				                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
-				                                   value="0" min="0" />
-				                        </td>
-				                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
-				                    </tr>
-				                </c:if>
-				            </c:forEach>
-				        </tbody>
-				    </table>
-				    <!-- 안전자산 총 구매금액 합계 표시 -->
-    				<div class="total-sum" id="safeTotalSum"></div>
-				</div>
-				<!-- 위험자산 테이블 -->
-				<div id="portfolio-holdings-risk" class="portfolio-holdings">
-				    <h2>위험자산 보유 종목 정보</h2>
-				    <table class="holdings-table">
-				        <thead>
-				            <tr>
-				                <th>주식명</th>
-				                <th>타입</th>
-				                <th>구매가</th>
-				                <th>수량</th>
-				                <th>총 구매금액</th>
-				            </tr>
-				        </thead>
-				        <tbody>
-				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
-				                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
-				                    <tr>
-				                        <td>${portfolioRatioInfo.stock_name}
-				                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
-			                                <input type="hidden" name="stockName_${portfolioRatioInfo.portfolio_info_idx}" 
-			                                       value="${portfolioRatioInfo.stock_name}" />
-				                        </td>
-				                        <td>
-				                            <c:choose>
-				                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
-				                                    주식
-				                                </c:when>
-				                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
-				                                    암호화폐
-				                                </c:when>
-				                            </c:choose>
-				                        </td>
-				                        <td>${portfolioRatioInfo.price}</td>
-				                        <td>
-				                            <input type="number" class="quantity-input"
-				                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
-				                                   value="0" min="0" />
-				                        </td>
-				                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
-				                    </tr>
-				                </c:if>
-				            </c:forEach>
-				        </tbody>
-				    </table>
-				    <!-- 위험자산 총 구매금액 합계 표시 -->
-    				<div class="total-sum" id="riskTotalSum"></div>
-				</div>
+				<div class="portfolio-table-modify">
+					<form id="portfolioForm" action="${root}portfolio/updateQuantities" method="post">
+					<input type="hidden" name="portfolio_idx" 
+	                                       value="${portfolio_idx}" />
+					<!-- 안전자산 테이블 -->
+					<div id="portfolio-holdings-safe" class="portfolio-holdings">
+					    <h2>안전자산 보유 종목 정보</h2>
+					    <table class="holdings-table">
+					        <thead>
+					            <tr>
+					                <th>주식명</th>
+					                <th>타입</th>
+					                <th>구매가</th>
+					                <th>수량</th>
+					                <th>총 구매금액</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
+					                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
+					                    <tr>
+					                        <td>${portfolioRatioInfo.stock_name}
+					                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
+				                                <input type="hidden" name="stockName_${portfolioRatioInfo.portfolio_info_idx}" 
+				                                       value="${portfolioRatioInfo.stock_name}" />
+					                        </td>
+					                        <td>
+					                            <c:choose>
+					                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
+					                                    주식
+					                                </c:when>
+					                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
+					                                    암호화폐
+					                                </c:when>
+					                            </c:choose>
+					                        </td>
+					                        <td>${portfolioRatioInfo.price}</td>
+					                        <td>
+					                            <input type="number" class="quantity-input"
+					                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
+					                                   value="0" min="0" step="any"/>
+					                        </td>
+					                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
+					                    </tr>
+					                </c:if>
+					            </c:forEach>
+					        </tbody>
+					    </table>
+					    <!-- 안전자산 총 구매금액 합계 표시 -->
+	    				<div class="total-sum" id="safeTotalSum"></div>
+					</div>
+					<!-- 위험자산 테이블 -->
+					<div id="portfolio-holdings-risk" class="portfolio-holdings">
+					    <h2>위험자산 보유 종목 정보</h2>
+					    <table class="holdings-table">
+					        <thead>
+					            <tr>
+					                <th>주식명</th>
+					                <th>타입</th>
+					                <th>구매가</th>
+					                <th>수량</th>
+					                <th>총 구매금액</th>
+					            </tr>
+					        </thead>
+					        <tbody>
+					            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
+					                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
+					                    <tr>
+					                        <td>${portfolioRatioInfo.stock_name}
+					                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
+				                                <input type="hidden" name="stockName_${portfolioRatioInfo.portfolio_info_idx}" 
+				                                       value="${portfolioRatioInfo.stock_name}" />
+					                        </td>
+					                        <td>
+					                            <c:choose>
+					                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
+					                                    주식
+					                                </c:when>
+					                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
+					                                    암호화폐
+					                                </c:when>
+					                            </c:choose>
+					                        </td>
+					                        <td>${portfolioRatioInfo.price}</td>
+					                        <td>
+					                            <input type="number" class="quantity-input"
+					                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
+					                                   value="0" min="0" step="any"/>
+					                        </td>
+					                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
+					                    </tr>
+					                </c:if>
+					            </c:forEach>
+					        </tbody>
+					    </table>
+					    <!-- 위험자산 총 구매금액 합계 표시 -->
+	    				<div class="total-sum" id="riskTotalSum"></div>
+					</div>
+					</div>
 				<!-- 제출 버튼 (폼 전송) -->
 			    <button type="submit" id="newStock" class="submit-button">제출</button>
 			</form>
-				
 			</div>
 		</div>
 	</div>
-</div>
+
 
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />
 
