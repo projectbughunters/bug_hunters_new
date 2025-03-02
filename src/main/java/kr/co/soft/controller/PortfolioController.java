@@ -225,6 +225,21 @@ public class PortfolioController {
 		  if(newPortfolioInfoBean.getType().equals("crypto")) {
 			  portfolioService.addPortfolioInfo(newPortfolioInfoBean);
 		  }
+		   model.addAttribute("portfolio_idx", portfolio_idx);
+		   
+		   return "portfolio/portfolioRatio";
+	}
+	
+	@PostMapping("/newStockRatio")
+	   public String newStockRatio(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
+		  int portfolio_idx=newPortfolioInfoBean.getPortfolio_idx();
+		  if(newPortfolioInfoBean.getType().equals("stock")) {
+				portfolioService.addPortfolioInfo(newPortfolioInfoBean);
+		  }
+		  
+		  if(newPortfolioInfoBean.getType().equals("crypto")) {
+			  portfolioService.addPortfolioInfo(newPortfolioInfoBean);
+		  }
 		   portfolioService.updatePortfolioDeposit(portfolio_idx);
 		   
 		   return "redirect:/portfolio/info/" + portfolio_idx;
