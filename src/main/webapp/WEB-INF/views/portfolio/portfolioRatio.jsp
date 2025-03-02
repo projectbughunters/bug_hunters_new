@@ -193,9 +193,6 @@ body {
 				                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
 				                                    암호화폐
 				                                </c:when>
-				                                <c:otherwise>
-				                                    기타
-				                                </c:otherwise>
 				                            </c:choose>
 				                        </td>
 				                        <td>${portfolioRatioInfo.price}</td>
@@ -210,8 +207,9 @@ body {
 				            </c:forEach>
 				        </tbody>
 				    </table>
+				    <!-- 안전자산 총 구매금액 합계 표시 -->
+    				<div class="total-sum" id="safeTotalSum"></div>
 				</div>
-				
 				<!-- 위험자산 테이블 -->
 				<div id="portfolio-holdings-risk" class="portfolio-holdings">
 				    <h2>위험자산 보유 종목 정보</h2>
@@ -238,9 +236,6 @@ body {
 				                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
 				                                    암호화폐
 				                                </c:when>
-				                                <c:otherwise>
-				                                    기타
-				                                </c:otherwise>
 				                            </c:choose>
 				                        </td>
 				                        <td>${portfolioRatioInfo.price}</td>
@@ -255,7 +250,8 @@ body {
 				            </c:forEach>
 				        </tbody>
 				    </table>
-				    
+				    <!-- 위험자산 총 구매금액 합계 표시 -->
+    				<div class="total-sum" id="riskTotalSum"></div>
 				</div>
 				<!-- 제출 버튼 -->
 					<button id="newStock" class="submit-button">제출</button>
@@ -275,6 +271,20 @@ body {
         var riskValue = 100 - safeValue;
         document.getElementById("safeRatioDisplay").innerText = safeValue;
         document.getElementById("riskRatioDisplay").innerText = riskValue;
+    }
+    
+ // 테이블의 모든 행에서 '총 구매금액'을 합산하여 지정한 div에 업데이트하는 함수
+    function updateTotalSum(tableSelector, sumDivId) {
+        const rows = document.querySelectorAll(tableSelector + " tbody tr");
+        let sum = 0;
+        rows.forEach(row => {
+            let totalText = row.querySelector('.total-price').textContent;
+            // 숫자와 소수점만 남기고 파싱 (예: "1,200원" -> "1200")
+            totalText = totalText.replace(/[^0-9.]/g, '');
+            let totalVal = parseFloat(totalText) || 0;
+            sum += totalVal;
+        });
+        document.getElementById(sumDivId).textContent = "총 구매금액 합계: " + sum.toLocaleString() + "원";
     }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -296,37 +306,123 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll();
     window.addEventListener('scroll', checkScroll);
 
-    // 계산 버튼 기능
+	 // 계산 버튼 기능
     document.getElementById('calculateBtn').addEventListener('click', function() {
+        // 1) 전체 투자 금액
         const totalInvestment = parseFloat(document.getElementById('totalInvestment').value);
         if (!isNaN(totalInvestment)) {
-        	var safeSlider = document.getElementById("safeRatioSlider");
+            // 2) 안전/위험 자산 비율 계산
+            var safeSlider = document.getElementById("safeRatioSlider");
             var safeValue = parseInt(safeSlider.value);
             var riskValue = 100 - safeValue;
+
+            // 3) 안전자산, 위험자산 배분액
             const safeAsset = totalInvestment * (safeValue / 100);
             const riskAsset = totalInvestment * (riskValue / 100);
-            
-            document.getElementById('safeAssetAmount').textContent = safeAsset.toLocaleString() + '원';
-            document.getElementById('riskAssetAmount').textContent = riskAsset.toLocaleString() + '원';
+
+            // 4) 화면에 표시
+            document.getElementById('safeAssetAmount').textContent = 
+                safeAsset.toLocaleString() + '원';
+            document.getElementById('riskAssetAmount').textContent = 
+                riskAsset.toLocaleString() + '원';
             document.getElementById('calculatedAssets').style.display = 'block';
+
+            // ----------------------------------------------------
+            // [추가 로직1] 안전자산 테이블 배분
+            // ----------------------------------------------------
+            // (a) "안전자산 배분액"에서 숫자만 추출
+            let safeAssetText = document.getElementById('safeAssetAmount')
+                                    .textContent.replace('원','').replaceAll(',','');
+            let safeAssetValue = parseFloat(safeAssetText) || 0;
             
+            // (b) 안전자산 테이블의 모든 행(tr) 수집
+            let safeRows = document.querySelectorAll('#portfolio-holdings-safe tbody tr');
+            let rowCountSafe = safeRows.length;
             
+            if (rowCountSafe > 0 && safeAssetValue > 0) {
+                // (c) 종목별 균등 분배금
+                let allocatedPerSafeRow = safeAssetValue / rowCountSafe;
+                
+                safeRows.forEach(row => {
+                    let priceAttr = row.querySelector('.total-price').getAttribute('data-price');
+                    let price = parseFloat(priceAttr) || 0;
+                    
+                    let quantity = 0;
+                    if (price > 0) {
+                        // (d) 수량 = 분배금 / 구매가 의 정수 몫
+                        quantity = Math.floor(allocatedPerSafeRow / price);
+                    }
+                    
+                    // 수량 업데이트
+                    let quantityInput = row.querySelector('.quantity-input');
+                    quantityInput.value = quantity;
+                    
+                    // 총 구매금액 계산
+                    let totalPrice = price * quantity;
+                    row.querySelector('.total-price').textContent = 
+                        totalPrice.toLocaleString() + '원';
+                });
+            }
+         	// 안전자산 테이블 총합 업데이트
+            updateTotalSum('#portfolio-holdings-safe', 'safeTotalSum');
+
+            // ----------------------------------------------------
+            // [추가 로직2] 위험자산 테이블 배분
+            // ----------------------------------------------------
+            // (a) "위험자산 배분액"에서 숫자만 추출
+            let riskAssetText = document.getElementById('riskAssetAmount')
+                                    .textContent.replace('원','').replaceAll(',','');
+            let riskAssetValue = parseFloat(riskAssetText) || 0;
+
+            // (b) 위험자산 테이블의 모든 행(tr) 수집
+            let riskRows = document.querySelectorAll('#portfolio-holdings-risk tbody tr');
+            let rowCountRisk = riskRows.length;
+
+            if (rowCountRisk > 0 && riskAssetValue > 0) {
+                // (c) 종목별 균등 분배금
+                let allocatedPerRiskRow = riskAssetValue / rowCountRisk;
+
+                riskRows.forEach(row => {
+                    let priceAttr = row.querySelector('.total-price').getAttribute('data-price');
+                    let price = parseFloat(priceAttr) || 0;
+                    
+                    let quantity = 0;
+                    if (price > 0) {
+                        // (d) 수량 = 분배금 / 구매가 의 정수 몫
+                        quantity = Math.floor(allocatedPerRiskRow / price);
+                    }
+
+                    // 수량 업데이트
+                    let quantityInput = row.querySelector('.quantity-input');
+                    quantityInput.value = quantity;
+                    
+                    // 총 구매금액 계산
+                    let totalPrice = price * quantity;
+                    row.querySelector('.total-price').textContent = 
+                        totalPrice.toLocaleString() + '원';
+                });
+            }
+         	// 위험자산 테이블 총합 업데이트
+            updateTotalSum('#portfolio-holdings-risk', 'riskTotalSum');
         }
+    }); // calculateBtn click end
+
+    // 수량 입력시 (구매가 * 수량) 자동계산
+    const quantityInputs = document.querySelectorAll('.quantity-input');
+    quantityInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const tr = input.closest('tr');
+            const priceAttr = tr.querySelector('.total-price').getAttribute('data-price');
+            const price = parseFloat(priceAttr) || 0; 
+            const quantity = parseFloat(input.value) || 0;
+            const total = price * quantity;
+            tr.querySelector('.total-price').textContent = total.toLocaleString() + '원';
+         	// 안전자산 테이블 총합 업데이트
+            updateTotalSum('#portfolio-holdings-safe', 'safeTotalSum');
+         	// 위험자산 테이블 총합 업데이트
+            updateTotalSum('#portfolio-holdings-risk', 'riskTotalSum');
+        });
     });
-    
-	 // "구매가 * 수량" 계산 로직
-	    const quantityInputs = document.querySelectorAll('.quantity-input');
-	    quantityInputs.forEach(input => {
-	        input.addEventListener('input', function() {
-	            const tr = input.closest('tr');
-	            const priceAttr = tr.querySelector('.total-price').getAttribute('data-price');
-	            const price = parseFloat(priceAttr) || 0; 
-	            const quantity = parseFloat(input.value) || 0;
-	            const total = price * quantity;
-	            // 결과를 "0원" 형태로 표시
-	            tr.querySelector('.total-price').textContent = total.toLocaleString() + '원';
-	        });
-	    });
 });
 </script>
 
