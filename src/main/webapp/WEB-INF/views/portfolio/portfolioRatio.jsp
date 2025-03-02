@@ -29,7 +29,7 @@ body {
 	<c:import url="/WEB-INF/views/stock/exchange.jsp" />
 	<div class="primary-container">
 		<div class="portfolio-container_top" id="portfolio-container">
-
+			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
 			<div class="section">
 				<div class="text" id="text1">투자 계획 수립</div>
 			</div>
