@@ -28,13 +28,14 @@ body {
 	<c:import url="/WEB-INF/views/include/topMenu.jsp" />
 	<c:import url="/WEB-INF/views/stock/exchange.jsp" />
 	<div class="primary-container">
-		<div class="portfolio-container" id="portfolio-container">
+		<div class="portfolio-container_top" id="portfolio-container">
 
 			<div class="section">
 				<div class="text" id="text1">투자 계획 수립</div>
 			</div>
 
 			<div class="portfolio-container">
+			<div class="asset-table">
 				<!-- 안전자산 테이블 -->
 				<div id="safe-assets" class="portfolio-list">
 				    <h2>안전자산</h2>
@@ -43,7 +44,7 @@ body {
 				            <tr>
 				                <th>자산명</th>
 				                <th>타입</th>
-				                <!-- 필요한 다른 컬럼 추가 -->
+				                <th class="del-btn"/>
 				            </tr>
 				        </thead>
 				        <tbody>
@@ -59,6 +60,9 @@ body {
 					                        	암호화폐
 					                        </c:if>
 				                        </td>
+				                      	<td>
+				                      		<button>삭제</button>
+				                      	</td>
 				                    </tr>
 				                </c:if>
 				            </c:forEach>
@@ -74,7 +78,7 @@ body {
 				            <tr>
 				                <th>자산명</th>
 				                <th>타입</th>
-				                <!-- 필요한 다른 컬럼 추가 -->
+				                <th class="del-btn"/>
 				            </tr>
 				        </thead>
 				        <tbody>
@@ -90,11 +94,15 @@ body {
 					                        	암호화폐
 					                        </c:if>
 				                        </td>
+				                        <td>
+				                      		<button>삭제</button>
+				                      	</td>
 				                    </tr>
 				                </c:if>
 				            </c:forEach>
 				        </tbody>
 				    </table>
+				</div>
 				</div>
 
 				<!-- 투자 비율 -->
