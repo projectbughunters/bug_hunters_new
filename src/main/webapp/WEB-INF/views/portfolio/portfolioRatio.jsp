@@ -61,7 +61,7 @@ body {
 					                        </c:if>
 				                        </td>
 				                      	<td>
-				                      		<a href="#" onclick="return confirmDelete(${portfolioInfoBean.portfolio_idx}, ${portfolioInfoBean.portfolio_info_idx })">삭제</a>
+				                      		<a href="#" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -95,7 +95,7 @@ body {
 					                        </c:if>
 				                        </td>
 				                        <td>
-				                      		<a href="#" onclick="return confirmDelete(${portfolioInfoBean.portfolio_idx}, ${portfolioInfoBean.portfolio_info_idx })">삭제</a>
+				                      		<a href="#" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -166,7 +166,10 @@ body {
 						</div>
 					</div>
 				</div>
-
+				
+				<form id="portfolioForm" action="${root}portfolio/updateQuantities" method="post">
+				<input type="hidden" name="portfolio_idx" 
+                                       value="${portfolio_idx}" />
 				<!-- 안전자산 테이블 -->
 				<div id="portfolio-holdings-safe" class="portfolio-holdings">
 				    <h2>안전자산 보유 종목 정보</h2>
@@ -184,7 +187,11 @@ body {
 				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
 				                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
 				                    <tr>
-				                        <td>${portfolioRatioInfo.stock_name}</td>
+				                        <td>${portfolioRatioInfo.stock_name}
+				                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
+			                                <input type="hidden" name="stockName_${portfolioRatioInfo.portfolio_info_idx}" 
+			                                       value="${portfolioRatioInfo.stock_name}" />
+				                        </td>
 				                        <td>
 				                            <c:choose>
 				                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
@@ -227,7 +234,11 @@ body {
 				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
 				                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
 				                    <tr>
-				                        <td>${portfolioRatioInfo.stock_name}</td>
+				                        <td>${portfolioRatioInfo.stock_name}
+				                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
+			                                <input type="hidden" name="stockName_${portfolioRatioInfo.portfolio_info_idx}" 
+			                                       value="${portfolioRatioInfo.stock_name}" />
+				                        </td>
 				                        <td>
 				                            <c:choose>
 				                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
@@ -253,8 +264,9 @@ body {
 				    <!-- 위험자산 총 구매금액 합계 표시 -->
     				<div class="total-sum" id="riskTotalSum"></div>
 				</div>
-				<!-- 제출 버튼 -->
-					<button id="newStock" class="submit-button">제출</button>
+				<!-- 제출 버튼 (폼 전송) -->
+			    <button type="submit" id="newStock" class="submit-button">제출</button>
+			</form>
 				
 			</div>
 		</div>
@@ -268,7 +280,7 @@ body {
 	function confirmDelete(portfolio_idx, portfolio_info_idx) {
         var confirmation = confirm("정말 삭제하시겠습니까?");
         if (confirmation) {
-            window.location.href = '${root}portfolio/delete/' + portfolio_idx + "/" + portfolio_info_idx;
+            window.location.href = '${root}portfolio/ratioDelete/' + portfolio_idx + "/" + portfolio_info_idx;
         }
         return false; // 링크의 기본 동작을 막는다 (페이지 이동을 방지)
     }

@@ -33,7 +33,7 @@ body {
 	<div class="primary-container">
 	<div class="portfolio-container" id="portfolio-container">
 	
-	<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
+	<button id="newStock" onclick="location.href='${root}portfolio/newStockRatio/${portfolio_idx }'">포트폴리오 도우미</button>
 	<div class="portfolio-summary" id="portfolio-summary"
 			style="opacity: 1;">
 			<h2>당신의 포트폴리오</h2>
