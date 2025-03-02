@@ -60,10 +60,10 @@
 				<form:input path="price" id="price" class="form-control" />
 				<br />
 
-				<form:label path="amount">수량</form:label>
+				<%-- <form:label path="amount">수량</form:label>
 				<form:input path="amount" id="amount" class="form-control" 
             	placeholder="0.0" type="number" min="0.1" step="any" required="required" />
-				<br />
+				<br /> --%>
 
 				<!-- asset_type 필드를 라디오 버튼으로 추가 -->
 				<form:label path="asset_type">자산 유형</form:label>

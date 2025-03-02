@@ -1,9 +1,6 @@
 package kr.co.soft.controller;
 
 import java.io.File;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,6 +9,7 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -215,8 +213,30 @@ public class PortfolioController {
         return "portfolio/newStock";
     }
 
-	@PostMapping("/newStock_pro")
-	   public String newStock_pro(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
+    @PostMapping("/newStock_pro")
+    public String newStock_pro(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
+        int portfolio_idx = newPortfolioInfoBean.getPortfolio_idx();
+        String tendency_code=profileBean.getPersonal_tendency_code();
+        try {
+                portfolioService.addPortfolioInfo(newPortfolioInfoBean);
+        } catch (DuplicateKeyException e) {
+            // 중복된 symbol 발생 시 경고창에 띄울 메시지 설정
+            model.addAttribute("errorMessage", "중복된 종목입니다. 다른 종목을 추가해 주세요.");
+            model.addAttribute("portfolio_idx", portfolio_idx);
+            // 에러 메시지를 보여줄 별도의 JSP 페이지로 이동
+            return "portfolio/portfolioError";
+        }
+        
+        List<PortfolioInfoBean> portfolioRatioInfos = portfolioService.getPortfolioInfoBean(portfolio_idx);
+        model.addAttribute("portfolio_idx", portfolio_idx);
+        model.addAttribute("portfolioRatioInfos", portfolioRatioInfos);
+        model.addAttribute("tendency_code", tendency_code);
+        
+        return "portfolio/portfolioRatio";
+    }
+	
+	@PostMapping("/newStockRatio")
+	   public String newStockRatio(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
 		  int portfolio_idx=newPortfolioInfoBean.getPortfolio_idx();
 		  if(newPortfolioInfoBean.getType().equals("stock")) {
 				portfolioService.addPortfolioInfo(newPortfolioInfoBean);

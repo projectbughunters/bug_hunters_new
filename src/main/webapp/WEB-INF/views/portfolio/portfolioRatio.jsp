@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio | TMI</title>
-<link rel="stylesheet" href="${root}css/portfolioInfo.css">
+<link rel="stylesheet" href="${root}css/portfolioRatio.css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 
@@ -30,52 +30,109 @@ body {
 	<div class="primary-container">
 		<div class="portfolio-container" id="portfolio-container">
 
-
 			<div class="section">
 				<div class="text" id="text1">투자 계획 수립</div>
 			</div>
 
 			<div class="portfolio-container">
-				<!-- 안전자산, 위험자산 선택 -->
-				<div id="portfolio-list" class="portfolio-list">
-					<h2>자산 유형 선택</h2>
-					<table class="holdings-table">
-						<thead>
-							<tr>
-								<th>안전자산</th>
-								<th>위험자산</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>국채</td>
-								<td>주식</td>
-							</tr>
-							<tr>
-								<td>금</td>
-								<td>암호화폐</td>
-							</tr>
-							<tr>
-								<td>부동산</td>
-								<td>선물</td>
-							</tr>
-						</tbody>
-					</table>
+				<!-- 안전자산 테이블 -->
+				<div id="safe-assets" class="portfolio-list">
+				    <h2>안전자산</h2>
+				    <table class="holdings-table">
+				        <thead>
+				            <tr>
+				                <th>자산명</th>
+				                <th>타입</th>
+				                <!-- 필요한 다른 컬럼 추가 -->
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
+				                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
+				                    <tr>
+				                        <td>${portfolioRatioInfo.stock_name}</td>
+				                        <td>
+					                        <c:if test="${portfolioRatioInfo.type == 'stock'}">
+					                        	주식
+					                        </c:if>
+					                        <c:if test="${portfolioRatioInfo.type == 'crypto'}">
+					                        	암호화폐
+					                        </c:if>
+				                        </td>
+				                    </tr>
+				                </c:if>
+				            </c:forEach>
+				        </tbody>
+				    </table>
+				</div>
+				
+				<!-- 위험자산 테이블 -->
+				<div id="risk-assets" class="portfolio-list">
+				    <h2>위험자산</h2>
+				    <table class="holdings-table">
+				        <thead>
+				            <tr>
+				                <th>자산명</th>
+				                <th>타입</th>
+				                <!-- 필요한 다른 컬럼 추가 -->
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
+				                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
+				                    <tr>
+				                        <td>${portfolioRatioInfo.stock_name}</td>
+				                        <td>
+				                        	<c:if test="${portfolioRatioInfo.type == 'stock'}">
+					                        	주식
+					                        </c:if>
+					                        <c:if test="${portfolioRatioInfo.type == 'crypto'}">
+					                        	암호화폐
+					                        </c:if>
+				                        </td>
+				                    </tr>
+				                </c:if>
+				            </c:forEach>
+				        </tbody>
+				    </table>
 				</div>
 
 				<!-- 투자 비율 -->
 				<div id="portfolio-summary" class="portfolio-summary">
 					<h2>투자 비율</h2>
-					<div class="performance-metrics">
-						<div class="metric-card">
-							<div class="metric-value">60%</div>
-							<div class="metric-label">안전자산</div>
-						</div>
-						<div class="metric-card">
-							<div class="metric-value">40%</div>
-							<div class="metric-label">위험자산</div>
-						</div>
-					</div>
+			    <div class="performance-metrics">
+			        <c:choose>
+			            <c:when test="${tendency_code == '보수형'}">
+			                <div>
+						        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">70</span>%</label>
+						        <input type="range" id="safeRatioSlider" min="0" max="100" value="70" oninput="updateRatios()">
+						    </div>
+						    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
+						    <div>
+						        <label>위험자산 비율: <span id="riskRatioDisplay">30</span>%</label>
+						    </div>
+			            </c:when>
+			            <c:when test="${tendency_code == '중립형'}">
+			                <div>
+						        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">50</span>%</label>
+						        <input type="range" id="safeRatioSlider" min="0" max="100" value="50" oninput="updateRatios()">
+						    </div>
+						    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
+						    <div>
+						        <label>위험자산 비율: <span id="riskRatioDisplay">50</span>%</label>
+						    </div>
+			            </c:when>
+			            <c:when test="${tendency_code == '공격형'}">
+			                <div>
+						        <label for="safeRatioSlider">안전자산 비율: <span id="safeRatioDisplay">30</span>%</label>
+						        <input type="range" id="safeRatioSlider" min="0" max="100" value="30" oninput="updateRatios()">
+						    </div>
+						    <!-- 위험자산 비율은 안전자산 비율의 보완 값 -->
+						    <div>
+						        <label>위험자산 비율: <span id="riskRatioDisplay">70</span>%</label>
+						    </div>
+			            </c:when>
+		            </c:choose>
 				</div>
 
 				<!-- 자산 입력 칸 -->
@@ -83,7 +140,7 @@ body {
 					<h2>자산 입력</h2>
 					<div class="input-group">
 						<input type="number" id="totalInvestment" placeholder="투자 금액 입력" />
-						<button id="newStock">계산</button>
+						<button id="calculateBtn">계산</button>
 					</div>
 
 					<!-- 계산된 자산 표시 -->
@@ -102,34 +159,116 @@ body {
 					</div>
 				</div>
 
-				<!-- 현재 가격 표시 -->
-				<div id="portfolio-holdings" class="portfolio-holdings">
-					<h2>현재 가격</h2>
-					<div class="performance-metrics">
-						<div class="metric-card">
-							<h3>안전자산 가격</h3>
-							<div class="metric-value" id="safeAssetPrice">0원</div>
-							<input type="number" placeholder="투자 금액" class="investment-input" />
-						</div>
-						<div class="metric-card">
-							<h3>위험자산 가격</h3>
-							<div class="metric-value" id="riskAssetPrice">0원</div>
-							<input type="number" placeholder="투자 금액" class="investment-input" />
-						</div>
-					</div>
-
-					<!-- 제출 버튼 -->
-					<button id="newStock" class="submit-button">제출</button>
+				<!-- 안전자산 테이블 -->
+				<div id="portfolio-holdings-safe" class="portfolio-holdings">
+				    <h2>안전자산 보유 종목 정보</h2>
+				    <table class="holdings-table">
+				        <thead>
+				            <tr>
+				                <th>주식명</th>
+				                <th>타입</th>
+				                <th>구매가</th>
+				                <th>수량</th>
+				                <th>총 구매금액</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
+				                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
+				                    <tr>
+				                        <td>${portfolioRatioInfo.stock_name}</td>
+				                        <td>
+				                            <c:choose>
+				                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
+				                                    주식
+				                                </c:when>
+				                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
+				                                    암호화폐
+				                                </c:when>
+				                                <c:otherwise>
+				                                    기타
+				                                </c:otherwise>
+				                            </c:choose>
+				                        </td>
+				                        <td>${portfolioRatioInfo.price}</td>
+				                        <td>
+				                            <input type="number" class="quantity-input"
+				                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
+				                                   value="0" min="0" />
+				                        </td>
+				                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
+				                    </tr>
+				                </c:if>
+				            </c:forEach>
+				        </tbody>
+				    </table>
 				</div>
+				
+				<!-- 위험자산 테이블 -->
+				<div id="portfolio-holdings-risk" class="portfolio-holdings">
+				    <h2>위험자산 보유 종목 정보</h2>
+				    <table class="holdings-table">
+				        <thead>
+				            <tr>
+				                <th>주식명</th>
+				                <th>타입</th>
+				                <th>구매가</th>
+				                <th>수량</th>
+				                <th>총 구매금액</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
+				                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
+				                    <tr>
+				                        <td>${portfolioRatioInfo.stock_name}</td>
+				                        <td>
+				                            <c:choose>
+				                                <c:when test="${portfolioRatioInfo.type eq 'stock'}">
+				                                    주식
+				                                </c:when>
+				                                <c:when test="${portfolioRatioInfo.type eq 'crypto'}">
+				                                    암호화폐
+				                                </c:when>
+				                                <c:otherwise>
+				                                    기타
+				                                </c:otherwise>
+				                            </c:choose>
+				                        </td>
+				                        <td>${portfolioRatioInfo.price}</td>
+				                        <td>
+				                            <input type="number" class="quantity-input"
+				                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
+				                                   value="0" min="0" />
+				                        </td>
+				                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
+				                    </tr>
+				                </c:if>
+				            </c:forEach>
+				        </tbody>
+				    </table>
+				    
+				</div>
+				<!-- 제출 버튼 -->
+					<button id="newStock" class="submit-button">제출</button>
+				
 			</div>
 		</div>
 	</div>
-
+</div>
 
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />
 
 
 	<script>
+    function updateRatios() {
+        var safeSlider = document.getElementById("safeRatioSlider");
+        var safeValue = parseInt(safeSlider.value);
+        var riskValue = 100 - safeValue;
+        document.getElementById("safeRatioDisplay").innerText = safeValue;
+        document.getElementById("riskRatioDisplay").innerText = riskValue;
+    }
+
 document.addEventListener('DOMContentLoaded', function() {
     // 스크롤 애니메이션
     function checkScroll() {
@@ -153,14 +292,33 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('calculateBtn').addEventListener('click', function() {
         const totalInvestment = parseFloat(document.getElementById('totalInvestment').value);
         if (!isNaN(totalInvestment)) {
-            const safeAsset = totalInvestment * 0.6;
-            const riskAsset = totalInvestment * 0.4;
+        	var safeSlider = document.getElementById("safeRatioSlider");
+            var safeValue = parseInt(safeSlider.value);
+            var riskValue = 100 - safeValue;
+            const safeAsset = totalInvestment * (safeValue / 100);
+            const riskAsset = totalInvestment * (riskValue / 100);
             
             document.getElementById('safeAssetAmount').textContent = safeAsset.toLocaleString() + '원';
             document.getElementById('riskAssetAmount').textContent = riskAsset.toLocaleString() + '원';
             document.getElementById('calculatedAssets').style.display = 'block';
+            
+            
         }
     });
+    
+	 // "구매가 * 수량" 계산 로직
+	    const quantityInputs = document.querySelectorAll('.quantity-input');
+	    quantityInputs.forEach(input => {
+	        input.addEventListener('input', function() {
+	            const tr = input.closest('tr');
+	            const priceAttr = tr.querySelector('.total-price').getAttribute('data-price');
+	            const price = parseFloat(priceAttr) || 0; 
+	            const quantity = parseFloat(input.value) || 0;
+	            const total = price * quantity;
+	            // 결과를 "0원" 형태로 표시
+	            tr.querySelector('.total-price').textContent = total.toLocaleString() + '원';
+	        });
+	    });
 });
 </script>
 
