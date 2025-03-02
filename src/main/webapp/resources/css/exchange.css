@@ -4,7 +4,7 @@
 #exchangePanel {
 	position: fixed;
     top: 200px;
-    right: 20px;
+    right: 5px;
     width: 450px;
     height: 300px;
     background-color: white;
@@ -46,7 +46,7 @@ h3{
 	position: fixed;
 	top: 200px;
 	right: 20px;
-	background-color: #595959;
+	background-color: #ffbd59;
 	color: white;
 	border: none;
 	padding: 10px 16px;
@@ -57,7 +57,7 @@ h3{
 	z-index: 1001;
 }
 #toggleExchangeButton:hover{
-	background: #999;
+	background: #f79a0c;
 }
 
 /* 스크롤바 스타일 (선택적) */
