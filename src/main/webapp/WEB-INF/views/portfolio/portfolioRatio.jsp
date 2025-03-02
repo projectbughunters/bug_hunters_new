@@ -112,6 +112,9 @@ body {
 					<!-- 투자 비율 -->
 					<div id="portfolio-summary" class="portfolio-summary">
 						<h2>투자 비율</h2>
+						<div>
+							<h4>당신의 투자 성향은 ''입니다.</h4>
+						</div>
 				    <div class="performance-metrics">
 				        <c:choose>
 				            <c:when test="${tendency_code == '보수형'}">
