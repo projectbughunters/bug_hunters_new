@@ -121,6 +121,16 @@ public class PortfolioController {
     	return "redirect:/portfolio/info/" + portfolio_idx;
     }
     
+    @GetMapping("/ratioDelete/{portfolio_idx}/{portfolio_info_idx}")
+    public String ratioDeletePortfolioInfo(@PathVariable("portfolio_idx") int portfolio_idx, @PathVariable("portfolio_info_idx") int portfolio_info_idx, Model model) {
+    	
+    	portfolioService.deletePortfolioInfoById(portfolio_info_idx);
+    	portfolioService.updatePortfolioDeposit(portfolio_idx);
+    	
+    	
+    	return "redirect:/portfolio/newStockRatio/" + portfolio_idx;
+    }
+    
     @GetMapping("/deletePortfolio/{portfolio_idx}")
     public String deletePortfolio(@PathVariable("portfolio_idx") int portfolio_idx, Model model) {
     	
@@ -235,17 +245,30 @@ public class PortfolioController {
         return "portfolio/portfolioRatio";
     }
 	
-	@PostMapping("/newStockRatio")
-	   public String newStockRatio(@ModelAttribute("newPortfolioInfoBean") PortfolioInfoBean newPortfolioInfoBean, Model model) {
-		  int portfolio_idx=newPortfolioInfoBean.getPortfolio_idx();
-		  if(newPortfolioInfoBean.getType().equals("stock")) {
-				portfolioService.addPortfolioInfo(newPortfolioInfoBean);
-		  }
+	@GetMapping("/newStockRatio/{portfolio_idx}")
+	   public String newStockRatio(@PathVariable("portfolio_idx") int portfolio_idx, Model model) {
 		  
-		  if(newPortfolioInfoBean.getType().equals("crypto")) {
-			  portfolioService.addPortfolioInfo(newPortfolioInfoBean);
-		  }
+			String tendency_code=profileBean.getPersonal_tendency_code();
+		   
+		   List<PortfolioInfoBean> portfolioRatioInfos = portfolioService.getPortfolioInfoBean(portfolio_idx);
+	        model.addAttribute("portfolio_idx", portfolio_idx);
+	        model.addAttribute("portfolioRatioInfos", portfolioRatioInfos);
+	        model.addAttribute("tendency_code", tendency_code);
+		   
+		   return "portfolio/portfolioRatio";
+	}
+	
+	@PostMapping("/newStockRatio_pro")
+	   public String newStockRatio_pro(@PathVariable("portfolio_idx") int portfolio_idx, Model model) {
+		  
+			String tendency_code=profileBean.getPersonal_tendency_code();
+		
 		   portfolioService.updatePortfolioDeposit(portfolio_idx);
+		   
+		   List<PortfolioInfoBean> portfolioRatioInfos = portfolioService.getPortfolioInfoBean(portfolio_idx);
+	        model.addAttribute("portfolio_idx", portfolio_idx);
+	        model.addAttribute("portfolioRatioInfos", portfolioRatioInfos);
+	        model.addAttribute("tendency_code", tendency_code);
 		   
 		   return "redirect:/portfolio/info/" + portfolio_idx;
 	}
