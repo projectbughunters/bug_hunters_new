@@ -30,7 +30,7 @@ body {
 	<div class="primary-container">
 		<div class="portfolio-container_top" id="portfolio-container">
 			<div class="section">
-				<div class="text" id="text1">투자 계획 수립</div>
+				<div class="text" id="text1">투자 도우미</div>
 			</div>
 
 			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
@@ -63,7 +63,7 @@ body {
 				                        </td>
 				                        <td>$ ${portfolioRatioInfo.price }</td>
 				                      	<td>
-				                      		<a href="#" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
+				                      		<a href="#" id="btn-del" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -99,7 +99,7 @@ body {
 				                        </td>
 				                        <td>$ ${portfolioRatioInfo.price }</td>
 				                        <td>
-				                      		<a href="#" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
+				                      		<a href="#" id="btn-del" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -196,7 +196,7 @@ body {
 					            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
 					                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
 					                    <tr>
-					                        <td>${portfolioRatioInfo.stock_name}
+					                        <td id="add-assets-name">${portfolioRatioInfo.stock_name}
 					                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
 				                                <input type="hidden" name="symbol_${portfolioRatioInfo.portfolio_info_idx}" 
 				                                       value="${portfolioRatioInfo.symbol}" />
@@ -243,7 +243,7 @@ body {
 					            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
 					                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
 					                    <tr>
-					                        <td>${portfolioRatioInfo.stock_name}
+					                        <td id="add-assets-name">${portfolioRatioInfo.stock_name}
 					                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
 				                                <input type="hidden" name="symbol_${portfolioRatioInfo.portfolio_info_idx}" 
 				                                       value="${portfolioRatioInfo.symbol}" />
