@@ -98,6 +98,7 @@ public class PortfolioController {
     
     @GetMapping("/info/{portfolio_idx}")
     public String PortfolioInfo(@PathVariable("portfolio_idx") int portfolio_idx, Model model) {
+    	portfolioService.updatePortfolioDeposit(portfolio_idx);
     	
     	PortfolioBean portfolioBean = portfolioService.getPortfolioInfo(portfolio_idx);
     	List<PortfolioInfoBean> portfolioInfoBeans = portfolioService.getPortfolioInfoBean(portfolio_idx);
@@ -249,11 +250,12 @@ public class PortfolioController {
 	   public String newStockRatio(@PathVariable("portfolio_idx") int portfolio_idx, Model model) {
 		  
 			String tendency_code=profileBean.getPersonal_tendency_code();
-		   
+			PortfolioBean portfolioBean = portfolioService.getPortfolioInfo(portfolio_idx);
 		   List<PortfolioInfoBean> portfolioRatioInfos = portfolioService.getPortfolioInfoBean(portfolio_idx);
 	        model.addAttribute("portfolio_idx", portfolio_idx);
 	        model.addAttribute("portfolioRatioInfos", portfolioRatioInfos);
 	        model.addAttribute("tendency_code", tendency_code);
+	        model.addAttribute("portfolioBean", portfolioBean);
 		   
 		   return "portfolio/portfolioRatio";
 	}
@@ -282,15 +284,11 @@ public class PortfolioController {
 	            
 	            // symbol 정보가 있을 경우 사용, 없으면 stockName을 대신 사용 (실제 업데이트에 필요한 값)
 	            String symbol = request.getParameter("symbol_" + idStr);
-	            if (symbol == null || symbol.isEmpty()) {
-	                symbol = request.getParameter("stockName_" + idStr);
-	            }
 	            
-	            // 서비스 메서드를 통해 DB 업데이트 호출
-	            // updatePortfolioInfoAmount(portfolio_idx, amount, symbol)
 	            portfolioService.updatePortfolioInfoAmount(portfolio_idx, quantity, symbol);
 	        }
 	    }
+	    
 		   
 		   return "redirect:/portfolio/info/" + portfolio_idx;
 	}
