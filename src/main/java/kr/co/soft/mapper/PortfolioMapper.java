@@ -56,6 +56,9 @@ public interface PortfolioMapper {
 	@Update("UPDATE portfolio SET profit_Rate = #{totalProfitRate} WHERE portfolio_idx = #{portfolio_idx}")
 	void updatePortfolioProfitRate(@Param("portfolio_idx") int portfolio_idx, @Param("totalProfitRate") double totalProfitRate);
 	
+	@Update("UPDATE portfolio_info SET amount = #{amount} WHERE portfolio_idx = #{portfolio_idx} and symbol = #{symbol}")
+	void updatePortfolioInfoAmount(@Param("portfolio_idx") int portfolio_idx, @Param("amount") double amount, @Param("symbol") String symbol);
+	
 	@Delete("DELETE FROM portfolio WHERE portfolio_idx = #{portfolio_idx}")
 	void deletePortfolio(@Param("portfolio_idx") int portfolio_idx);
 

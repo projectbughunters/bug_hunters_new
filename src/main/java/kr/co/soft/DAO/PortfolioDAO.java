@@ -70,6 +70,10 @@ public class PortfolioDAO {
 		portfolioMapper.updatePortfolioProfitRate(portfolio_idx, totalProfitRate);
 	}
 	
+	public void updatePortfolioInfoAmount(int portfolio_idx, double amount, String symbol) {
+		portfolioMapper.updatePortfolioInfoAmount(portfolio_idx, amount, symbol);
+	}
+	
 	public void deletePortfolio(int portfolio_idx) {
 		portfolioMapper.deletePortfolio(portfolio_idx);
 	}
