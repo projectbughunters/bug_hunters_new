@@ -61,7 +61,7 @@ body {
 					                        </c:if>
 				                        </td>
 				                      	<td>
-				                      		<button>삭제</button>
+				                      		<a href="#" onclick="return confirmDelete(${portfolioInfoBean.portfolio_idx}, ${portfolioInfoBean.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -95,7 +95,7 @@ body {
 					                        </c:if>
 				                        </td>
 				                        <td>
-				                      		<button>삭제</button>
+				                      		<a href="#" onclick="return confirmDelete(${portfolioInfoBean.portfolio_idx}, ${portfolioInfoBean.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -265,6 +265,14 @@ body {
 
 
 	<script>
+	function confirmDelete(portfolio_idx, portfolio_info_idx) {
+        var confirmation = confirm("정말 삭제하시겠습니까?");
+        if (confirmation) {
+            window.location.href = '${root}portfolio/delete/' + portfolio_idx + "/" + portfolio_info_idx;
+        }
+        return false; // 링크의 기본 동작을 막는다 (페이지 이동을 방지)
+    }
+	
     function updateRatios() {
         var safeSlider = document.getElementById("safeRatioSlider");
         var safeValue = parseInt(safeSlider.value);
