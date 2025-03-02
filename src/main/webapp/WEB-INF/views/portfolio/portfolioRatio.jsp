@@ -29,11 +29,11 @@ body {
 	<c:import url="/WEB-INF/views/stock/exchange.jsp" />
 	<div class="primary-container">
 		<div class="portfolio-container_top" id="portfolio-container">
-			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
 			<div class="section">
 				<div class="text" id="text1">투자 계획 수립</div>
 			</div>
 
+			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
 			<div class="portfolio-container">
 			<div class="asset-table">
 				<!-- 안전자산 테이블 -->
@@ -273,8 +273,10 @@ body {
 					    <!-- 위험자산 총 구매금액 합계 표시 -->
 	    				<div class="total-sum" id="riskTotalSum"></div>
 					</div>
-					<!-- 제출 버튼 (폼 전송) -->
-			    <button type="submit" id="newStock" class="submit-button">제출</button>
+					<div id="submit-btn">
+						<!-- 제출 버튼 (폼 전송) -->
+					    <button type="submit" id="newStock" class="submit-button">제출</button>
+			    	</div>
 			</form>
 			</div>
 				
