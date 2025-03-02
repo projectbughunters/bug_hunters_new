@@ -29,11 +29,11 @@ body {
 	<c:import url="/WEB-INF/views/stock/exchange.jsp" />
 	<div class="primary-container">
 		<div class="portfolio-container_top" id="portfolio-container">
-			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
 			<div class="section">
-				<div class="text" id="text1">투자 계획 수립</div>
+				<div class="text" id="text1">투자 도우미</div>
 			</div>
 
+			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
 			<div class="portfolio-container">
 			<div class="asset-table">
 				<!-- 안전자산 테이블 -->
@@ -63,7 +63,7 @@ body {
 				                        </td>
 				                        <td>$ ${portfolioRatioInfo.price }</td>
 				                      	<td>
-				                      		<a href="#" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
+				                      		<a href="#" id="btn-del" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -99,7 +99,7 @@ body {
 				                        </td>
 				                        <td>$ ${portfolioRatioInfo.price }</td>
 				                        <td>
-				                      		<a href="#" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
+				                      		<a href="#" id="btn-del" onclick="return confirmDelete(${portfolioRatioInfo.portfolio_idx}, ${portfolioRatioInfo.portfolio_info_idx })">삭제</a>
 				                      	</td>
 				                    </tr>
 				                </c:if>
@@ -112,6 +112,9 @@ body {
 					<!-- 투자 비율 -->
 					<div id="portfolio-summary" class="portfolio-summary">
 						<h2>투자 비율</h2>
+						<div>
+							<h4>당신의 투자 성향은 ''입니다.</h4>
+						</div>
 				    <div class="performance-metrics">
 				        <c:choose>
 				            <c:when test="${tendency_code == '보수형'}">
@@ -196,7 +199,7 @@ body {
 					            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
 					                <c:if test="${portfolioRatioInfo.asset_type eq '안전'}">
 					                    <tr>
-					                        <td>${portfolioRatioInfo.stock_name}
+					                        <td id="add-assets-name">${portfolioRatioInfo.stock_name}
 					                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
 				                                <input type="hidden" name="symbol_${portfolioRatioInfo.portfolio_info_idx}" 
 				                                       value="${portfolioRatioInfo.symbol}" />
@@ -243,7 +246,7 @@ body {
 					            <c:forEach var="portfolioRatioInfo" items="${portfolioRatioInfos}">
 					                <c:if test="${portfolioRatioInfo.asset_type eq '위험'}">
 					                    <tr>
-					                        <td>${portfolioRatioInfo.stock_name}
+					                        <td id="add-assets-name">${portfolioRatioInfo.stock_name}
 					                        	<!-- 주식명을 Controller로 전송하기 위한 hidden 필드 -->
 				                                <input type="hidden" name="symbol_${portfolioRatioInfo.portfolio_info_idx}" 
 				                                       value="${portfolioRatioInfo.symbol}" />
@@ -273,8 +276,10 @@ body {
 					    <!-- 위험자산 총 구매금액 합계 표시 -->
 	    				<div class="total-sum" id="riskTotalSum"></div>
 					</div>
-					<!-- 제출 버튼 (폼 전송) -->
-			    <button type="submit" id="newStock" class="submit-button">제출</button>
+					<div id="submit-btn">
+						<!-- 제출 버튼 (폼 전송) -->
+					    <button type="submit" id="newStock" class="submit-button">제출</button>
+			    	</div>
 			</form>
 			</div>
 				

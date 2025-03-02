@@ -69,7 +69,7 @@ body {
 }
 
 .register-btn:hover, .googleLogin-btn:hover {
-    background-color: #0056b3; /* 호버 시 배경색 변경 */
+    background-color: #ffbd59; /* 호버 시 배경색 변경 */
 }
 
 .footer {
