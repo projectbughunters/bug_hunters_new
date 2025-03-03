@@ -166,12 +166,12 @@ body {
 							style="display: none;">
 							<div class="performance-metrics2">
 								<div class="metric-card">
-									<div class="metric-value" id="safeAssetAmount">0원</div>
 									<div class="metric-label">안전자산 배분액</div>
+									<div class="metric-value" id="safeAssetAmount">0</div>
 								</div>
 								<div class="metric-card">
-									<div class="metric-value" id="riskAssetAmount">0원</div>
 									<div class="metric-label">위험자산 배분액</div>
+									<div class="metric-value" id="riskAssetAmount">0</div>
 								</div>
 							</div>
 						</div>
@@ -220,7 +220,7 @@ body {
 					                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
 					                                   value="${portfolioRatioInfo.amount}" min="0" step="any"/>
 					                        </td>
-					                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
+					                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0</td>
 					                    </tr>
 					                </c:if>
 					            </c:forEach>
@@ -267,7 +267,7 @@ body {
 					                                   name="quantity_${portfolioRatioInfo.portfolio_info_idx}"
 					                                   value="${portfolioRatioInfo.amount}" min="0" step="any"/>
 					                        </td>
-					                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0원</td>
+					                        <td class="total-price" data-price="${portfolioRatioInfo.price}">0</td>
 					                    </tr>
 					                </c:if>
 					            </c:forEach>
@@ -319,7 +319,7 @@ body {
             let totalVal = parseFloat(totalText) || 0;
             sum += totalVal;
         });
-        document.getElementById(sumDivId).textContent = "총 구매금액 합계: " + sum.toLocaleString() + "원";
+        document.getElementById(sumDivId).textContent = "총 구매금액 합계:$ " + sum.toLocaleString();
     }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -337,9 +337,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 4) 화면에 표시
         document.getElementById('safeAssetAmount').textContent = 
-            safeAsset.toLocaleString() + '원';
+           '$ ' + safeAsset.toLocaleString();
         document.getElementById('riskAssetAmount').textContent = 
-            riskAsset.toLocaleString() + '원';
+           '$ ' + riskAsset.toLocaleString();
         document.getElementById('calculatedAssets').style.display = 'block';
 
         // ----------------------------------------------------
@@ -347,7 +347,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // ----------------------------------------------------
         // (a) "안전자산 배분액"에서 숫자만 추출
         let safeAssetText = document.getElementById('safeAssetAmount')
-                                .textContent.replace('원','').replaceAll(',','');
+                                .textContent.replace(/[^0-9.]/g, '');
         let safeAssetValue = parseFloat(safeAssetText) || 0;
         
         // (b) 안전자산 테이블의 모든 행(tr) 수집
@@ -375,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 총 구매금액 계산
                 let totalPrice = price * quantity;
                 row.querySelector('.total-price').textContent = 
-                    totalPrice.toLocaleString() + '원';
+                	'$ ' + totalPrice.toLocaleString();
             });
         }
      	// 안전자산 테이블 총합 업데이트
@@ -386,7 +386,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // ----------------------------------------------------
         // (a) "위험자산 배분액"에서 숫자만 추출
         let riskAssetText = document.getElementById('riskAssetAmount')
-                                .textContent.replace('원','').replaceAll(',','');
+                                .textContent.replace(/[^0-9.]/g, '');
         let riskAssetValue = parseFloat(riskAssetText) || 0;
 
         // (b) 위험자산 테이블의 모든 행(tr) 수집
@@ -414,7 +414,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 총 구매금액 계산
                 let totalPrice = price * quantity;
                 row.querySelector('.total-price').textContent = 
-                    totalPrice.toLocaleString() + '원';
+                	'$ ' + totalPrice.toLocaleString();
             });
         }
      	// 위험자산 테이블 총합 업데이트
@@ -435,11 +435,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const safeAsset = totalInvestment * (safeValue / 100);
             const riskAsset = totalInvestment * (riskValue / 100);
 
-            // 4) 화면에 표시
+         	// 4) 화면에 표시
             document.getElementById('safeAssetAmount').textContent = 
-                safeAsset.toLocaleString() + '원';
+               '$ ' + safeAsset.toLocaleString();
             document.getElementById('riskAssetAmount').textContent = 
-                riskAsset.toLocaleString() + '원';
+               '$ ' + riskAsset.toLocaleString();
             document.getElementById('calculatedAssets').style.display = 'block';
 
             // ----------------------------------------------------
@@ -447,7 +447,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // ----------------------------------------------------
             // (a) "안전자산 배분액"에서 숫자만 추출
             let safeAssetText = document.getElementById('safeAssetAmount')
-                                    .textContent.replace('원','').replaceAll(',','');
+                                    .textContent.replace(/[^0-9.]/g, '');
             let safeAssetValue = parseFloat(safeAssetText) || 0;
             
             // (b) 안전자산 테이블의 모든 행(tr) 수집
@@ -475,7 +475,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // 총 구매금액 계산
                     let totalPrice = price * quantity;
                     row.querySelector('.total-price').textContent = 
-                        totalPrice.toLocaleString() + '원';
+                    	'$ ' + totalPrice.toLocaleString();
                 });
             }
          	// 안전자산 테이블 총합 업데이트
@@ -486,7 +486,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // ----------------------------------------------------
             // (a) "위험자산 배분액"에서 숫자만 추출
             let riskAssetText = document.getElementById('riskAssetAmount')
-                                    .textContent.replace('원','').replaceAll(',','');
+                                    .textContent.replace(/[^0-9.]/g, '');
             let riskAssetValue = parseFloat(riskAssetText) || 0;
 
             // (b) 위험자산 테이블의 모든 행(tr) 수집
@@ -514,7 +514,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     // 총 구매금액 계산
                     let totalPrice = price * quantity;
                     row.querySelector('.total-price').textContent = 
-                        totalPrice.toLocaleString() + '원';
+                    	'$ ' + totalPrice.toLocaleString();
                 });
             }
          	// 위험자산 테이블 총합 업데이트
@@ -530,7 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const price = parseFloat(priceAttr) || 0; 
             const quantity = parseFloat(input.value) || 0;
             const total = price * quantity;
-            tr.querySelector('.total-price').textContent = total.toLocaleString() + '원';
+            tr.querySelector('.total-price').textContent = '$ ' + total.toLocaleString();
          	// 안전자산 테이블 총합 업데이트
             updateTotalSum('#portfolio-holdings-safe', 'safeTotalSum');
          	// 위험자산 테이블 총합 업데이트
