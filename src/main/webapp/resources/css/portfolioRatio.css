@@ -127,6 +127,7 @@ input.quantity-input {
 .portfolio-tendency-slider h4{
 	justify-content: center;
     display: flex;
+    font-size: 22px;
     color: orange;
 }
 

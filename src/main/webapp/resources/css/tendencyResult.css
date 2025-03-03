@@ -24,7 +24,8 @@ h1 {
 
 #result-title{
 	margin-right: 0px !important;
-	border-bottom: 10px;
+	margin-bottom: 30px;
+	width: 100%;
 }
 
 p {
@@ -32,7 +33,6 @@ p {
 	color: #333;
 }
 button{
-	font-family: "Noto Serif KR", serif;
 	color: white;
 	background-color:#595959;
 	padding: 10px;
