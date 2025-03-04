@@ -13,6 +13,11 @@ body {
 	background-attachment: fixed; /* 스크롤 시 배경 고정 */
 }
 
+img {
+    padding-right: 10px;
+}
+
+
 #toggleExchangeButton{
 	right:0px;
 }
@@ -232,9 +237,9 @@ form#portfolioForm {
 
 .section {
 	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .text {
