@@ -60,24 +60,7 @@ $(document).ready(function() {
             }
         });
     }
-    // 즐겨찾기 삭제 처리
-    $('.delete-fav-btn').click(function() {
-        var button = $(this);
-        var symbol = button.data('symbol');
-        var type = button.data('type');
-        $.ajax({
-            url: "${root}favorite/delete",
-            type: "POST",
-            data: { symbol: symbol, type: type },
-            success: function(response) {
-                alert("즐겨찾기에서 삭제되었습니다.");
-                $(button).closest('tr').remove();
-            },
-            error: function() {
-                alert("즐겨찾기 삭제 중 오류가 발생했습니다.");
-            }
-        });
-    });
+    
 
     // 차트 업데이트 관련 변수 및 함수
     var stockSymbols = [];

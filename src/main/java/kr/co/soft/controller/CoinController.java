@@ -1,8 +1,11 @@
 package kr.co.soft.controller;
 
+import kr.co.soft.beans.FavoriteBean;
 import kr.co.soft.beans.PageBean;
 import kr.co.soft.beans.StockInfoBean;
+import kr.co.soft.beans.UserBean;
 import kr.co.soft.service.CoinService;
+import kr.co.soft.service.FavoriteService;
 import kr.co.soft.service.NewsService;
 import kr.co.soft.service.PortfolioService;
 
@@ -17,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 @Controller
 @RequestMapping("/coin")
 public class CoinController {
@@ -28,14 +33,23 @@ public class CoinController {
     private NewsService newsService;
     
     @Autowired
+	private FavoriteService favoriteService;
+    
+    @Resource(name = "loginUserBean")
+	private UserBean loginUserBean;
+    
+    @Autowired
 	private PortfolioService portfolioService;
 
     @GetMapping("/coinMain")
     public String main(@RequestParam(defaultValue = "1") int page, Model model) {
         try {
+        	int member_idx=loginUserBean.getMember_idx();
         	int pageSize = 15;
         	PageBean<Map<String, Object>> pageBean = coinService.getPageCoins(page, pageSize);
+        	List<FavoriteBean> favorites = favoriteService.selectFavoritesByMemberIdx(member_idx);
             model.addAttribute("pageBean", pageBean);
+            model.addAttribute("favorites", favorites);
         } catch (Exception e) {
             e.printStackTrace();
             model.addAttribute("error", "데이터를 불러오지 못했습니다.");

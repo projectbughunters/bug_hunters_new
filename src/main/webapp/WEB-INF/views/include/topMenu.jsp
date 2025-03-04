@@ -86,6 +86,26 @@
 </header>
 
 <script type="text/javascript">
+$(document).ready(function() {
+//즐겨찾기 삭제 처리
+	 $(document).on('click', '.delete-fav-btn', function() {
+	        var button = $(this);
+	        var symbol = button.data('symbol');
+	        var type = button.data('type');
+	        $.ajax({
+	            url: "${root}favorite/delete",
+	            type: "POST",
+	            data: { symbol: symbol, type: type },
+	            success: function(response) {
+	                alert("즐겨찾기에서 삭제되었습니다.");
+	                $(button).closest('.favorites').remove();
+	            },
+	            error: function() {
+	                alert("즐겨찾기 삭제 중 오류가 발생했습니다.");
+	            }
+	        });
+	    });
+	});
 	function loadFavorites() {
 		$
 				.ajax({

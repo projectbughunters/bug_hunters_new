@@ -18,7 +18,7 @@
 	   <!-- 테이블과 차트를 감싸는 컨테이너 -->
 	   <div class="coin-content">
 	      <div class="coin-table">
-		    Loading coins...
+		    <img src="${root}image/loading.gif" alt="로딩 중..." />
 		  </div>
       <div class="coin-chart-wrapper">
          <div id="coinNameDisplay"></div>
