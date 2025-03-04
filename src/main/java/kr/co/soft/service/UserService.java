@@ -122,6 +122,7 @@ public class UserService {
 	            profileBean.setMember_name(profileUserBean.getMember_name());
 	            profileBean.setRole(profileUserBean.getRole());
 	            profileBean.setPersonal_tendency_code(profileUserBean.getPersonal_tendency_code());
+	            profileBean.setCreated_at(profileUserBean.getCreated_at());
 	        } else {
 	            // 로그인 실패 처리
 	            int failCount = loginFailCount.getOrDefault(memberId, 0) + 1;
