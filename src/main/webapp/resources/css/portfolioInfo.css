@@ -18,6 +18,8 @@ body {
 		font-size: 16px;
 		float: right;
 		z-index: 1;
+		width: 150px;
+    	height: 40px;
 }
 	
 #newPortfolio:hover{
@@ -111,6 +113,8 @@ body {
 	max-width: 84%;
 	margin: 0px auto;
 	padding: 0px;
+	display: flex;
+    flex-direction: column;
 }
 
 #portfolio-summary{
