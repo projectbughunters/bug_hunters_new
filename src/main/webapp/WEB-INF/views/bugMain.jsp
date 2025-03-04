@@ -18,6 +18,7 @@
 <%@ page import="org.jsoup.nodes.Document"%>
 <%@ page import="org.jsoup.nodes.Element"%>
 <%@ page import="java.util.List"%>
+    <link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
     <title>Take Money Information | TMI</title>
 </head>
 
