@@ -20,8 +20,6 @@ body {
 	height: 100vh;
 }
 
-
-
 .footer {
 	margin-top: 70px;
 }

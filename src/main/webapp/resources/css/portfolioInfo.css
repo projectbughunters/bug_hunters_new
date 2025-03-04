@@ -6,6 +6,10 @@ body {
 	background-attachment: fixed; /* 스크롤 시 배경 고정 */
 }
 
+.primary-container{
+	height: 160vh;
+}
+
 #helping-btn{
 	display: flex;
     justify-content: end;
