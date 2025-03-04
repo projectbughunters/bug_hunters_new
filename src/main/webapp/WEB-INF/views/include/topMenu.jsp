@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${root}css/topMenu.css">
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 	// formatEBITDA 함수를 먼저 정의
 	function formatEBITDA(value) {

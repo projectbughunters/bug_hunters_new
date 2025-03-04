@@ -17,6 +17,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import kr.co.soft.beans.CyptoExchangeBean;
 import kr.co.soft.beans.NewsBean;
 import kr.co.soft.beans.UserBean;
 import kr.co.soft.service.CoinService;
@@ -63,6 +64,8 @@ public class HomeController {
 	      try {
 	         List<NewsBean> newsList = newsCrawlingService.getNewsArticles();
 	         model.addAttribute("newsList", newsList);
+	         List<CyptoExchangeBean> list = exchangeService.getcyptoExchangeList();
+	         model.addAttribute("cyptoexchangeList", list);
 	      } catch (Exception e) {
 	         e.printStackTrace();
 	         model.addAttribute("newsList", new ArrayList<NewsBean>());
