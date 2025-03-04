@@ -18,10 +18,33 @@ body {
 		font-size: 16px;
 		float: right;
 		z-index: 1;
-	}
+}
 	
 #newPortfolio:hover{
 	background-color: #999;
+}
+
+.yours-title{
+	width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#convertButton {
+    background: #595959;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    color: white;
+    width: 80px;
+    height: 40px;
+}
+
+#portfoli-summary{
+	display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 .section {

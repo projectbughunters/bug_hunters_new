@@ -36,7 +36,10 @@ body {
 	<button id="newStock" onclick="location.href='${root}portfolio/newStockRatio/${portfolio_idx }'">포트폴리오 도우미</button>
 	<div class="portfolio-summary" id="portfolio-summary"
 			style="opacity: 1;">
+			<div class="yours-title">
 			<h2>당신의 포트폴리오</h2>
+			<button id="convertButton" style="display:inline-block;">원화 변환</button>
+			</div>
 			<div class="performance-metrics">
 				<div class="metric-card">
 					<div class="metric-value">$
@@ -324,8 +327,93 @@ body {
             '</span>';
             
 		    console.log("updateProfitRates 완료됨");
-		     
+		    var $assetElem = $(".performance-metrics .metric-card").eq(0).find(".metric-value");
+	        var $profitElem = $(".performance-metrics .metric-card").eq(2).find(".metric-value");
+	        
+	        // 계산 완료 후 올바른 HTML 값으로 data("dollar") 업데이트 (총 자산, 총 수익금)
+	        $assetElem.data("dollar", $assetElem.text());
+	        $profitElem.data("dollar", $profitElem.text());
 		      
+	        // 현재 표시 상태: false = 달러, true = 원화
+	        var conversionToggle = false;
+	        
+	        $("#convertButton").click(function() {
+	            if (!conversionToggle) {
+	                // 달러 → 원화 변환
+	                var assetText = $assetElem.data("dollar");
+	                var profitText = $profitElem.data("dollar");
+	                
+	                var assetValue = parseFloat(assetText.replace(/[^0-9.-]/g, ''));
+	                var profitValue = parseFloat(profitText.replace(/[^0-9.-]/g, ''));
+	                
+	                if (isNaN(assetValue)) {
+	                    alert("총 자산 값이 올바르지 않습니다.");
+	                    return;
+	                }
+	                if (isNaN(profitValue)) {
+	                    alert("총 수익금 값이 올바르지 않습니다.");
+	                    return;
+	                }
+	                
+	                // 두 AJAX 요청을 동시에 처리
+	                $.when(
+	                    $.ajax({
+	                        url: 'http://localhost:3000/currency',
+	                        method: 'POST',
+	                        contentType: 'application/json',
+	                        data: JSON.stringify({
+	                            amount: assetValue.toFixed(2),
+	                            fromCurrency: 'USD',
+	                            toCurrency: 'KRW'
+	                        }),
+	                        dataType: 'json'
+	                    }),
+	                    $.ajax({
+	                        url: 'http://localhost:3000/currency',
+	                        method: 'POST',
+	                        contentType: 'application/json',
+	                        data: JSON.stringify({
+	                            amount: profitValue.toFixed(2),
+	                            fromCurrency: 'USD',
+	                            toCurrency: 'KRW'
+	                        }),
+	                        dataType: 'json'
+	                    })
+	                ).done(function(assetData, profitData) {
+	                    if(assetData[0].convertedAmount && profitData[0].convertedAmount) {
+	                        var convertedAsset = parseFloat(assetData[0].convertedAmount).toFixed(2);
+	                        var convertedProfit = parseFloat(profitData[0].convertedAmount).toFixed(2);
+	                        $assetElem.text("₩ " + Number(convertedAsset).toLocaleString());
+	                        $profitElem.text("₩ " + Number(convertedProfit).toLocaleString());
+	                        conversionToggle = true;
+	                        $("#convertButton").text("달러 변환");
+	                    } else {
+	                        alert("환산에 실패했습니다.");
+	                    }
+	                }).fail(function() {
+	                    alert("환산 중 서버 오류가 발생했습니다.");
+	                });
+	            } else {
+	            	 // 원화 → 달러: 저장해둔 원래 HTML 값으로 복원
+	                
+	                conversionToggle = false;
+	                $("#convertButton").text("원화 변환");
+	                
+	                var assetText = $assetElem.data("dollar");
+	                var profitText = $profitElem.data("dollar");
+	                
+	                var assetValue = parseFloat(assetText.replace(/[^0-9.-]/g, ''));
+	                var profitValue = parseFloat(profitText.replace(/[^0-9.-]/g, ''));
+	                
+	                $assetElem.html($assetElem.data(assetValue));
+	             	// 수익금(원화) 표시
+                    $profitElem.html(
+                        '<span style="color:' + colorForProfit + ';">$ '
+                        + Number(convertedProfit).toLocaleString() + '</span>'
+                    );
+	            }
+	        });
+	        
 		}
 
 		async function stockOverview(symbol) {
