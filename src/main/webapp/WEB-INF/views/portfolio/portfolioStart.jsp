@@ -10,6 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="${root}css/portfolio.css">
+    <link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
     <title>포트폴리오 | TMI</title>
    
 </head>

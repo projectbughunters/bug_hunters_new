@@ -9,16 +9,14 @@
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" >
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="${root}css/bugMain.css">
+    <link rel="stylesheet" href="${root}css/bugMain.css">
 	<link rel="stylesheet" href="${root}css/coinMain.css"> 
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!-- 플러그인 추가 -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+ <link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>Take Money Information | TMI</title>
 <style>
     .indicator-wrapper {

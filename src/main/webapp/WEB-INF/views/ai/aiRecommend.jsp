@@ -23,9 +23,7 @@
         <div class="inner-text-container">
             <h2>Stock Hunter AI: 시장에서 우위를 차지하기 위한 전략</h2>
             <h4>투자 목표를 달성할 수 있도록 엄선된 최고 수익률의 투자 전략은 검증된 AI 모델을 기반으로 합니다</h4>
-            <div class="custom-button1" role="button" tabindex="0" onclick="location.href='${root}embedded/sitePortalAudSample';">
-	                     <h5>대시보드</h5>
-	                 </div>
+            <button class="custom-button1" onclick="location.href='${root}embedded/sitePortalAudSample'"><img src="${root}image/dashboard.png" style="width: 20px; height: auto; padding-right: 10px;">대시보드 보기</button>
         </div>
     </div>
     <!-- 각 테마별 버튼 -->
@@ -82,7 +80,7 @@
         <div>
             <!-- 챗봇 응답을 출력할 영역 -->
             <div id="chatbotResponse">
-            <h3 id="response-title"></h3>
+                <h3 id="response-title"></h3>
                 <p id="responseContent">여기에 챗봇의 응답이 표시됩니다.</p>
             </div>
         </div>
@@ -133,12 +131,13 @@
         function displayData(theme) {
             const result = cachedData[theme];
             if (result) {
-            	 // 서버 응답 받아서 div에 출력 
+                // 서버 응답 받아서 div에 출력
                 document.getElementById('response-title').innerText = "📊 Stock Hunter AI의 답변 📈"
                 document.getElementById('responseContent').innerText = result;
             } else {
                 document.getElementById('responseContent').innerText = '데이터 로딩 중...';
             }
+            $("html, body").animate({ scrollTop: $("#chatbotResponse").offset().top }, 'slow');
         }
     </script>
 </div>

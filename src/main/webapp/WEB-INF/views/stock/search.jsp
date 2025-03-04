@@ -5,7 +5,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Noto+Serif+KR:wght@200..900&family=Song+Myung&family=Ysabeau+SC:wght@1..1000&display=swap" rel="stylesheet">
+    <link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
     <title>경제 뉴스 포털</title>
     <link rel="stylesheet" href="${root }css/stock.css" />
 </head>

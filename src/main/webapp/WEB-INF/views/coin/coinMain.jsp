@@ -11,7 +11,8 @@
    <link rel="stylesheet" href="${root}css/bugMain.css"> 
    <link rel="stylesheet" href="${root}css/coinMain.css">
    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<title>Crypto | TMI</title>
+   <link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
+	<title>Crypto | TMI</title>
 
 <style>
     .iframe-container {
