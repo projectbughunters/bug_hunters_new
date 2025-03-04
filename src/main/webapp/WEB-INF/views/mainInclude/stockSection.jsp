@@ -17,7 +17,7 @@
 </div>
 	   <div class="stock-content">
 	      <div class="stock-table">
-	    Loading stocks...
+	    <img src="${root}image/loading.gif" alt="로딩 중..." />
 	  </div>
       <div class="stock-chart-wrapper">
          <div id="stockNameDisplay" class="stock-name-display"></div>
