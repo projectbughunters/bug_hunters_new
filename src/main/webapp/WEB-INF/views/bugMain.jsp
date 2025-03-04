@@ -49,8 +49,7 @@
             <c:import url="/WEB-INF/views/mainInclude/widgetSection.jsp" />
             <c:import url="/WEB-INF/views/mainInclude/productSection.jsp" />
         </div>
-        
-        
+   
         <!-- 거래소 영역 -->
         <c:import url="/WEB-INF/views/mainInclude/cyptoexchangeSection.jsp" />
 

@@ -16,7 +16,7 @@ import kr.co.soft.beans.ValueStockData;
 
 public interface StockDataMapper {
 	
-	@Update("UPDATE CompanyInfo SET " +
+	@Update("UPDATE Company_info SET " +
 		      "name = #{name}, cik = #{cik}, exchange = #{exchange}, currency = #{currency}, " +
 		      "country = #{country}, sector = #{sector}, industry = #{industry}, " +
 		      "address = #{address}, officialSite = #{officialSite}, fiscalYearEnd = #{fiscalYearEnd}, " +

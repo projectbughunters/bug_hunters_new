@@ -11,7 +11,7 @@
 	<div class="footer">
 		<p>&copy; 2024 BugHunters. All rights reserved.  </p>
 	<div id="admin">
-		<c:if test="${loginUserBean.member_idx == 10000}">
+		<c:if test="${loginUserBean.member_idx == 10000 && profileBean.role == 'admin'}">
         <a href="http://localhost:5173">관리자 페이지</a>
     	</c:if>
 	</div>

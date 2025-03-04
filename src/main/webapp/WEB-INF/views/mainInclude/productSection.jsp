@@ -5,7 +5,12 @@
 <c:set var="root" value='${pageContext.request.contextPath }/' />
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
+<script>
+  // Chart.js v3 이상 사용 시 crosshair 플러그인 수동 등록
+  Chart.register(ChartCrosshair);
+</script>
 <!-- 차트 제목 -->
 <div class="product-section">
 	<h2 id="chartTitle">가격 정보</h2>
@@ -187,7 +192,16 @@
 							maxTicksLimit : 5
 						}
 					}
-				}
+				},
+				plugins: {
+                    legend: { position: "top", display: false },
+                    tooltip: { enabled: true },
+                    crosshair: {
+                        line: { color: 'rgba(75, 192, 192, 1)', width: 1 },
+                        sync: { enabled: false },
+                        zoom: { enabled: false }
+                    }
+                }
 			}
 		});
 	}
