@@ -169,6 +169,7 @@ header .login a:visited {
 	text-decoration: none;
 	display: block;
 	transition: all 0.3s ease;
+	height: auto;
 }
 
 .dropdown-content a:hover {
@@ -183,21 +184,22 @@ header .login a:visited {
 	overflow-y: auto;
 }
 
-
-.dropdown-content tbody {
-    display: flex;
-    flex-direction: column;
-}
-
 .favorites-container{
 	align-items: center;
 	padding: 10px;
-    height: auto;
+}
+
+.favorites-container .dropdown:hover{
+	opacity: 1;
+	max-height: 300px;
+	overflow-y: auto;
 }
 
 .favorites{
 	display: flex;
 	flex-direction: row;
+	height: auto;
+	max-height: 300px;
 }
 
 button.delete-fav-btn {
@@ -210,6 +212,7 @@ button.delete-fav-btn {
 	padding: 1px 6px !important;
 }
 
-button.delete-fav-btn {
+
+button.delete-fav-btn:hover{
 	background: #999;
 }
