@@ -179,41 +179,29 @@ header .login a:visited {
 .dropdown:hover .dropdown-content {
 	padding: 0px 0;
 	opacity: 1;
-	max-height: 200px;
+	max-height: 300px;
+	overflow-y: auto;
 }
 
-#favoritesDropdown {
-	position: absolute;
-	top: 100%; /* 부모 요소 아래로 배치 */
-	left: 0; /* 부모 요소의 왼쪽에 정렬 */
-	background-color: #ffffff;
-	min-width: 200px;
-	box-shadow: grey;
-	z-index: 1;
-	border-radius: 4px;
-	opacity: 0; /* 초기 투명도 */
-	transition: opacity 0.2s ease, max-height 0.8s ease; /* 애니메이션 효과 */
-	max-height: 0; /* 초기 최대 높이 */
-	overflow: hidden; /* 넘치는 내용 숨김 */
-	margin-top: 29px;
-}
-
-#favoritesDropdown a {
-	color: #333;
-	padding: 10px 15px;
-	text-decoration: none;
-	display: block;
-	transition: all 0.3s ease;
-}
 
 .dropdown-content tbody {
     display: flex;
     flex-direction: column;
 }
 
+.favorites-container{
+	align-items: center;
+	padding: 10px;
+    height: auto;
+}
 
+.favorites{
+	display: flex;
+	flex-direction: row;
+}
 
 button.delete-fav-btn {
+	margin-left: 10px;
 	border: none;
 	font-size: 15px;
 	width: 50px;

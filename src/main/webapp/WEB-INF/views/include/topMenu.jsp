@@ -93,28 +93,28 @@
 					type : 'POST',
 					dataType : 'json',
 					success : function(data) {
-						var favorites = '<tbody>';
+						var favorites = '<div class="favorites-container">';
 						$
 								.each(
 										data,
 										function(index, item) {
 											if (item.type === 'stock') {
-												favorites += '<tr>'
-														+ '<td><a href="${root}stock/info/' + item.symbol + '">'
+												favorites += '<div class="favorites">'
+														+ '<div><button class="delete-fav-btn" data-symbol="' + item.symbol + '" data-type="stock">삭제</button></div>'
+														+ '<div><a href="${root}stock/info/' + item.symbol + '">'
 														+ item.symbol
-														+ '</a></td>'
-														+ '<td><button class="delete-fav-btn" data-symbol="' + item.symbol + '" data-type="stock">삭제</button></td>'
-														+ '</tr>';
+														+ '</a></div>'
+														+ '</div>';
 											} else {
-												favorites += '<tr>'
-														+ '<td><a href="${root}coin/info/' + item.symbol + '/' + item.type + '">'
+												favorites += '<div class="favorites">'
+														+ '<div><button class="delete-fav-btn" data-symbol="' + item.symbol + '" data-type="' + item.type + '">삭제</button></div>'
+														+ '<div><a href="${root}coin/info/' + item.symbol + '/' + item.type + '">'
 														+ item.symbol
-														+ '</a></td>'
-														+ '<td><button class="delete-fav-btn" data-symbol="' + item.symbol + '" data-type="' + item.type + '">삭제</button></td>'
-														+ '</tr>';
+														+ '</a></div>'
+														+ '</div>';
 											}
 										});
-						favorites += '</tbody>';
+						favorites += '</div>';
 						$('#favoritesDropdown').html(favorites);
 					},
 					error : function() {
