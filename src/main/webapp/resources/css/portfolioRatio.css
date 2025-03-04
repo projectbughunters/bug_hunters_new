@@ -131,6 +131,9 @@ input.quantity-input {
     color: orange;
 }
 
+#portfolio-summary {
+    padding: 20px;
+}
 
 .investment-ratio {
 	text-align: center;
