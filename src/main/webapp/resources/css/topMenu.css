@@ -169,10 +169,11 @@ header .login a:visited {
 	text-decoration: none;
 	display: block;
 	transition: all 0.3s ease;
+	height: auto;
 }
 
 .dropdown-content a:hover {
-	background-color: #737373;
+	background-color: #999;
 	color: #ffff;
 }
 
@@ -183,21 +184,24 @@ header .login a:visited {
 	overflow-y: auto;
 }
 
-
-.dropdown-content tbody {
-    display: flex;
-    flex-direction: column;
-}
-
 .favorites-container{
 	align-items: center;
 	padding: 10px;
-    height: auto;
+}
+
+.favorites-container .dropdown:hover{
+	opacity: 1;
+	max-height: 300px;
+	overflow-y: auto;
+	width:100%;
 }
 
 .favorites{
 	display: flex;
 	flex-direction: row;
+	height: auto;
+	max-height: 300px;
+	align-items: center;
 }
 
 button.delete-fav-btn {
@@ -206,10 +210,11 @@ button.delete-fav-btn {
 	font-size: 15px;
 	width: 50px;
 	height: 30px;
-	background: #595959;
+	background: #999;
 	padding: 1px 6px !important;
 }
 
-button.delete-fav-btn {
-	background: #999;
+
+button.delete-fav-btn:hover{
+	background: #595959;
 }
