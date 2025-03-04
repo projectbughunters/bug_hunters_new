@@ -27,7 +27,7 @@
 	  ${processedData.name} (${symbol})
 	 </h1>
  </div>
-    <h3 id="explaneCompany">${processedData.marketPrice } 
+    <h3 id="explaneCompany">$ ${processedData.marketPrice } 
     	<span class="${processedData.marketChange > 0 ? 'positive-change' : 'negative-change'}">(
     		<script>
 		        var marketChange = ${processedData.marketChange};

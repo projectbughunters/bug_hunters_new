@@ -157,6 +157,11 @@ public class BoardController {
 	@GetMapping("/boardModify")
 	public String boardEdit(@RequestParam("board_idx") int board_idx, Model model) {
 		BoardInfoBean boardBean = boardService.getOneBoardInfo(board_idx); // 게시글 정보 가져오기
+		// 업로드된 파일이 있는 경우, 외부 저장소의 파일 URL 경로 생성 (컨텍스트 경로 포함)
+	    if (boardBean.getContent_file() != null && !boardBean.getContent_file().isEmpty()) {
+	        String filePath ="upload/" + boardBean.getContent_file();
+	        model.addAttribute("filePath", filePath);
+	    }
 		model.addAttribute("boardBean", boardBean);
 		return "board/boardModify"; // 수정 페이지 JSP 반환
 	}
@@ -164,9 +169,17 @@ public class BoardController {
 	// 게시글 수정 처리
 	@PostMapping("/boardModifyPro")
 	public String boardWritePro(@ModelAttribute("boardBean") BoardInfoBean boardBean, HttpServletRequest request) {
+		// 이미지 삭제 체크박스 값 확인
+	    String deleteFileParam = request.getParameter("deleteFile");
+	    if ("true".equals(deleteFileParam)) {
+	        // 첨부파일 삭제: 외부 저장소에서 삭제
+	        boardService.deleteAttachedFile(boardBean.getBoard_idx());
+	        // 게시글 Bean의 content_file 값 초기화
+	        boardBean.setContent_file(null);
+	    }
 		boardService.updateBoardInfo(boardBean, request); // 수정된 게시글 정보 업데이트
 
-		return "redirect:/board/boardRead"; // 수정 후 게시글 목록으로 리다이렉트
+		return "redirect:/board/boardRead?board_idx=" + boardBean.getBoard_idx(); // 수정 후 게시글 목록으로 리다이렉트
 	}
 
 	// 게시글 삭제 처리

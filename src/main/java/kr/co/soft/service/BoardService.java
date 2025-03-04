@@ -102,6 +102,20 @@ public class BoardService {
 	    // 게시글 삭제 처리
 	    boardDAO.deleteBoardInfo(board_idx);
 	}
+	
+	public void deleteAttachedFile(int boardIdx) {
+	    // 게시글 정보를 가져와서 content_file 값 확인
+	    BoardInfoBean boardBean = boardDAO.getOneBoardInfo(boardIdx);
+	    if (boardBean != null && boardBean.getContent_file() != null && !boardBean.getContent_file().isEmpty()) {
+	        // 외부 저장소(uploadPath)와 파일명을 결합하여 File 객체 생성
+	        File file = new File(uploadPath, boardBean.getContent_file());
+	        if (file.exists()) {
+	            boolean deleted = file.delete();
+	            System.out.println(deleted ? "파일 삭제 성공: " + file.getAbsolutePath()
+	                                         : "파일 삭제 실패: " + file.getAbsolutePath());
+	        }
+	    }
+	}
 
 	public void updateBoardInfo(BoardInfoBean boardInfoBean, HttpServletRequest request) {
 		// 현재 날짜를 write_date에 설정

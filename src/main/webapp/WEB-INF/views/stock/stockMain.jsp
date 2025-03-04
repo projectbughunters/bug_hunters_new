@@ -71,7 +71,7 @@
 		                    document.write(trailingPE);
 		                </script>
 		            </td>
-		            <td class="align-right light-bg">$<c:out value="${stock.marketPrice}" /></td>
+		            <td class="align-right light-bg">$ <c:out value="${stock.marketPrice}" /></td>
 		            <td class="align-right light-bg ${stock.marketChange > 0 ? 'positive-change' : 'negative-change'}">
 		                <script>
 		                    var marketChange = ${stock.marketChange};

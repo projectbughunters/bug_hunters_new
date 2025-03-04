@@ -19,7 +19,7 @@
 		<div class="modify-header">
 			<h2>게시글 수정</h2>
 			<div>
-				<form:form class="modify-form" modelAttribute="boardBean" method="post" action="${root}board/boardModifyPro">
+				<form:form class="modify-form" modelAttribute="boardBean" method="post" action="${root}board/boardModifyPro" enctype="multipart/form-data">
 					<input type="hidden" name="board_idx" value="${boardBean.board_idx}" />
 
 					<div class="form-group">
@@ -41,8 +41,18 @@
 						<form:textarea path="content" id="content" required="true"></form:textarea>
 					</div>
 					<div class="form-group">
+						<form:hidden path="content_file"/>
 	                    <label for="file">파일 첨부</label>
-	                    <form:input type="file" path="content_file" id="file" />
+	                    <form:input type="file" path="upload_file" id="file" />
+	                    <c:if test="${not empty filePath}">
+					        <div class="current-image">
+					            <h3>현재 첨부된 이미지:</h3>
+					            <img src="${root }${filePath}" alt="첨부 이미지" style="max-width:300px; height:auto;" />
+					            <br/>
+					               <p><input type="checkbox" name="deleteFile" value="true" />
+					                이미지 삭제</p> 
+					        </div>
+					    </c:if>
                 	</div>
 
 					<div class="button-group">

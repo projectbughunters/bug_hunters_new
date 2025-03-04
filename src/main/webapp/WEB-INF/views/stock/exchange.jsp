@@ -71,7 +71,10 @@ $(document).ready(function() {
                     if (data.convertedAmount) {
                         const convertedAmount = parseFloat(data.convertedAmount);
                         if (!isNaN(convertedAmount)) {
-                            const resultAmount = convertedAmount.toFixed(2);
+                        	const resultAmount = convertedAmount.toLocaleString('en-US', {
+                                minimumFractionDigits: 2,
+                                maximumFractionDigits: 2
+                            });
                             resultElement.text(amount + "$ = " + resultAmount + " " + toCurrencyValue);
                         } else {
                             resultElement.html("<p>환율 계산에 실패했습니다: 잘못된 결과 값</p>");

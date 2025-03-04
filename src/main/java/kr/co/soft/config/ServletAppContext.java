@@ -78,12 +78,14 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		
-		// 외부 업로드 파일 매핑
-	    registry.addResourceHandler("/upload/**")
-	            .addResourceLocations("file:///" + uploadPath + "/");
 		// TODO Auto-generated method stub
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/**").addResourceLocations("/resources/");
+		
+
+		// 외부 업로드 파일 매핑
+	    registry.addResourceHandler("/upload/**")
+	            .addResourceLocations("file:///" + uploadPath + "/");
 	}
 
 	// view 경로 설정과 jsp 확장자 설정

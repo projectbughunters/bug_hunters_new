@@ -322,8 +322,9 @@ function loadStocks() {
                 html += '<td class="light-bg">' + stock.currency + '</td>';
                 html += '<td class="light-bg">' + parseFloat(stock.trailingPE).toFixed(2) + 'x</td>';
                 html += '<td class="align-right light-bg">$' + stock.marketPrice + '</td>';
-                html += '<td class="align-right light-bg">' + parseFloat(stock.marketChange).toFixed(2) + '%</td>';
-                html += '<td class="align-right light-bg">' + stock.marketCap + '</td>';
+                html += '<td class="align-right light-bg ' + (stock.marketChange > 0 ? 'positive-change' : 'negative-change') + '">' +
+                parseFloat(stock.marketChange).toFixed(2) + '%</td>';
+                html += '<td class="align-right light-bg">' + formatEBITDA(stock.marketCap) + '</td>';
                 html += '</tr>';
             });
             html += '</tbody></table>';
@@ -363,9 +364,9 @@ function loadCoins() {
                     '<img src="https://cryptologos.cc/logos/' + coin.name.toLowerCase() + '-' + coin.symbol.toLowerCase() + '-logo.png?v=040" style="height:20px;margin-right:5px;"> ' +
                     coin.name + '</td>';
                 html += '<td>' + coin.symbol + '</td>';
-                html += '<td class="align-right">₩' + parseFloat(coin.quotes.USD.price).toFixed(2) + '</td>';
-                html += '<td class="align-right">₩' + parseInt(coin.quotes.USD.market_cap).toLocaleString() + '</td>';
-                html += '<td class="align-right">₩' + parseFloat(coin.quotes.USD.volume_24h).toFixed(2) + '</td>';
+                html += '<td class="align-right">$' + formatEBITDA(coin.quotes.USD.price) + '</td>';
+                html += '<td class="align-right">$' + formatEBITDA(coin.quotes.USD.market_cap) + '</td>';
+                html += '<td class="align-right">$' + formatEBITDA(coin.quotes.USD.volume_24h) + '</td>';
                 html += '<td class="align-right ' + (coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change') + '">' +
                     parseFloat(coin.quotes.USD.percent_change_24h).toFixed(2) + '%</td>';
                 html += '<td class="align-right ' + (coin.quotes.USD.percent_change_7d > 0 ? 'positive-change' : 'negative-change') + '">' +

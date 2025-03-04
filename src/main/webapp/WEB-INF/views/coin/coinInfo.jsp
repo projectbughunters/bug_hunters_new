@@ -43,7 +43,7 @@
             
             <script> (function(){  var price = ${coin.quotes.USD.price};
                                        var closingPriceEl = document.getElementById("closingPrice");
-                                           closingPriceEl.innerText = price.toFixed(2);
+                                           closingPriceEl.innerText ="$ " + price.toFixed(2);
                                            closingPriceEl.style.fontSize = "50px"; })(); </script></h3>
          </c:if>
       </c:forEach>
