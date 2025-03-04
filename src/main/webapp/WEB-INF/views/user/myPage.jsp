@@ -41,7 +41,7 @@
 			</div>
 			<button class="submit-btn" onclick="location.href='${root}user/deleteMember'">회원탈퇴</button>
 		</div>
-
+		<c:if test="${loginUserBean.type == 'user' }">
 		<div class="password-section">
 			<h2>비밀번호 변경</h2>
 			<form:form class="password-form" action="${root}user/changePassword" method="post" modelAttribute="tempLoginUserBean">
@@ -60,6 +60,27 @@
 				<form:button type="submit" class="submit-btn">비밀번호 변경</form:button>
 			</form:form>
 		</div>
+		</c:if>
+		<c:if test="${loginUserBean.type == 'google' }">
+		<div class="password-section">
+			<h2>비밀번호 변경</h2>
+			<form:form class="password-form" action="${root}user/changePassword" method="post" modelAttribute="tempLoginUserBean">
+				<div class="form-group">
+					<form:label path="password">현재 비밀번호</form:label> 
+					<form:password path="password" id="password" required="true" disabled="true"/>
+				</div>
+				<div class="form-group">
+					<form:label path="password2">새 비밀번호</form:label> 
+					<form:password path="password2" id="password2" required="true" disabled="true"/>
+				</div>
+				<div class="form-group">
+					<label for="confirmPassword">비밀번호 확인</label> 
+					<input type="password" id="confirmPassword" name="confirmPassword" required disabled="true"/>
+				</div>
+				<form:button type="submit" class="submit-btn" disabled="true">비밀번호 변경</form:button>
+			</form:form>
+		</div>
+		</c:if>
 	</div>
 
 	<c:import url="/WEB-INF/views/include/bottom.jsp" />

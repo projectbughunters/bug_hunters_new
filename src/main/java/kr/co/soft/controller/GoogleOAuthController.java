@@ -85,6 +85,7 @@ public class GoogleOAuthController {
             profileBean.setMember_name(profileUserBean.getMember_name());
             profileBean.setRole(profileUserBean.getRole());
             profileBean.setPersonal_tendency_code(profileUserBean.getPersonal_tendency_code());
+            profileBean.setCreated_at(profileUserBean.getCreated_at());
         } catch (IOException e) {
             e.printStackTrace();
             return "error";
