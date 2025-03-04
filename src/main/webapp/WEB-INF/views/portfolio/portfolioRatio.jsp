@@ -30,7 +30,8 @@ body {
 	<div class="primary-container">
 		<div class="portfolio-container_top" id="portfolio-container">
 			<div class="section">
-				<div class="text" id="text1">투자 도우미</div>
+				<div class="text" id="text1"><image src="${root}image/TMI_YB.png"
+				style="width: 70px; height : 50px" />투자 도우미</div>
 			</div>
 
 			<button id="newStock" onclick="location.href='${root}portfolio/newStock/${portfolio_idx }'">매수종목 추가</button>
