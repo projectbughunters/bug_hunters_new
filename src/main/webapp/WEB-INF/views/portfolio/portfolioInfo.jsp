@@ -32,8 +32,9 @@ body {
 	<c:import url="/WEB-INF/views/stock/exchange.jsp"/>
 	<div class="primary-container">
 	<div class="portfolio-container" id="portfolio-container">
-	
+	<div id="helping-btn">
 	<button id="newStock" onclick="location.href='${root}portfolio/newStockRatio/${portfolio_idx }'">포트폴리오 도우미</button>
+	</div>
 	<div class="portfolio-summary" id="portfolio-summary"
 			style="opacity: 1;">
 			<div class="yours-title">
@@ -132,6 +133,7 @@ body {
         }
         return false; // 링크의 기본 동작을 막는다 (페이지 이동을 방지)
     }
+    
 		document.addEventListener("DOMContentLoaded", async function () {
 			
 			
@@ -327,21 +329,17 @@ body {
             '</span>';
             
 		    console.log("updateProfitRates 완료됨");
-		    var $assetElem = $(".performance-metrics .metric-card").eq(0).find(".metric-value");
-	        var $profitElem = $(".performance-metrics .metric-card").eq(2).find(".metric-value");
-	        
-	        // 계산 완료 후 올바른 HTML 값으로 data("dollar") 업데이트 (총 자산, 총 수익금)
-	        $assetElem.data("dollar", $assetElem.text());
-	        $profitElem.data("dollar", $profitElem.text());
-		      
-	        // 현재 표시 상태: false = 달러, true = 원화
-	        var conversionToggle = false;
 	        
 	        $("#convertButton").click(function() {
+	        	// 현재 표시 상태: false = 달러, true = 원화
+		        var conversionToggle = false;
 	            if (!conversionToggle) {
 	                // 달러 → 원화 변환
-	                var assetText = $assetElem.data("dollar");
-	                var profitText = $profitElem.data("dollar");
+	                var $assetElem = $(".performance-metrics .metric-card").eq(0).find(".metric-value");
+	        		var $profitElem = $(".performance-metrics .metric-card").eq(2).find(".metric-value");
+	        		
+	                var assetText = $assetElem.text();
+	                var profitText = $profitElem.text();
 	                
 	                var assetValue = parseFloat(assetText.replace(/[^0-9.-]/g, ''));
 	                var profitValue = parseFloat(profitText.replace(/[^0-9.-]/g, ''));
