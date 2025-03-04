@@ -271,7 +271,7 @@ function createChart(stockInfo) {
                  },
                  ticks: {
                      autoSkip: true,
-                     maxTicksLimit: 10,
+                     maxTicksLimit: 8,
                      display: true
                  }
              },

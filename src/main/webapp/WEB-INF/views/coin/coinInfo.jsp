@@ -38,7 +38,7 @@
                <span id="closingPrice"></span> <span
                   class="${coin.quotes.USD.percent_change_24h > 0 ? 'positive-change' : 'negative-change'}">
                   <script> (function(){ var value = (${coin.quotes.USD.percent_change_24h}).toFixed(2) + "%";
-                                            document.currentScript.parentElement.innerText = value; })(); </script>
+                                            document.currentScript.parentElement.innerText = "(" + value + ")"; })(); </script>
                </span>
             
             <script> (function(){  var price = ${coin.quotes.USD.price};
@@ -121,7 +121,10 @@
                                   ∞
                               </c:when>
                               <c:otherwise>
-                                  ${coin.quotes.USD.max_supply}
+                                  <script>
+					                    var maxSupply = parseFloat("${coin.quotes.USD.max_supply}");
+					                    document.write(maxSupply.toLocaleString());
+					                </script>
                               </c:otherwise>
                           </c:choose>
                       </span>
@@ -129,7 +132,10 @@
 
                   <!-- 총 공급량 -->
                   <div class="row">
-                     <strong>총 공급량</strong> <span>${coin.quotes.USD.total_supply}</span>
+                     <strong>총 공급량</strong> <span><script>
+            var totalSupply = parseFloat("${coin.quotes.USD.total_supply}");
+            document.write(totalSupply.toLocaleString());
+        </script></span>
                   </div>
 
                   <!-- 가격 -->
@@ -347,7 +353,7 @@
             x: {
               beginAtZero: false,
               grid: { display: true },
-              ticks: { autoSkip: true, maxTicksLimit: 10, display: true }
+              ticks: { autoSkip: true, maxTicksLimit: 8, display: true }
             },
             y: {
               beginAtZero: false,
