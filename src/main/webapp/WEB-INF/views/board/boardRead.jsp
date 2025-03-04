@@ -62,7 +62,7 @@ function confirmDelete(boardIdx) {
        <div class="form-group">
 		    <label for="file">파일 첨부</label>
 		    <c:if test="${not empty filePath}">
-		        <img src="${root}${filePath}" alt="첨부된 이미지" class="file-attachment" />
+		        <img src="${root }${filePath}" alt="첨부된 이미지" class="file-attachment" />
 		    </c:if>
 		    <c:if test="${empty filePath}">
 		        <p>첨부된 이미지가 없습니다.</p>

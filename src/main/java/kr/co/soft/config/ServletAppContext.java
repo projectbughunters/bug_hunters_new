@@ -47,6 +47,7 @@ import kr.co.soft.mapper.UserMapper;
 @ComponentScan("kr.co.soft.DAO")
 @ComponentScan("kr.co.soft.service")
 @PropertySource("/WEB-INF/properties/db.properties")
+@PropertySource("/WEB-INF/properties/application.properties")
 public class ServletAppContext implements WebMvcConfigurer {
 	
 	@Value("${db.classname}")
@@ -64,6 +65,9 @@ public class ServletAppContext implements WebMvcConfigurer {
 	@Value("${db.fetchSize}")
 	private int db_fetchSize;
 	
+	@Value("${upload.path}")
+    private String uploadPath;
+	
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
 	
@@ -73,6 +77,10 @@ public class ServletAppContext implements WebMvcConfigurer {
 	// 정적파일 경로
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		
+		// 외부 업로드 파일 매핑
+	    registry.addResourceHandler("/upload/**")
+	            .addResourceLocations("file:///" + uploadPath + "/");
 		// TODO Auto-generated method stub
 		WebMvcConfigurer.super.addResourceHandlers(registry);
 		registry.addResourceHandler("/**").addResourceLocations("/resources/");

@@ -144,9 +144,10 @@ public class BoardController {
 		String fileName = boardBean.getContent_file();
 		System.out.println("fileName : "+fileName);
 		if (fileName != null && !fileName.isEmpty()) {
-			// 파일 경로를 완성
-			String filePath = "upload/" + fileName;
-			model.addAttribute("filePath", filePath); // JSP에서 사용할 수 있도록 모델에 추가
+			// ResourceHandler에서 매핑한 "/upload/**" URL 경로 사용
+	        String filePath = "upload/" + fileName;
+	        System.out.println(filePath);
+	        model.addAttribute("filePath", filePath);
 		}
 
 		return "board/boardRead";

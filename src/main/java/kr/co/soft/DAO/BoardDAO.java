@@ -30,7 +30,7 @@ public class BoardDAO {
 		return boardMapper.getBoardInfoByType(type);
 	}
 	
-	public BoardInfoBean getBoardInfo(int board_idx) {
+	public BoardInfoBean getOneBoardInfo(int board_idx) {
 		return boardMapper.getOneBoardInfo(board_idx);
 	}
 
