@@ -52,6 +52,7 @@
   margin-left: auto;
   margin-right: auto;
 }
+
 .custom-button1{
   display: flex; /* flexbox를 사용하여 내부 요소 정렬 */
   flex-direction: column; /* 세로 방향으로 정렬 */
@@ -66,6 +67,7 @@
   transition: 0.6s ease; /* 호버 효과 */
   justify-content: center; /* 세로 방향 정렬 */
 }
+
 .custom-button1 h5{
  font-weight: 300;
 }

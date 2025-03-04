@@ -9,8 +9,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <link rel="stylesheet" href="${root}css/myPage.css">
+<link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>Take Money Information | TMI</title>
 
 </head>

@@ -18,7 +18,8 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
-<title>Cryto | TMI</title>
+<link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
+<title>Crypto | TMI</title>
 </head>
 <body>
    <c:import url="/WEB-INF/views/include/topMenu.jsp" />

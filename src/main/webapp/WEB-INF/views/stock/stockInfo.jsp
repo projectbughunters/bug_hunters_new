@@ -15,6 +15,7 @@
 	<!-- 플러그인 추가 -->
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-crosshair"></script>
  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom"></script>
+ <link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>Stock | TMI</title>
 </head>
 <body>

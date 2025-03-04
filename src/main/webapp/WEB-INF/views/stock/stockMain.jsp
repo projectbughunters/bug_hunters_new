@@ -11,6 +11,7 @@
 	<link rel="stylesheet" href="${root}css/bugMain.css">
 	<link rel="stylesheet" href="${root}css/stockMain.css"> 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>Stock | TMI</title>
 </head>
 <body>

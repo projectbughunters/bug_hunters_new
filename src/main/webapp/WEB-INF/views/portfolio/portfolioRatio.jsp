@@ -8,6 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>Portfolio | TMI</title>
 <link rel="stylesheet" href="${root}css/portfolioRatio.css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

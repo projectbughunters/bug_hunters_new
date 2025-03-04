@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${root}css/tendencyResult.css">
+<link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>TendencyResult | TMI</title>
     
 </head>

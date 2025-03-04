@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="${root}css/newStock.css">
+<link rel="icon" href="${root}image/TMI_YB.png" type="image/png">
 <title>Portfolio | TMI</title>
 </head>
 <body>
