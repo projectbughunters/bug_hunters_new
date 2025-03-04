@@ -166,6 +166,9 @@ body {
 	border-bottom: 1px solid #ddd;
 	cursor: pointer;
 }
+.clickable:hover{
+	color: orange ;	
+}
 
 .holdings-table th {
 	background-color: #f8f9fa;
@@ -187,11 +190,11 @@ body {
 }
 
 .holdings-table tbody tr td a:hover {
-    color: #ff9200; /* 마우스 올렸을 때 색상 */
+    color: orange; /* 마우스 올렸을 때 색상 */
 }
 
 .holdings-table tbody tr td a:visited {
-    color: #ff9200; /* 방문 후에도 동일한 색상 유지 */
+    color: orange; /* 방문 후에도 동일한 색상 유지 */
 }
 
 .performance-metrics {

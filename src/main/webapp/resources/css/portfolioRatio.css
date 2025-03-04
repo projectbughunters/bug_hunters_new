@@ -127,6 +127,7 @@ input.quantity-input {
 .portfolio-tendency-slider h4{
 	justify-content: center;
     display: flex;
+    font-size: 22px;
     color: orange;
 }
 
@@ -292,6 +293,13 @@ form#portfolioForm {
 
 .investment-input {
 	margin-top: 10px;
+}
+
+div#grandTotalSum {
+    font-weight: 600;
+    font-size: 22px;
+    justify-content: center;
+    display: flex;
 }
 
 .submit-button {

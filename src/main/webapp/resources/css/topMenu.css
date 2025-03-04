@@ -219,6 +219,7 @@ button.delete-fav-btn {
 	width: 50px;
 	height: 30px;
 	background: #595959;
+	padding: 1px 6px !important;
 }
 
 button.delete-fav-btn {

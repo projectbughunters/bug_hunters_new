@@ -113,7 +113,7 @@ body {
 					<div id="portfolio-summary" class="portfolio-summary">
 						<h2>투자 비율</h2>
 						<div>
-							<h4>당신의 투자 성향은 ''입니다.</h4>
+							<h4>당신의 투자 성향은 "${profileBean.personal_tendency_code}"입니다.</h4>
 						</div>
 				    <div class="performance-metrics">
 				        <c:choose>
@@ -276,6 +276,8 @@ body {
 					    <!-- 위험자산 총 구매금액 합계 표시 -->
 	    				<div class="total-sum" id="riskTotalSum"></div>
 					</div>
+					<!-- 전체 구매금액 합계 표시 -->
+					<div class="total-sum" id="grandTotalSum"></div>
 					<div id="submit-btn">
 						<!-- 제출 버튼 (폼 전송) -->
 					    <button type="submit" id="newStock" class="submit-button">제출</button>
@@ -321,6 +323,17 @@ body {
         });
         document.getElementById(sumDivId).textContent = "총 구매금액 합계:$ " + sum.toLocaleString();
     }
+
+ // safeTotalSum와 riskTotalSum의 합계를 계산하여 grandTotalSum에 업데이트하는 함수
+	function updateGrandTotal() {
+	    var safeText = document.getElementById('safeTotalSum').textContent.replace(/[^0-9.]/g, '');
+	    var riskText = document.getElementById('riskTotalSum').textContent.replace(/[^0-9.]/g, '');
+	    var safeVal = parseFloat(safeText) || 0;
+	    var riskVal = parseFloat(riskText) || 0;
+	    var grandTotal = safeVal + riskVal;
+	    document.getElementById('grandTotalSum').textContent = "전체 총합: $ " + grandTotal.toLocaleString();
+	}
+ 
 
 document.addEventListener('DOMContentLoaded', function() {
 	// 1) 전체 투자 금액
@@ -419,6 +432,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
      	// 위험자산 테이블 총합 업데이트
         updateTotalSum('#portfolio-holdings-risk', 'riskTotalSum');
+        updateGrandTotal();
     }
 
 	 // 계산 버튼 기능
@@ -519,6 +533,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
          	// 위험자산 테이블 총합 업데이트
             updateTotalSum('#portfolio-holdings-risk', 'riskTotalSum');
+            updateGrandTotal();
         }
     }); // calculateBtn click end
   //수량 입력시 (구매가 * 수량) 자동계산
@@ -535,6 +550,8 @@ document.addEventListener('DOMContentLoaded', function() {
             updateTotalSum('#portfolio-holdings-safe', 'safeTotalSum');
          	// 위험자산 테이블 총합 업데이트
             updateTotalSum('#portfolio-holdings-risk', 'riskTotalSum');
+         	//전체 자산 총합 업데이트
+         	updateGrandTotal();
         });
     });
 });
