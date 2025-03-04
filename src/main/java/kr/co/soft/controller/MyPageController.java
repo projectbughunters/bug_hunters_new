@@ -35,10 +35,7 @@ public class MyPageController {
 	@GetMapping("/myPage")
 	public String myPage(@ModelAttribute("tempLoginUserBean") UserBean tempLoginUserBean,Model model) {
 		
-		int member_idx=loginUserBean.getMember_idx();
-		ProfileBean profileBean=userService.getUserProfile(member_idx);
 		
-		model.addAttribute("profileBean", profileBean);
 		
 		return "user/myPage";
 	}
