@@ -25,6 +25,9 @@ public class MyPageController {
 	@Resource(name = "loginUserBean")
 	private UserBean loginUserBean;
 	
+	@Resource(name = "profileBean")
+	private ProfileBean profileBean;
+	
 	@Autowired
 	private MyPageService myPageService;
 
