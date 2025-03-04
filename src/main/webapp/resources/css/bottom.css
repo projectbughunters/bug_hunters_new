@@ -29,3 +29,13 @@
 	margin-right: 30px;
 	opacity: 0.9;
 }
+
+#admin a{
+	color : white;
+	text-decoration: none;
+}
+
+#admin a:visited{
+	text-decoration: none;
+	color: white;
+}

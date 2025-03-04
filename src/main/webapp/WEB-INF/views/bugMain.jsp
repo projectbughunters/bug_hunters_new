@@ -50,8 +50,6 @@
         </div>
         
         
-                  
-        
         <!-- 거래소 영역 -->
         <c:import url="/WEB-INF/views/mainInclude/cyptoexchangeSection.jsp" />
 
