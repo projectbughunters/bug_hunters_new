@@ -153,6 +153,7 @@ body {
 			            </c:choose>
 					</div>
 				</div>
+				<h5 style="color:darkgrey;">⚠️투자성향의 비율은 추천비율이므로, 변경하여 사용하셔도 됩니다⚠️</h5>
 				</div>
 				<div class="portfolio-money-input">
 					<!-- 자산 입력 칸 -->

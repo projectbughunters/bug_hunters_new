@@ -135,6 +135,9 @@ input.quantity-input {
     font-size: 22px;
     color: orange;
 }
+.portfolio-tendency-slider h5{
+	text-align: center;
+}
 
 #portfolio-summary {
     padding: 20px;
