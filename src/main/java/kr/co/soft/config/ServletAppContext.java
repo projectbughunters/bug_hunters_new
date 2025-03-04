@@ -1,8 +1,6 @@
 package kr.co.soft.config;
 
-
 import javax.annotation.Resource;
-
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -36,10 +34,6 @@ import kr.co.soft.mapper.ProfileMapper;
 import kr.co.soft.mapper.StockDataMapper;
 import kr.co.soft.mapper.UserMapper;
 
-
-
-
-
 @Configuration // 객체 정의
 @EnableWebMvc // 어노테이션 설정
 @ComponentScan(basePackages = "kr.co.soft.controller")
@@ -54,7 +48,7 @@ public class ServletAppContext implements WebMvcConfigurer {
 	private String db_classname;
 	
 	@Value("${db.url}")
-	   private String db_url;
+	private String db_url;
 	   
 	@Value("${db.username}")
 	private String db_username;
@@ -85,7 +79,7 @@ public class ServletAppContext implements WebMvcConfigurer {
 
 		// 외부 업로드 파일 매핑
 	    registry.addResourceHandler("/upload/**")
-	            .addResourceLocations("file:///" + uploadPath + "/");
+	            .addResourceLocations("file:" + uploadPath + "/");
 	}
 
 	// view 경로 설정과 jsp 확장자 설정
