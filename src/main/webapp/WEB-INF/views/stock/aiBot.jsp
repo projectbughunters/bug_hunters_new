@@ -31,6 +31,7 @@
                 dataLoaded = true; // 데이터 로드 완료 상태로 변경
                 console.log('백그라운드에서 받은 데이터:', preloadedReply);
                 $('#loading').hide(); // 로딩 이미지를 숨김
+                $('#stockRecommendations').text(preloadedReply).fadeIn();
               })
               .catch(error => {
                 console.error('데이터 수신 실패:', error);
