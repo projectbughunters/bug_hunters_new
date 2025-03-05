@@ -23,7 +23,7 @@
                 <option value="all">전체게시글</option>
                 <option value="공지게시판">공지게시판</option>
                 <option value="자유게시판">자유게시판</option>
-                <option value="고객센터">고객센터 접수</option>
+                <option value="Q&A">Q&A</option>
             </select>
             <div class="searchKeyword">
                 <input type="text" id="searchKeyword" placeholder="제목 입력" />

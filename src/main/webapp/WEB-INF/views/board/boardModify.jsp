@@ -28,7 +28,7 @@
 						<form:select path="type" id="type" required="true">
 							<option value="공지게시판" <c:if test="${boardBean.type == '공지게시판'}">selected</c:if>>공지게시판</option>
 							<option value="자유게시판" <c:if test="${boardBean.type == '자유게시판'}">selected</c:if>>자유게시판</option>
-							<option value="고객센터" <c:if test="${boardBean.type == '고객센터'}">selected</c:if>>고객센터 접수</option>
+							<option value="Q&A" <c:if test="${boardBean.type == 'Q&A'}">selected</c:if>>고객센터 접수</option>
 						</form:select>
 					</div>
 
