@@ -50,7 +50,7 @@ public class BoardService {
         PageBean<BoardInfoBean> pageBean;
         // 특정 타입(공지게시판, 자유게시판, 고객센터)인 경우 해당 타입으로 조회하고,
         // "all" 등 잘못된 타입이면 전체 게시글 페이징 조회
-        if ("공지게시판".equals(type) || "자유게시판".equals(type) || "고객센터".equals(type)) {
+        if ("공지게시판".equals(type) || "자유게시판".equals(type) || "Q&A".equals(type)) {
             pageBean = boardDAO.getBoardPageByType(type, currentPage, pageSize);
         } else {
             pageBean = boardDAO.getBoardPage(currentPage, pageSize);
@@ -178,7 +178,7 @@ public class BoardService {
 	
 	public void validateBoardAccess(BoardInfoBean boardBean) {
         int member_idx = boardBean.getMember_idx();
-        if (boardBean.getType().equals("고객센터") && (loginUserBean == null || member_idx != loginUserBean.getMember_idx())) {
+        if (boardBean.getType().equals("Q&A") && (loginUserBean == null || member_idx != loginUserBean.getMember_idx())) {
             throw new RuntimeException("접근 권한이 없습니다.");
         }
     }

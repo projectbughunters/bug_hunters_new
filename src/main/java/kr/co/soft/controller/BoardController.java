@@ -109,7 +109,7 @@ public class BoardController {
 	    BoardInfoBean boardBean = boardService.getOneBoardInfo(board_idx);
 	    int member_idx = boardBean.getMember_idx();
 	    // 접근 권한 체크
-	    if (boardBean.getType().equals("고객센터") && (loginUserBean == null || member_idx != loginUserBean.getMember_idx())) {
+	    if (boardBean.getType().equals("Q&A") && (loginUserBean == null || member_idx != loginUserBean.getMember_idx())) {
 	    	// 권한이 없을 경우 처리
 	    	model.addAttribute("errorMessage", "접근 권한이 없습니다.");
 	    	return "board/accessError"; // 오류 페이지로 이동
