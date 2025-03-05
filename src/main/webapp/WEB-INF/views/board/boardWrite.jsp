@@ -28,7 +28,7 @@
                         <option value="" disabled selected>카테고리 선택</option>
                         <option value="공지게시판" hidden>공지게시판</option>
                         <option value="자유게시판">자유게시판</option>
-                        <option value="고객센터">고객센터 접수</option>
+                        <option value="Q&A">Q&A</option>
                     </select>
                 </div>
                 
