@@ -63,7 +63,7 @@ public class CoinController {
     	//StockInfoBean stockInfo = new StockInfoBean();
         try {
             List<Map<String, Object>> coins = coinService.getAllCoins();
-//            
+              
             List<Map<String, Object>> coinInfoNews=newsService.coinInfoNews(symbol);
             Map<String, Object> dominanceData = coinService.getCryptoDominance();
             
