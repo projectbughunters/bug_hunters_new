@@ -159,7 +159,7 @@ body {
 				<div class="portfolio-money-input">
 					<!-- 자산 입력 칸 -->
 					<div id="portfolio-chart" class="portfolio-chart">
-						<h2>자산 입력</h2>
+						<h2>자산 입력($)</h2>
 						<div class="input-group">
 							<input type="number" id="totalInvestment" placeholder="투자 금액 입력" value="${portfolioBean.deposit }" />
 							<button id="calculateBtn">계산</button>

@@ -23,6 +23,7 @@
         <div class="inner-text-container">
             <h2>Stock Hunter AI: 시장에서 우위를 차지하기 위한 전략</h2>
             <h4>투자 목표를 달성할 수 있도록 엄선된 최고 수익률의 투자 전략은 검증된 AI 모델을 기반으로 합니다</h4>
+            <h5 style="color:darkgrey;">⚠️투자에는 위험이 따를 수 있습니다. 본 사이트의 정보를 맹신하지 말고, 신중한 판단을 하시기 바랍니다.⚠️</h5>
             <button class="custom-button1" onclick="location.href='${root}embedded/sitePortalAudSample'"><img src="${root}image/dashboard.png" style="width: 20px; height: auto; padding-right: 10px;">대시보드 보기</button>
         </div>
     </div>
