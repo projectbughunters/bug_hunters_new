@@ -7,7 +7,7 @@ body {
 }
 
 .primary-container{
-	height: 160vh;
+	height: 130vh;
 }
 
 #helping-btn{
@@ -225,6 +225,13 @@ body {
 .holdings-table tbody tr td a:visited {
     color: #ff9200; /* 방문 후에도 동일한 색상 유지 */
 }
+
+#portfolio-holdings{
+	min-height: 500px;
+    overflow-y: scroll;
+}
+
+
 
 .performance-metrics {
 	display: grid;
