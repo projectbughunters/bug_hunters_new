@@ -48,7 +48,7 @@
                                            closingPriceEl.style.fontSize = "50px"; })(); </script></h3>
          </c:if>
       </c:forEach>
-	</div>
+   </div>
    <!-- 차트와 뉴스 영역을 감싸는 컨테이너 -->
    <div class="chart-and-info">
       <div class="left-column">
@@ -123,9 +123,9 @@
                               </c:when>
                               <c:otherwise>
                                   <script>
-					                    var maxSupply = parseFloat("${coin.quotes.USD.max_supply}");
-					                    document.write(maxSupply.toLocaleString());
-					                </script>
+                                   var maxSupply = parseFloat("${coin.quotes.USD.max_supply}");
+                                   document.write(maxSupply.toLocaleString());
+                               </script>
                               </c:otherwise>
                           </c:choose>
                       </span>

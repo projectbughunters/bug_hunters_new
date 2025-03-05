@@ -181,7 +181,7 @@
                       },
                       ticks: {
                           autoSkip: true,
-                          maxTicksLimit: 10,
+                          maxTicksLimit: 7,
                           color: "black"
                       }
                   },
