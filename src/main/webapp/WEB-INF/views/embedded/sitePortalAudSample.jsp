@@ -105,7 +105,7 @@
 <div class="top_panel"></a>
 </div>
 
-<div class="left_panel">
+<div class="left_panel" style="height: 1000px;">
 <a href="${root}"><image src="${root}image/TMI_Y.png"
 				style="width: 70px; height : 50px; margin-left: 70px; margin-top: 30px;" /></a>
 	<ul>
