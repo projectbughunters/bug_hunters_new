@@ -57,7 +57,7 @@
 					readonly="true" />
 				<br />
 
-				<form:label path="price">구매 가격</form:label>
+				<form:label path="price">구매 가격($)</form:label>
 				<form:input path="price" id="price" class="form-control" />
 				<br />
 

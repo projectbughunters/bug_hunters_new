@@ -227,7 +227,7 @@ body {
 }
 
 #portfolio-holdings{
-	min-height: 500px;
+	min-height: 400px;
     overflow-y: scroll;
 }
 
