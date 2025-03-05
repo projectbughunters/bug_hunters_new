@@ -33,21 +33,21 @@ public class CoinController {
     private NewsService newsService;
     
     @Autowired
-	private FavoriteService favoriteService;
+   private FavoriteService favoriteService;
     
     @Resource(name = "loginUserBean")
-	private UserBean loginUserBean;
+   private UserBean loginUserBean;
     
     @Autowired
-	private PortfolioService portfolioService;
+   private PortfolioService portfolioService;
 
     @GetMapping("/coinMain")
     public String main(@RequestParam(defaultValue = "1") int page, Model model) {
         try {
-        	int member_idx=loginUserBean.getMember_idx();
-        	int pageSize = 15;
-        	PageBean<Map<String, Object>> pageBean = coinService.getPageCoins(page, pageSize);
-        	List<FavoriteBean> favorites = favoriteService.selectFavoritesByMemberIdx(member_idx);
+           int member_idx=loginUserBean.getMember_idx();
+           int pageSize = 15;
+           PageBean<Map<String, Object>> pageBean = coinService.getPageCoins(page, pageSize);
+           List<FavoriteBean> favorites = favoriteService.selectFavoritesByMemberIdx(member_idx);
             model.addAttribute("pageBean", pageBean);
             model.addAttribute("favorites", favorites);
         } catch (Exception e) {
@@ -60,7 +60,7 @@ public class CoinController {
     @GetMapping("/info/{symbol}/{name}")
     public String getCoinInfo(@PathVariable("symbol") String symbol, 
                               @PathVariable("name") String name, Model model) {
-    	//StockInfoBean stockInfo = new StockInfoBean();
+       //StockInfoBean stockInfo = new StockInfoBean();
         try {
             List<Map<String, Object>> coins = coinService.getAllCoins();
 //            
