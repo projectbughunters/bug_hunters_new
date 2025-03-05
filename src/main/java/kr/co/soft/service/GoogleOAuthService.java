@@ -23,7 +23,7 @@ public class GoogleOAuthService {
 
     private static final String CLIENT_ID = "105693236297-v6nfjnvcbtu5sap6ogfcvefame13hmu0.apps.googleusercontent.com";
     private static final String CLIENT_SECRET = "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";
-    private static final String REDIRECT_URI = "http://localhost:9023/bugHunters_TMI/google/callback";
+    private static final String REDIRECT_URI = "http://localhost:9088/bugHunters_TMI/google/callback";
     private static final String APPLICATION_NAME = "Spring MVC Google Login";
 
     private GoogleAuthorizationCodeFlow flow;

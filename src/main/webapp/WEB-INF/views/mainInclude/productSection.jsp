@@ -199,28 +199,14 @@
                   }
               },
               plugins: {
-                  annotation: {
-                      annotations: {
-                          xLine: {
-                              type: 'line',
-                              scaleID: 'x', // X축을 기준으로 선을 그림
-                              value: labels[Math.floor(labels.length / 2)], // 중앙값 기준
-                              borderColor: 'rgba(75, 192, 192, 1)', // 차트와 동일한 색상
-                              borderWidth: 2,
-                              borderDash: [6, 6], // 점선 스타일
-                              label: {
-                                  content: 'X축 기준선',
-                                  enabled: true,
-                                  position: "top",
-                                  color: 'rgba(75, 192, 192, 1)', // 라벨 색상도 동일하게 설정
-                                  font: {
-                                      weight: 'bold'
-                                  }
-                              }
-                          }
-                      }
+                  legend: { position: "top", display: false },
+                  tooltip: { enabled: true },
+                  crosshair: {
+                      line: { color: 'rgba(75, 192, 192, 1)', width: 1 },
+                      sync: { enabled: false },
+                      zoom: { enabled: false }
                   }
-              }
+              },
 
           }
       });
