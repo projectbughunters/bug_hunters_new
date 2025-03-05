@@ -1,25 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value='${pageContext.request.contextPath }/' />
 <!DOCTYPE html>
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+	
 	<style>
 		*{
 			margin: 0;
 		}
 		.top_panel{
 			position: absolute;
-			width: 100%;
-			height: 50px;
-			background-color: black;
+			width: 0%;
+			height: 0%;
+			background-color: white;
 		}
 		.left_panel{
 			position: absolute;
 			width: 250px;
-			background-color: darkgrey;
+			color:white;
+			background-color: black;
+			list-style: none;
 		}
 		.HideFrame {
 			left: -50000px;
@@ -98,40 +102,30 @@
 
 </script>
 
-<div class="top_panel">
+<div class="top_panel"></a>
 </div>
 
 <div class="left_panel">
+<a href="${root}"><image src="${root}image/TMI_Y.png"
+				style="width: 70px; height : 50px; margin-left: 70px; margin-top: 30px;" /></a>
 	<ul>
 		<li>
-			<div class='rep_div' onclick='openReport("REP4463E55E07C047729CAD7F4143840DC6", true , "REPORT_VIEW")'>희민팀 보고서</div>
+			<div class='rep_div' style="padding:10px 10px; padding-top: 100px; cursor:pointer;" onclick='openReport("REP4463E55E07C047729CAD7F4143840DC6", true , "REPORT_VIEW")'>방어주 주식 대시보드</div>
 		</li>
 		<li>
-			<div class='rep_div' onclick='openReport("REP5F50B17A5AC4427EA64888D7F444FB03", true,  "REPORT_VIEW")'>[AUD7] Event Test5_List-Grid</div>
+			<div class='rep_div' style="padding:10px 10px; cursor:pointer;" onclick='openReport("REP06B85EE4878A4EBE9FB400699514CD82", true,  "REPORT_VIEW")'>ESG 주식 대시보드</div>
 		</li>
 		<li>
-			<div class='rep_div' onclick='openReport("REP78288DEF77384F459384F18FEA72E617", false ,  "REPORT_VIEW")'>[AUD7] Event Test8_MX-Grid</div>
+			<div class='rep_div' style="padding:10px 10px; cursor:pointer;" onclick='openReport("REP59FFFDE5AD5248B393D6ACDF003E2FC2", true ,  "REPORT_VIEW")'>기술주 주식 대시보드</div>
 		</li>
 		<li>
-			<div class='rep_div' onclick='openReport("REPE8A1A0CC379A4467A62E58BE74CEEF90", true ,  "REPORT_VIEW")'>[AUD7] Event Test6_OlapGrid</div>
+			<div class='rep_div' style="padding:10px 10px; cursor:pointer;" onclick='openReport("REPFA2C0018A56749459181AB18721A07DE", true ,  "REPORT_VIEW")'>가치주 주식 대시보드</div>
 		</li>
 		<li>
-			<div class='rep_div' onclick='openReport("REP6CDB152C8EDB425BA448524855F3DE23", true ,  "REPORT_VIEW")'>커피_매출정보</div>
+			<div class='rep_div' style="padding:10px 10px; cursor:pointer;" onclick='openReport("REPEC3F075C8A54433994771C223E5C0544", true ,  "REPORT_VIEW")'>성장주 주식 대시보드</div>
 		</li>
 		<li>
-			<div class='rep_div' onclick='openPopReport("REP7D3F179423564C0CACA0A3411279CBDF" , true ,  "REPORT_VIEW")'>[MX-GRID] 달력 . 팝업으로 열기</div>
-		</li>
-		<li>
-			<div class='rep_div' onclick='openReport("REP89CAE7FA188744C685AF8C589138E031" , true ,  "REPORT_VIEW")'>(i-Meta Viewer)커피 매출 정보2</div>
-		</li>
-		<li>
-			<div class='rep_div' onclick='openReport("REPD538CE402E6E458BABE5A0EFFA199286" , true ,  "REPORT_VIEW")'>HyperLink</div>
-		</li>
-		<li>
-			<div class='rep_div' onclick='openReport("REP992967AD96B74AE5B417E870B861A603" , true ,  "REPORT_VIEW")'>HAN TEST</div>
-		</li>	
-		<li>
-			<div class='rep_div' onclick='openReport("REP4463E55E07C047729CAD7F4143840DC6" , true ,  "REPORT_VIEW")'>D3 차트</div>
+			<div class='rep_div' style="padding:10px 10px; cursor:pointer;" onclick='openReport("REP826F800DC4EC435C9093CB7B8187B2D9" , true ,  "REPORT_VIEW")'>배당주 주식 대시보드</div>
 		</li>		
 	</ul>
 </div>
