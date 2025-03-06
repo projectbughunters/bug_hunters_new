@@ -337,6 +337,28 @@ body {
 	    var riskVal = parseFloat(riskText) || 0;
 	    var grandTotal = safeVal + riskVal;
 	    document.getElementById('grandTotalSum').textContent = "전체 총합: $ " + grandTotal.toLocaleString();
+	    
+	 // 투자 금액을 가져오기
+	    const totalInvestment = parseFloat(document.getElementById('totalInvestment').value) || 0;
+	    
+	    // 경고 메시지 div가 이미 있는지 확인 (없으면 생성)
+	    let warningDiv = document.getElementById('warningMessage');
+	    if (grandTotal > totalInvestment) {
+	        if (!warningDiv) {
+	            warningDiv = document.createElement('div');
+	            warningDiv.id = 'warningMessage';
+	            warningDiv.style.color = 'red';
+	            warningDiv.textContent = "총구매금액이 총자산보다 많습니다.";
+	            // grandTotalSum 요소의 부모 노드에 추가 (원하는 위치에 맞게 조정 가능)
+	            document.getElementById('grandTotalSum').parentNode.appendChild(warningDiv);
+	        } else {
+	            warningDiv.style.display = 'block';
+	        }
+	    } else {
+	        if (warningDiv) {
+	            warningDiv.style.display = 'none';
+	        }
+	    }
 	}
  
 
