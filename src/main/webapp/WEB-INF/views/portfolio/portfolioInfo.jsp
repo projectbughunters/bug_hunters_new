@@ -32,7 +32,7 @@ body {
 	<div class="primary-container">
 	<div class="portfolio-container" id="portfolio-container">
 	<div id="helping-btn">
-	<button id="newStock" onclick="location.href='${root}portfolio/newStockRatio/${portfolio_idx }'">포트폴리오 도우미</button>
+	<button id="newStock" onclick="location.href='${root}portfolio/newStockRatio/${portfolio_idx }'">투자 도우미</button>
 	</div>
 	<div class="portfolio-summary" id="portfolio-summary"
 			style="opacity: 1;">
