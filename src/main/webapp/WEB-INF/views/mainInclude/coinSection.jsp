@@ -9,7 +9,7 @@
 <div class="coin-section">
    <div class="stock-title">
    <div class="title-container">
-   <h2>코인</h2>
+   <h2>암호화폐</h2>
    </div>
    <div class="button-container">
       <button class="navigate-button" onclick="location.href='${root}coin/coinMain'">&#10095;</button>
