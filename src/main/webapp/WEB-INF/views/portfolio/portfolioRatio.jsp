@@ -352,7 +352,7 @@ body {
 	            // grandTotalSum 요소의 부모 노드에 추가 (원하는 위치에 맞게 조정 가능)
 	            document.getElementById('grandTotalSum').parentNode.appendChild(warningDiv);
 	        } else {
-	            warningDiv.style.display = 'block';
+	        	warningDiv.style.display = 'block';
 	        }
 	    } else {
 	        if (warningDiv) {

@@ -268,7 +268,9 @@ h2 {
 	background-color: #595959;
 }
 
-
+td.clickable:hover, td.headCol.nameCol:hover{
+	cursor: pointer;
+}
 
 
 #calender-product{

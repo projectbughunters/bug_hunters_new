@@ -337,7 +337,7 @@ div#grandTotalSum {
 	transform: translateY(0);
 }
 
-div#warningMessage {
+#warningMessage {
     display: flex;
     text-align: center;
     padding-bottom: 10px;
