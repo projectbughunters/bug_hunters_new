@@ -336,3 +336,9 @@ div#grandTotalSum {
 	opacity: 1;
 	transform: translateY(0);
 }
+
+div#warningMessage {
+    display: flex;
+    text-align: center;
+    padding-bottom: 10px;
+}

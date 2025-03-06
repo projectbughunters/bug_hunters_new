@@ -348,7 +348,7 @@ body {
 	            warningDiv = document.createElement('div');
 	            warningDiv.id = 'warningMessage';
 	            warningDiv.style.color = 'red';
-	            warningDiv.textContent = "총구매금액이 총자산보다 많습니다.";
+	            warningDiv.textContent = "🚨 총 구매금액이 총자산보다 많습니다 🚨";
 	            // grandTotalSum 요소의 부모 노드에 추가 (원하는 위치에 맞게 조정 가능)
 	            document.getElementById('grandTotalSum').parentNode.appendChild(warningDiv);
 	        } else {
